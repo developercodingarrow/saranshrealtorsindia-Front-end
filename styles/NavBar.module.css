@@ -1,0 +1,70 @@
+.navBar_mainContainer {
+  width: 100%;
+  background-color: #004274;
+  padding: 0px 10%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hangBurg_IconBox {
+  display: none;
+}
+
+.pageTab_Box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.pageTab {
+  border: 1px solid #31a0d717;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabLink {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.loginBox {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.login_btn {
+  background-color: #bfbfbf;
+  border-radius: 0.4rem;
+  padding: 7px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+  .pageTab_Box {
+    display: none;
+  }
+  .loginBox {
+    display: none;
+  }
+  .hangBurg_IconBox {
+    display: flex;
+    padding: 10px;
+    font-size: 22px;
+    align-items: center;
+    cursor: pointer;
+  }
+}
