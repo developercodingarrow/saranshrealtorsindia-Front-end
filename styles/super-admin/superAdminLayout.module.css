@@ -1,0 +1,75 @@
+.SuperAdminLayout_mainContainer {
+  width: 100%;
+  min-height: 800px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  /* margin-top: 100px; */
+  top: 150px;
+}
+
+.SuperAdminLayout_sideBar {
+  border: 1px solid rgba(146, 136, 136, 0.61);
+  width: 20%;
+  margin-right: 25px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: fixed;
+  background-color: #fff;
+  height: 100%;
+  left: 0px;
+  top: 100px;
+}
+
+.SuperAdminLayout_sideBarClose {
+  border: 1px solid rgba(146, 136, 136, 0.61);
+  width: 5%;
+  margin-right: 25px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: fixed;
+  background-color: #fff;
+  height: 100%;
+  left: -1%;
+  top: 100px;
+}
+
+.sidBarArrow {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  clip-path: polygon(60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%);
+  cursor: pointer; /* Add this to make it look clickable */
+}
+
+.sidBarClose {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  clip-path: polygon(60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%);
+  cursor: pointer; /* Add this to make it look clickable */
+}
+
+.SuperAdminLayout_contentPart {
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.SuperAdminLayout_contentPartClose {
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+}

@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { App_Name } from "../config";
 
 export default function Document() {
   return (
@@ -9,7 +10,7 @@ export default function Document() {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <title>saransh india</title>
+        <title>{App_Name}</title>
       </Head>
       <body>
         <Main />

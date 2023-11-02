@@ -21,4 +21,21 @@
   margin-top: 70px;
   display: flex;
   justify-content: space-between;
+  column-gap: 50px;
+  row-gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+  .Project_container {
+    justify-content: center;
+  }
+  .FeatureListing_mainContainer {
+    padding: 100px 5%;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
 }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import style from "../../styles/FeatureListing.module.css";
 import Card from "../../utilsComponents/Card";
+import { ProjectContext } from "../../contextApi/ProjectContextApi";
 
 export default function FeatureListing() {
+  const { allProjects } = useContext(ProjectContext);
+
   return (
     <>
       <div className={style.FeatureListing_mainContainer}>
@@ -16,9 +19,13 @@ export default function FeatureListing() {
 
         {/* List of product  */}
         <div className={style.Project_container}>
-          <Card />
-          <Card />
-          <Card />
+          {allProjects.map((el, i) => {
+            return (
+              <>
+                <Card key={el._id} data={el} />
+              </>
+            );
+          })}
         </div>
       </div>
     </>

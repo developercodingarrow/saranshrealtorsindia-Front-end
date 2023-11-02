@@ -1,0 +1,120 @@
+.dynimic_form_Filedcontainer {
+  display: flex;
+  column-gap: 50px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+}
+
+.static_form_filedContiner {
+  display: flex;
+  margin: 20px 0px;
+  align-items: center;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  font-family: sans-serif;
+}
+
+.Project_titleBox {
+  width: 37%;
+}
+
+.project_TitletextInput {
+  border: 1px solid #ddd;
+  background-color: #f4f4f5;
+  padding: 10px 7px;
+  font-family: sans-serif;
+  outline-color: #6d7a83;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.form_radioBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+.form_radio_TitleBox {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 5px;
+}
+
+.radioBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+}
+
+.radio_optionBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  width: 100px;
+  padding: 5px;
+}
+
+.form_optionBox {
+  width: 20%;
+}
+
+.form_optionLableBox {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.option_dropDownBox {
+}
+.option_select {
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.project_formBox {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.project_textInputLable {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 0px;
+}
+
+.project_textInput {
+  border: 1px solid green;
+  border: 1px solid #ddd;
+  background-color: #f4f4f5;
+  padding: 10px 7px;
+  font-family: sans-serif;
+  outline-color: #6d7a83;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: red;
+  padding: 5px;
+  margin: 10px 0px;
+}
+
+.error {
+  color: red;
+}

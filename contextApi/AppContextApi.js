@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 export const AppContext = createContext();
 
 export default function AppContextApiProvider({ children }) {
-  const [toggleDrawer, setToggleDrawer] = useState(true);
+  const [toggleDrawer, setToggleDrawer] = useState(false);
 
   const handleToggleDrawer = (event) => {
     if (event.target === event.currentTarget) {
@@ -12,7 +12,9 @@ export default function AppContextApiProvider({ children }) {
   };
 
   return (
-    <AppContext.Provider value={{ toggleDrawer, handleToggleDrawer }}>
+    <AppContext.Provider
+      value={{ toggleDrawer, setToggleDrawer, handleToggleDrawer }}
+    >
       {children}
     </AppContext.Provider>
   );

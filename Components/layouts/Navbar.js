@@ -1,9 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import style from "../../styles/NavBar.module.css";
 import { BiSolidUser } from "react-icons/bi";
-import { AiOutlineMenu } from "react-icons/ai";
+import {
+  AiOutlineMenu,
+  AiFillSetting,
+  AiOutlineDashboard,
+} from "react-icons/ai";
+import { TbLogout } from "react-icons/tb";
+import { FaUserAlt } from "react-icons/fa";
 import { AppContext } from "../../contextApi/AppContextApi";
+import { UserContext } from "../../contextApi/UserContextApi";
 import Link from "next/link";
+import Image from "next/image";
+import userimage from "../../public/user-images/user-image.jpg";
+import NavDropDown from "../../utilsComponents/NavDropDown";
 
 const pages = [
   {
@@ -28,6 +38,38 @@ const pages = [
 
 export default function Navbar() {
   const { handleToggleDrawer } = useContext(AppContext);
+  const { loginUser } = useContext(UserContext);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    console.log("Before toggle:", isDropDownOpen);
+    setIsDropDownOpen(!isDropDownOpen);
+    console.log("After toggle:", isDropDownOpen);
+  };
+
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (
+        isDropDownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setIsDropDownOpen(false);
+      }
+    };
+
+    if (isDropDownOpen) {
+      document.addEventListener("click", handleDocumentClick);
+    } else {
+      document.removeEventListener("click", handleDocumentClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [isDropDownOpen]);
+
   return (
     <>
       <div className={style.navBar_mainContainer}>
@@ -47,10 +89,27 @@ export default function Navbar() {
             );
           })}
         </div>
-        <div className={style.loginBox}>
-          <div className={style.login_btn}>
-            <BiSolidUser />
-          </div>
+        <div className={style.loginBox} ref={dropdownRef}>
+          {loginUser?.email ? (
+            <>
+              <div className={style.login_btn} onClick={toggleDropdown}>
+                <p>{loginUser.name} </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={style.login_btn}>
+                <Link href={"/login"} className={style.linkStyle}>
+                  <BiSolidUser />
+                </Link>
+              </div>
+            </>
+          )}
+          {isDropDownOpen && (
+            <div>
+              <NavDropDown />
+            </div>
+          )}
         </div>
       </div>
     </>
