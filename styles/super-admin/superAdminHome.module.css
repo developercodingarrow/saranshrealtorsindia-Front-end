@@ -1,0 +1,118 @@
+/* superAdminHome.module.css */
+.inputContainer1 {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.customInput1 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background: transparent;
+}
+
+/* superAdminHome.module.css */
+.inputContainer2 {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+  padding: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.customInput2 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #e74c3c;
+  background: transparent;
+}
+
+/* superAdminHome.module.css */
+.inputContainer3 {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #2ecc71;
+  padding: 10px;
+}
+
+.customInput3 {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #2ecc71;
+  background: transparent;
+}
+
+/* form input style  */
+
+.box {
+  margin-top: 100px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.input_box {
+  width: 30%;
+}
+
+.label {
+  color: #363636;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.input,
+.textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  height: 30px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  outline: none;
+}
+
+.errorMsg {
+  margin-top: 1em;
+  font-size: 1.25em;
+}

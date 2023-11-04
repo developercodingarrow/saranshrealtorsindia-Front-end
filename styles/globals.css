@@ -7,6 +7,8 @@ html {
 :root {
   --primary-color: #004274;
   --text-white: #fff;
+  --side-bar-bg: #6a7ca2a1;
+  --side-bar-heading-bg: #667698;
 }
 
 body {

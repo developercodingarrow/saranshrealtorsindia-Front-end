@@ -1,75 +1,64 @@
-.SuperAdminLayout_mainContainer {
+/* Header Part */
+.Header_part {
+  height: 130px;
+}
+
+.superAdmin_mainContainer {
+  margin-top: 10px;
   width: 100%;
   min-height: 800px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
   position: relative;
-  /* margin-top: 100px; */
-  top: 150px;
 }
 
-.SuperAdminLayout_sideBar {
-  border: 1px solid rgba(146, 136, 136, 0.61);
-  width: 20%;
-  margin-right: 25px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+.sideBar_container {
+  width: 250px;
   position: fixed;
-  background-color: #fff;
   height: 100%;
+  background-color: #2a3948;
   left: 0px;
-  top: 100px;
-}
-
-.SuperAdminLayout_sideBarClose {
-  border: 1px solid rgba(146, 136, 136, 0.61);
-  width: 5%;
-  margin-right: 25px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   position: fixed;
-  background-color: #fff;
+  transition: width 0.4s, left 0.3s;
+}
+
+.sideBar_container_close {
+  width: 200px;
+  position: fixed;
   height: 100%;
-  left: -1%;
-  top: 100px;
+  background-color: #2a3948;
+  left: -200px;
+  position: fixed;
+  transition: width 0.3s, left 0.3s;
 }
 
-.sidBarArrow {
-  width: 50px;
-  height: 50px;
-  background-color: red;
+.SideBar_toogle_iconBox {
+  height: 40px;
+  width: 25px;
   position: absolute;
-  right: -20px;
-  top: 50px;
-  clip-path: polygon(60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%);
-  cursor: pointer; /* Add this to make it look clickable */
+  right: -25px;
+  top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #004274ef;
+  color: #fff;
+  cursor: pointer;
 }
 
-.sidBarClose {
-  width: 50px;
-  height: 50px;
-  background-color: green;
-  position: absolute;
-  right: -20px;
-  top: 50px;
-  clip-path: polygon(60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%);
-  cursor: pointer; /* Add this to make it look clickable */
+.content_part {
+  width: 80%;
+  min-height: 100px;
+  background-color: rgba(128, 128, 128, 0.067);
+  padding: 70px 25px;
+  transition: width 0.3s, left 0.3s;
 }
 
-.SuperAdminLayout_contentPart {
-  width: 75%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-}
-
-.SuperAdminLayout_contentPartClose {
-  width: 90%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-}
-
-/* Tablete Screen */
-@media screen and (max-width: 950px) {
-}
-
-/* Mobile Screen  */
-@media screen and (max-width: 550px) {
+.contentpart_full {
+  width: 95%;
+  min-height: 600px;
+  background-color: rgba(128, 128, 128, 0.067);
+  padding: 70px 25px;
+  transition: width 0.3s, left 0.3s;
 }

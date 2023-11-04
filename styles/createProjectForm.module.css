@@ -1,3 +1,28 @@
+.image_inputContainer {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thumbileBox {
+  width: 40%;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 10px;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.image_uploadTitle {
+  font-size: 16px;
+}
+
 .dynimic_form_Filedcontainer {
   display: flex;
   column-gap: 50px;
@@ -18,6 +43,8 @@
 
 .Project_titleBox {
   width: 37%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 10px;
 }
 
 .project_TitletextInput {
@@ -34,14 +61,22 @@
 .form_radioBox {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   width: 300px;
+  padding: 10px;
+  height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  height: 105px;
 }
 .form_radio_TitleBox {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-  padding: 10px 5px;
+  padding: 5px 5px;
+  height: 100%;
+  display: flex;
+  align-items: end;
 }
 
 .radioBox {
@@ -117,4 +152,32 @@
 
 .error {
   color: red;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+  .image_inputContainer {
+    flex-direction: column;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+
+  .thumbileBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    flex-wrap: wrap;
+
+    align-items: flex-start;
+    padding: 10px 0px;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
 }

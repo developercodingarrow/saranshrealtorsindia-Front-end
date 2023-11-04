@@ -1,0 +1,374 @@
+.AddNewProjectForm_mainContainer {
+  min-height: 600px;
+}
+
+.static_Container {
+  padding: 10px 0px;
+}
+
+.radio_selectBox {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.radio_box {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.select_box {
+  width: 40%;
+}
+
+/* Select start */
+.select_box {
+  display: flex;
+  flex-direction: column;
+}
+
+.select_lable {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.selectBar {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+/* Select End */
+
+/* Radio Button start */
+.radio_title {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.radioButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.radioLabel {
+  font-size: 18px;
+  margin-right: 10px;
+  display: flex;
+  cursor: pointer;
+}
+
+.radioInput {
+  display: none; /* Hide the actual radio buttons */
+}
+
+.radioLabel::before {
+  content: " ";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--primary-color); /* Border color */
+  border-radius: 50%;
+  margin-right: 10px; /* Spacing between the radio button and label */
+}
+
+.radioInput:checked + .radioLabel::before {
+  background-color: var(--primary-color); /* Background color when checked */
+}
+
+/* Style the label text when checked */
+.radioInput:checked + .radioLabel {
+  color: var(--primary-color); /* Text color when checked */
+}
+
+/* Style the "PROJECT TYPE:" label */
+.radioLabel:first-child {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+/* Radio button end */
+
+/* form input style  */
+
+.box {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.input_box {
+  width: 100%;
+}
+
+.label {
+  color: #363636;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.input,
+.textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  height: 30px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  outline: none;
+}
+
+/* dynimic form filed Box start */
+.dynimc_filed_container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+.dynimic_filed_box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.dynimic_inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.dynimic_input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  height: 30px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  outline: none;
+}
+
+.dynimic_lable {
+  color: #363636;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+/* dynimic Form filed Box End */
+.errorMsg {
+  margin-top: 1em;
+  font-size: 1.25em;
+  color: rgb(205, 48, 48);
+}
+/*SEO section  */
+
+.seo_filed_Section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+.keyword_box {
+  width: 100%;
+}
+
+.Seo_label {
+  color: #363636;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.seo_keywords_input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  height: 100px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  outline: none;
+}
+
+/* imge upload style */
+
+.image_uploadSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  /* display: block; */
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 100px;
+  row-gap: 50px;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.customFileInput {
+  position: relative;
+  display: inline-block;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.customButton {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fileName {
+  margin-left: 10px;
+}
+
+/* Style the customFileInput as you prefer */
+.customFileInput {
+  /* Your styles here */
+}
+
+/* Button */
+.button_Box {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: end;
+}
+.beautifulButton {
+  background-color: #004274; /* Example color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  /* Add more styles to make it beautiful and creative */
+}
+
+.beautifulButton:hover {
+  background-color: #004274e3; /* Example hover color */
+}
+
+/* Add more styles to make it creative */

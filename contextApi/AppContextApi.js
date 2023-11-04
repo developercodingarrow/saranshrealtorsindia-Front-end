@@ -3,6 +3,13 @@ export const AppContext = createContext();
 
 export default function AppContextApiProvider({ children }) {
   const [toggleDrawer, setToggleDrawer] = useState(false);
+  const [toggleSideBar, settoggleSideBar] = useState(true);
+
+  // super admin side bar toogle
+  const handleToggleSidebar = () => {
+    settoggleSideBar(!toggleSideBar);
+    console.log(toggleSideBar);
+  };
 
   const handleToggleDrawer = (event) => {
     if (event.target === event.currentTarget) {
@@ -13,7 +20,13 @@ export default function AppContextApiProvider({ children }) {
 
   return (
     <AppContext.Provider
-      value={{ toggleDrawer, setToggleDrawer, handleToggleDrawer }}
+      value={{
+        toggleDrawer,
+        setToggleDrawer,
+        handleToggleDrawer,
+        toggleSideBar,
+        handleToggleSidebar,
+      }}
     >
       {children}
     </AppContext.Provider>

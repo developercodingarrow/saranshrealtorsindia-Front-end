@@ -123,3 +123,35 @@ export const createProjectFiled = [
     },
   },
 ];
+
+export const superAdminOptions = [
+  {
+    id: 1,
+    page: "DASHBOARD",
+    hrf: "/super-admin",
+  },
+
+  {
+    id: 2,
+    page: "ADD PROJECT",
+    hrf: "/super-admin/create-project",
+  },
+
+  {
+    id: 3,
+    page: "LIST PROJECTS",
+    hrf: "/super-admin",
+  },
+
+  {
+    id: 4,
+    page: "CREATE PROMOTIONAL PAGE",
+    hrf: "/super-admin",
+  },
+
+  {
+    id: 5,
+    page: "BLOGS LIST",
+    hrf: "/super-admin",
+  },
+];

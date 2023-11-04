@@ -31,12 +31,32 @@ export default function CreateProjectForm() {
   return (
     <>
       <div>
-        <div>
-          <input
-            type="file"
-            onChange={handleImageChange}
-            name="ProjectThumblin"
-          />
+        <div className={style.image_inputContainer}>
+          <div className={style.thumbileBox}>
+            <div className={style.image_uploadTitle}>
+              <label>THUMBLIN IMAGE</label>
+            </div>
+            <div>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                name="ProjectThumblin"
+              />
+            </div>
+          </div>
+
+          <div className={style.thumbileBox}>
+            <div className={style.image_uploadTitle}>
+              <label>Cover Image</label>
+            </div>
+            <div>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                name="ProjectThumblin"
+              />
+            </div>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit(handelProjectsubmit)}>
