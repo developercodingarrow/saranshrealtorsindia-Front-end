@@ -111,30 +111,34 @@ export default function AddNewProjectForm() {
               <div className={style.radio_box}>
                 <div className={style.radioButtonsContainer}>
                   <p className={style.radio_title}>PROJECT TYPE:</p>
+                  <div className={style.radio_btnBox}>
+                    <div>
+                      <input
+                        type="radio"
+                        id="commercial"
+                        name="projectType"
+                        className={style.radioInput}
+                      />
+                      <label htmlFor="commercial" className={style.radioLabel}>
+                        Commercial
+                      </label>
+                    </div>
 
-                  <input
-                    type="radio"
-                    id="commercial"
-                    name="projectType"
-                    className={style.radioInput}
-                  />
-                  <label htmlFor="commercial" className={style.radioLabel}>
-                    Commercial
-                  </label>
-
-                  <div>
-                    <input
-                      type="radio"
-                      id="residential"
-                      name="projectType"
-                      className={style.radioInput}
-                    />
-                    <label htmlFor="residential" className={style.radioLabel}>
-                      Residential
-                    </label>
+                    <div>
+                      <input
+                        type="radio"
+                        id="residential"
+                        name="projectType"
+                        className={style.radioInput}
+                      />
+                      <label htmlFor="residential" className={style.radioLabel}>
+                        Residential
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <div className={style.select_box}>
                 <label className={style.select_lable}>SELECT DEVELOPER</label>
                 <select className={style.selectBar} {...register("developer")}>

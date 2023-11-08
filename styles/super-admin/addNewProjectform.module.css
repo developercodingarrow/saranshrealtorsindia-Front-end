@@ -8,8 +8,10 @@
 
 .radio_selectBox {
   margin-top: 20px;
+  width: 100%;
+  /* height: 70px; */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
@@ -73,6 +75,10 @@
   flex-direction: row;
   align-items: center;
   font-family: Arial, sans-serif;
+}
+
+.radio_btnBox {
+  display: flex;
 }
 
 .radioLabel {
@@ -191,6 +197,9 @@
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 30px;
+}
+
+.dynimic_inputContainer {
 }
 
 .dynimic_inputBox {
@@ -372,3 +381,74 @@
 }
 
 /* Add more styles to make it creative */
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+  .radioButtonsContainer {
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    row-gap: 10px;
+  }
+  .radio_selectBox {
+    flex-direction: column;
+  }
+  .radio_box {
+    width: 100%;
+  }
+
+  .radioLabel {
+    margin-right: 15px;
+  }
+  .radio_title {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  /* select Box */
+  .select_box {
+    width: 100%;
+  }
+
+  .dynimic_inputBox {
+    width: 100%;
+  }
+
+  .dynimic_inputContainer {
+    width: 100%;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+  .radioButtonsContainer {
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    row-gap: 10px;
+  }
+  .radio_box {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .radio_title {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .radioLabel {
+    margin-right: 10px;
+  }
+
+  .select_box {
+    width: 100%;
+  }
+
+  .dynimic_inputBox {
+    width: 100%;
+  }
+  .dynimic_inputContainer {
+    width: 100%;
+  }
+}

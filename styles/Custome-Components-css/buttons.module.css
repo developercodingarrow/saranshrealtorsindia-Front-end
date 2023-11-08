@@ -1,0 +1,19 @@
+.creativeButton {
+  background-color: #004274; /* Button background color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+
+  /* Add more styles to make it attractive and creative */
+}
+
+.creativeButton:hover {
+  background-color: #0070a8; /* Change background color on hover */
+}

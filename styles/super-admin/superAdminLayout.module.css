@@ -20,6 +20,7 @@
   left: 0px;
   position: fixed;
   transition: width 0.4s, left 0.3s;
+  z-index: 10;
 }
 
 .sideBar_container_close {
@@ -61,4 +62,13 @@
   background-color: rgba(128, 128, 128, 0.067);
   padding: 70px 25px;
   transition: width 0.3s, left 0.3s;
+}
+
+@media screen and (max-width: 950px) {
+  .contentpart_full {
+    padding: 0px;
+  }
+  .content_part {
+    padding: 0px;
+  }
 }

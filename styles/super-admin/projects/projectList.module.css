@@ -1,0 +1,15 @@
+.ProjectLists_mainContainer {
+  width: 100%;
+  min-height: 600px;
+}
+
+/* Page Heading Box */
+.page_HeadingBox {
+  padding: 10px 0px;
+}
+
+/* projectTable_conatiner */
+.projectTable_conatiner {
+  border: 1px solid red;
+  padding: 10px 0px;
+}

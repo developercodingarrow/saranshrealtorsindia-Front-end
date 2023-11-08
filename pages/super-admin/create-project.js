@@ -2,7 +2,6 @@ import React from "react";
 import SuperAdminPrivate from "../../private/SuperAdminPrivate";
 import SuperAdminLayout from "../../Components/layouts/super admin layout/SuperAdminLayout";
 import style from "../../styles/super-admin/createProject.module.css";
-import CreateProjectForm from "../../utilsComponents/form/CreateProjectForm";
 import AddNewProjectForm from "../../utilsComponents/form/AddNewProjectForm";
 
 export default function Createproject() {

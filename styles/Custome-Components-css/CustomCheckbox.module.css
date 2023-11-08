@@ -1,0 +1,49 @@
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  color: #004274; /* Text color */
+}
+
+.hiddenCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #004274; /* Border color */
+  background-color: white;
+  border-radius: 4px;
+  margin-right: 10px; /* Spacing between checkbox and label */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+
+  /* Customize the checkbox style */
+}
+
+.customCheckbox::after {
+  content: "✔"; /* Custom checkmark icon */
+  display: block;
+  width: 20px;
+  height: 20px;
+  font-size: 16px; /* Adjust font size for icon */
+  line-height: 1.2; /* Center the icon */
+  text-align: center;
+  color: white; /* Icon color */
+  background-color: #004274; /* Background color when checked */
+  border-radius: 4px;
+  opacity: 0; /* Initially hide the icon */
+  transition: opacity 0.3s ease; /* Add opacity transition */
+}
+
+.checkboxLabel:hover .customCheckbox {
+  border-color: #9bcfe9; /* Border color on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add box-shadow on hover */
+}
+
+.hiddenCheckbox:checked + .customCheckbox::after {
+  opacity: 1; /* Show the icon when checked */
+  background-color: #004274; /* Icon background color when checked */
+  border-color: #004274; /* Border color when checked */
+}
