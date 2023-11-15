@@ -67,8 +67,6 @@ export const isAuth = () => {
 // Signup Api
 export const singUpNewAccount = async (data) => {
   try {
-    console.log("step-2");
-    console.log(data);
     const res = await axios.post(
       "http://127.0.0.1:5000/user/super-admin-register",
       data,

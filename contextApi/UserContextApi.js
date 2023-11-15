@@ -9,7 +9,6 @@ export default function UserContextApiProvider({ children }) {
   useEffect(() => {
     const getUserData = async () => {
       const storedData = await isAuth();
-      console.log(storedData);
       setloginUser(storedData);
     };
     getUserData();

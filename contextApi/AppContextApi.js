@@ -4,6 +4,7 @@ export const AppContext = createContext();
 export default function AppContextApiProvider({ children }) {
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [toggleSideBar, settoggleSideBar] = useState(true);
+  const [model, setmodel] = useState(false);
 
   // super admin side bar toogle
   const handleToggleSidebar = () => {
@@ -18,6 +19,10 @@ export default function AppContextApiProvider({ children }) {
     }
   };
 
+  const handelOpenModel = () => {
+    setmodel(true);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -26,6 +31,7 @@ export default function AppContextApiProvider({ children }) {
         handleToggleDrawer,
         toggleSideBar,
         handleToggleSidebar,
+        handelOpenModel,
       }}
     >
       {children}

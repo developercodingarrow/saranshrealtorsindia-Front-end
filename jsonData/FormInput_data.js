@@ -140,7 +140,7 @@ export const superAdminOptions = [
   {
     id: 3,
     page: "LIST PROJECTS",
-    hrf: "/super-admin",
+    hrf: "/super-admin/project-list",
   },
 
   {

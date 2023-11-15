@@ -17,13 +17,9 @@
   color: rgb(137, 137, 137);
 }
 
-.Project_container {
+.carousel_container {
   margin-top: 70px;
-  display: flex;
-  justify-content: space-between;
-  column-gap: 50px;
-  row-gap: 50px;
-  flex-wrap: wrap;
+  padding: 10px 15px;
 }
 
 /* Tablete Screen */

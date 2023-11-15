@@ -1,0 +1,122 @@
+.table_container {
+}
+
+.table_Header {
+  display: flex;
+  box-shadow: var(--box-shadow);
+  font-size: 16px;
+}
+
+.Table_serioulNumber {
+  width: 10%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table_imageBox {
+  min-width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table_detailsBox {
+  min-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table_activeStatusBox {
+  width: 10%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.table_ProjectStatusBox {
+  width: 15%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.table_ActionBox {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.table_rowContainer {
+  display: flex;
+  margin: 5px 0px;
+  box-shadow: var(--box-shadow);
+  font-size: 16px;
+  align-items: center;
+  height: 200px;
+}
+
+.row_SerioulNumber {
+  width: 10%;
+  height: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row_imageBox {
+  min-width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.row_detailsBox {
+  width: 30%;
+  padding: 5px;
+  height: 100%;
+}
+
+.row_activeStatusBox {
+  width: 10%;
+  height: 100%;
+}
+.row_projectStatusBox {
+  width: 15%;
+  padding: 5px;
+  height: 100%;
+}
+
+.actionBox {
+  padding: 5px;
+}
+
+.action_Name {
+  padding: 0px;
+}
+
+.switch_btnBox {
+  margin: 5px 0px;
+}
+
+.row_ActionBox {
+  height: 100%;
+  width: 10%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.action_btnBox {
+  height: 40px;
+  padding: 5px;
+  margin: 20px 0px;
+}

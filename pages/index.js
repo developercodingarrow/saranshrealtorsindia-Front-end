@@ -10,13 +10,14 @@ import HomeHeroSection from "../Components/layouts/HomeHeroSection";
 export default function Home({ initialProject }) {
   const { allProjects, setallProjects } = useContext(ProjectContext);
 
-  console.log(initialProject);
   // Set all project
   setallProjects(initialProject);
+  console.log(initialProject);
   return (
     <>
       <Layout>
         <HomeHeroSection />
+
         <FeatureListing />
       </Layout>
     </>
@@ -28,8 +29,6 @@ export async function getServerSideProps() {
   console.log("run");
   try {
     const result = await getAllProjectsAction();
-
-    console.log(result);
 
     return {
       props: {

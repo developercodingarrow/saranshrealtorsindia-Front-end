@@ -1,0 +1,89 @@
+/* components/BeautifulButton.module.css */
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+  height: 100%;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #003a73;
+}
+
+/* Flat Button */
+.flatButton {
+  background-color: #fff;
+  color: #007bff;
+  padding: 5px 10px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.flatButton:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Flat Button */
+.DeleteButton {
+  background-color: #fff;
+  color: #ff0073;
+  padding: 5px 10px;
+  border: 2px solid #ff0073;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.DeleteButton:hover {
+  background-color: #ff0073;
+  color: #fff;
+}
+
+/* Flat Button */
+.EditButton {
+  background-color: #fff;
+  color: #3ddc97;
+  padding: 5px 10px;
+  border: 2px solid #3ddc97;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.EditButton:hover {
+  background-color: #3ddc97;
+  color: #fff;
+}
+
+/* Outline Button */
+.outlineButton {
+  background-color: transparent;
+  color: #007bff;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.outlineButton:hover {
+  background-color: #007bff;
+  color: #fff;
+}

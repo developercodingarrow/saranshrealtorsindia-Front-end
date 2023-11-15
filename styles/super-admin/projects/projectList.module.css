@@ -1,6 +1,14 @@
 .ProjectLists_mainContainer {
   width: 100%;
-  min-height: 600px;
+  height: 100%;
+  padding: 20px;
+}
+
+.ProjectListComponent_titleBox {
+  font-family: sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 10px 0px;
 }
 
 /* Page Heading Box */
@@ -9,7 +17,6 @@
 }
 
 /* projectTable_conatiner */
-.projectTable_conatiner {
-  border: 1px solid red;
+.ProjectListComponent_TableContainer {
   padding: 10px 0px;
 }
