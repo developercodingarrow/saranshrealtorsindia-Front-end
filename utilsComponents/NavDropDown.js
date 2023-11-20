@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/NavBar.module.css";
+import style from "../Components/layouts/css/NavBar.module.css";
 // import userimage from "../../public/user-images/user-image.jpg"
 import userimage from "../public/user-images/user-image.jpg";
 import Link from "next/link";

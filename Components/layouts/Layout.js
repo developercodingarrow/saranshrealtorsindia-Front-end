@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import TopHeader from "./TopHeader";
 import Navbar from "./Navbar";
 import AppDrawer from "../../utilsComponents/AppDrawer";
-import HomeHeroSection from "./HomeHeroSection";
 import { AppContext } from "../../contextApi/AppContextApi";
 
 export default function Layout({ children }) {

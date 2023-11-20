@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/authfrom.module.css";
+import style from "../../utilsComponents/form/css/authfrom.module.css";
 import FormComponent from "../../utilsComponents/form/FormComponent";
 import Layout from "../../Components/layouts/Layout";
 import { singUpNewAccount } from "../../Actions/authAction";

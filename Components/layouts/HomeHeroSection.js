@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/HeroSection.module.css";
+import style from "./css/HeroSection.module.css";
 
 export default function HomeHeroSection() {
   return (

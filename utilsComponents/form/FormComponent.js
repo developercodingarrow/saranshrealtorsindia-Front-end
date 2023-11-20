@@ -1,10 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useForm, Controller } from "react-hook-form";
-import Button from "../Button";
 import FormInput from "../form/FormInput";
 import toast, { Toaster } from "react-hot-toast";
 import { singUpNewAccount, authenticate } from "../../Actions/authAction";
+import AuthBtn from "../buttons/AuthBtn";
 
 export default function FormComponent(props) {
   const router = useRouter();
@@ -129,9 +129,9 @@ export default function FormComponent(props) {
             );
           })}
           <div>
-            <Button className={styles.btn} type="submit" disabled={!isValid}>
+            <AuthBtn className={styles.btn} type="submit" disabled={!isValid}>
               {btnText}
-            </Button>
+            </AuthBtn>
           </div>
         </form>
       </div>

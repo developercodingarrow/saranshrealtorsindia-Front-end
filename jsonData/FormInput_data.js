@@ -154,4 +154,10 @@ export const superAdminOptions = [
     page: "BLOGS LIST",
     hrf: "/super-admin",
   },
+
+  {
+    id: 6,
+    page: "ADD DEVELOPER",
+    hrf: "/super-admin/add-developer",
+  },
 ];

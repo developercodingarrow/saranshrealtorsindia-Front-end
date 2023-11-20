@@ -1,13 +1,14 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import style from "../../styles/NavBar.module.css";
-import { BiSolidUser } from "react-icons/bi";
+import style from "./css/NavBar.module.css";
 import {
   AiOutlineMenu,
   AiFillSetting,
   AiOutlineDashboard,
-} from "react-icons/ai";
-import { TbLogout } from "react-icons/tb";
-import { FaUserAlt } from "react-icons/fa";
+  BiSolidUser,
+  FaUserAlt,
+  TbLogout,
+} from "../../utilsComponents/ApplicationIcon";
+
 import { AppContext } from "../../contextApi/AppContextApi";
 import { UserContext } from "../../contextApi/UserContextApi";
 import Link from "next/link";
@@ -37,6 +38,7 @@ const pages = [
 ];
 
 export default function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
   const { handleToggleDrawer } = useContext(AppContext);
   const { loginUser } = useContext(UserContext);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -48,6 +50,7 @@ export default function Navbar() {
     console.log("After toggle:", isDropDownOpen);
   };
 
+  // THIS LOGIC FOR DROPDOWN
   useEffect(() => {
     const handleDocumentClick = (event) => {
       if (
@@ -70,9 +73,34 @@ export default function Navbar() {
     };
   }, [isDropDownOpen]);
 
+  // THIS LOGIC FOR STICY NAVBAR
+  useEffect(() => {
+    const handleScroll = () => {
+      // When the user scrolls down 100px, set isSticky to true
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    // Attach the scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the scroll event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
   return (
     <>
-      <div className={style.navBar_mainContainer}>
+      <div
+        className={
+          isSticky
+            ? `${style.navBar_mainContainer} ${style.sticky}`
+            : style.navBar_mainContainer
+        }
+      >
         <div className={style.hangBurg_IconBox}>
           <AiOutlineMenu onClick={handleToggleDrawer} />
         </div>

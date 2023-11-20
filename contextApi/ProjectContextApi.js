@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { getLoginCookies } from "../Actions/authAction";
 
 import {
   getAllProjectsAction,
@@ -7,25 +8,50 @@ import {
   UpdateProjectStatusAction,
   UpdateProjectFeatureAction,
   UpdateProjectStatusTypeAction,
+  DeleteSingleProjectAction,
+  DeleteMultipleProjectAction,
+  getSingleProjectsAction,
+  UpdateProjectThumblinAction,
 } from "../Actions/ProjectAction";
 export const ProjectContext = createContext();
 
 export default function ProjectContextApiProvider({ children }) {
-  // Users
+  const loginToken = getLoginCookies();
   const [allProjects, setallProjects] = useState([]);
   const [projectThumblin, setprojectThumblin] = useState("");
   // super-Admin
   const [projects, setprojects] = useState([]);
 
+  // Inside your component
+  const [selectedProjects, setSelectedProjects] = useState([]);
+
+  // for single Image
+  const [imageUrl, setimageUrl] = useState("");
+  const [imageAltText, setimageAltText] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // Handel CHange for image
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
-    console.log(selectedFile);
     setprojectThumblin(selectedFile);
+  };
+
+  const handlePreviwImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setSelectedImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    setprojectThumblin(file);
   };
 
   // Create Project
   const createProject = async (inputdata, token) => {
+    console.log(inputdata);
     try {
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
@@ -40,13 +66,32 @@ export default function ProjectContextApiProvider({ children }) {
       formData.append("NoofUnits", inputdata.NoofUnits);
 
       const result = await createProjectAction(formData, token);
+
       return result;
     } catch (error) {
       console.log(error);
     }
   };
 
-  // get All Projects
+  const handelupdateProjectThumblin = async (imageId) => {
+    console.log(imageId);
+    try {
+      const formData = new FormData();
+      formData.append("ProjectThumblin", projectThumblin);
+      const result = await UpdateProjectThumblinAction(
+        formData,
+        loginToken,
+        imageId
+      );
+
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // GET ALL PROJECT for UseEffect
   const getAllProjectHandel = async () => {
     const response = await getAllProjectsAction();
     setprojects(response.data.result);
@@ -54,10 +99,8 @@ export default function ProjectContextApiProvider({ children }) {
 
   // handel Toggel Project Status
   const handelToggleProjectstatus = async (requestData, token) => {
-    console.log(requestData);
-
     const response = await UpdateProjectStatusAction(requestData, token);
-    console.log(response);
+
     if (response.data.status === "Success") {
       toast.success(response.data.message);
     }
@@ -65,20 +108,16 @@ export default function ProjectContextApiProvider({ children }) {
 
   // handel Toggel Feature Project Status
   const handelToggleProjectFeature = async (requestData, token) => {
-    console.log(requestData);
-
     const response = await UpdateProjectFeatureAction(requestData, token);
-    console.log(response);
+
     if (response.data.status === "Success") {
       toast.success(response.data.message);
     }
   };
 
   const handelProjectStatusTyple = async (requestData, token) => {
-    console.log(requestData);
-
     const response = await UpdateProjectStatusTypeAction(requestData, token);
-    console.log(response);
+
     if (response.data.status === "Success") {
       toast.success(response.data.message);
       setprojects((prevProjects) => {
@@ -90,6 +129,46 @@ export default function ProjectContextApiProvider({ children }) {
           return project;
         });
       });
+    }
+  };
+
+  const handelDeleteSingleProject = async (dataId, token) => {
+    const requestData = { _id: dataId };
+
+    const response = await DeleteSingleProjectAction(requestData, token);
+
+    if (response.data.status === "Success") {
+      toast.success(response.data.message);
+    }
+  };
+
+  const handleCheckboxChange = (event) => {
+    const projectId = event.target.value;
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setSelectedProjects([...selectedProjects, projectId]);
+    } else {
+      const updatedProjects = selectedProjects.filter((id) => id !== projectId);
+      setSelectedProjects(updatedProjects);
+    }
+  };
+
+  const handelMultipleDeleteProject = async () => {
+    const requestBody = { projectIds: selectedProjects };
+    const response = await DeleteMultipleProjectAction(requestBody, loginToken);
+
+    if (response.data.status === "Success") {
+      toast.success(response.data.message);
+    }
+  };
+
+  const handelGetSingleProject = async (id) => {
+    const response = await getSingleProjectsAction(id, loginToken);
+    setimageUrl(response.data.project.ProjectThumblin[0].url);
+    setimageAltText(response.data.project.ProjectThumblin[0].altText);
+    if (response.data.status === "Success") {
+      toast.success(response.data.message);
     }
   };
 
@@ -106,6 +185,17 @@ export default function ProjectContextApiProvider({ children }) {
         handelToggleProjectstatus,
         handelToggleProjectFeature,
         handelProjectStatusTyple,
+        handelDeleteSingleProject,
+        handleCheckboxChange,
+        selectedProjects,
+        setSelectedProjects,
+        handelMultipleDeleteProject,
+        handelGetSingleProject,
+        imageUrl,
+        imageAltText,
+        handlePreviwImageChange,
+        selectedImage,
+        handelupdateProjectThumblin,
       }}
     >
       {children}

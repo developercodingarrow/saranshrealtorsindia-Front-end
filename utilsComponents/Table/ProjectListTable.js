@@ -9,9 +9,13 @@ import ButtonElements from "../Custome Components/ButtonElement";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import { getLoginCookies } from "../../Actions/authAction";
 import { RadioButton } from "../Custome Components/ReadioElements";
+import { AppContext } from "../../contextApi/AppContextApi";
+import Link from "next/link";
 
 export default function ProjectListTable() {
   const [selectedOption, setSelectedOption] = useState(null);
+  const { handelOpenModelBox, handelCloseModelBox, modelBox } =
+    useContext(AppContext);
 
   const {
     getAllProjectHandel,
@@ -19,9 +23,11 @@ export default function ProjectListTable() {
     handelToggleProjectstatus,
     handelToggleProjectFeature,
     handelProjectStatusTyple,
+    handleCheckboxChange,
+    selectedProjects,
+    setSelectedProjects,
+    handelMultipleDeleteProject,
   } = useContext(ProjectContext);
-
-  console.log(projects);
 
   const handleButtonClick = () => {
     // Handle button click event here
@@ -41,6 +47,9 @@ export default function ProjectListTable() {
 
   return (
     <div className={styles.table_container}>
+      <div className={styles.Top_Bar}>
+        <button onClick={handelMultipleDeleteProject}>Delete Projects</button>
+      </div>
       <div className={styles.table_Header}>
         <div className={styles.Table_serioulNumber}>
           <span>
@@ -59,7 +68,11 @@ export default function ProjectListTable() {
           <div className={styles.table_rowContainer} key={project._id}>
             <div className={styles.row_SerioulNumber}>
               <span>
-                <input type="checkbox" value={project._id} />
+                <input
+                  type="checkbox"
+                  value={project._id}
+                  onChange={handleCheckboxChange}
+                />
               </span>
               <span>{i + 1}</span>
             </div>
@@ -73,7 +86,9 @@ export default function ProjectListTable() {
                 />
               </div>
               <div>
-                <button>Action</button>
+                <Link href={`/super-admin/update-image/${project._id}`}>
+                  Action
+                </Link>
               </div>
             </div>
             <div className={styles.row_detailsBox}>
@@ -138,9 +153,9 @@ export default function ProjectListTable() {
               <div className={styles.action_btnBox}>
                 <ButtonElements
                   label="DELETE"
-                  onClick={handleButtonClick}
+                  onClick={handelOpenModelBox}
                   btnDesign={"DeleteButton"}
-                  id={project._id}
+                  itemId={project._id}
                 />
               </div>
               <div className={styles.action_btnBox}>
@@ -148,7 +163,7 @@ export default function ProjectListTable() {
                   label="UPDATE "
                   onClick={handleButtonClick}
                   btnDesign={"EditButton"}
-                  id={project._id}
+                  itemId={project._id}
                 />
               </div>
             </div>

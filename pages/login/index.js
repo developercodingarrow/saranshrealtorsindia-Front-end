@@ -1,6 +1,6 @@
 import React from "react";
 import { loginInputs } from "../../jsonData/FormInput_data";
-import style from "../../styles/authfrom.module.css";
+import style from "../../utilsComponents/form/css/authfrom.module.css";
 import FormComponent from "../../utilsComponents/form/FormComponent";
 import Layout from "../../Components/layouts/Layout";
 import { loginAccount } from "../../Actions/authAction";

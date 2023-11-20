@@ -2,8 +2,10 @@ import React from "react";
 import style from "../styles/card.module.css";
 import Image from "next/image";
 import projectImage1 from "../public/project-feature-images/MRG Primark.jpg";
-import { CiLocationOn } from "react-icons/ci";
-import { LiaRupeeSignSolid } from "react-icons/lia";
+import {
+  LiaRupeeSignSolid,
+  CiLocationOn,
+} from "../utilsComponents/ApplicationIcon";
 
 export default function Card({ data }) {
   const {

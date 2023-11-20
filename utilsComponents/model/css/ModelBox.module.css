@@ -1,0 +1,42 @@
+.ModelBox_mainContainer {
+  border: 1px solid red;
+  width: 90%;
+  height: 100vh;
+  z-index: 5;
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.136);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.closeModelBox {
+  display: none;
+}
+
+.model_innerBox {
+  width: 40%;
+  height: 300px;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Model_ContentBox {
+  text-align: center;
+}
+
+.model_actionBox {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.Action_btnStyle {
+  margin: 0px 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

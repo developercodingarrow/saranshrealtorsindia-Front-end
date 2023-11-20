@@ -1,11 +1,14 @@
 import React from "react";
-import style from "../../styles/TopHeader.module.css";
-import { BsTelephone } from "react-icons/bs";
-import { FiFacebook } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
-import { BiLogoLinkedin } from "react-icons/bi";
-import { BsInstagram } from "react-icons/bs";
-import { AiOutlineYoutube } from "react-icons/ai";
+import style from "./css/TopHeader.module.css";
+
+import {
+  BsTelephone,
+  FiFacebook,
+  BiLogoLinkedin,
+  BsInstagram,
+  AiOutlineYoutube,
+  FaXTwitter,
+} from "../../utilsComponents/ApplicationIcon";
 import Image from "next/image";
 import logo from "../../public/Company-logo/logo.png";
 

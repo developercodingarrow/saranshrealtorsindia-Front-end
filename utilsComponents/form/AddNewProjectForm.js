@@ -5,13 +5,16 @@ import { useForm, Controller } from "react-hook-form";
 import { createProjectFiled } from "../../jsonData/FormInput_data";
 import CreateProjectFormInput from "./CreateProjectFormInput";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
+import toast, { Toaster } from "react-hot-toast";
+import { AppContext } from "../../contextApi/AppContextApi";
 
 export default function AddNewProjectForm() {
   const fileInputRef = useRef(null);
-  const [selectedFileName, setSelectedFileName] = useState("No file chosen");
+  const [selectedFileName, setSelectedFileName] = useState("No file chosen..");
   const token = getLoginCookies();
   const { handleImageChange, createProject, setprojectThumblin } =
     useContext(ProjectContext);
+  const { btnLoading, setbtnLoading } = useContext(AppContext);
 
   const {
     register,
@@ -40,8 +43,18 @@ export default function AddNewProjectForm() {
 
   const handelProjectsubmit = async (formdata) => {
     try {
+      setbtnLoading(true);
+      console.log(formdata);
       const result = await createProject(formdata, token);
       console.log(result);
+      console.log(result.data.status);
+      if (result.data.status === "Success") {
+        toast.success(result.data.message);
+        setbtnLoading(false);
+      } else if (result.data.status === "error") {
+        toast.error("somting wrong");
+        setbtnLoading(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +63,7 @@ export default function AddNewProjectForm() {
   return (
     <>
       <div className={style.AddNewProjectForm_mainContainer}>
+        <Toaster position="top-right" />
         <form onSubmit={handleSubmit(handelProjectsubmit)}>
           <div className={style.image_uploadSection}>
             <div>
@@ -60,7 +74,11 @@ export default function AddNewProjectForm() {
                   onChange={handleFileInputChange}
                   className={style.hiddenFileInput}
                 />
-                <button className={style.customButton} onClick={openFileInput}>
+                <button
+                  type="button"
+                  className={style.customButton}
+                  onClick={openFileInput}
+                >
                   Upload Thumblin
                 </button>
                 <span className={style.fileName}>{selectedFileName}</span>
@@ -229,7 +247,7 @@ export default function AddNewProjectForm() {
               type="submit"
               disabled={!isValid}
             >
-              Save
+              {btnLoading ? "Loading.." : "Save"}
             </button>
           </div>
         </form>

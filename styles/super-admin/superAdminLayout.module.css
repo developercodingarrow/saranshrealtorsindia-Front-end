@@ -1,10 +1,9 @@
 /* Header Part */
 .Header_part {
-  height: 130px;
+  height: 40px;
 }
 
 .superAdmin_mainContainer {
-  margin-top: 10px;
   width: 100%;
   min-height: 800px;
   display: flex;
@@ -14,7 +13,6 @@
 
 .sideBar_container {
   width: 250px;
-  position: fixed;
   height: 100%;
   background-color: #2a3948;
   left: 0px;

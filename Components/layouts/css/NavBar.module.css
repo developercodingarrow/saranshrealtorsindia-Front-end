@@ -1,0 +1,180 @@
+.navBar_mainContainer {
+  width: 100%;
+  background-color: #004274;
+  padding: 0px 10%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+  position: sticky;
+  z-index: 100;
+  top: 0px;
+  /* margin-top: 100px; */
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Additional styles for the sticky navbar */
+}
+
+.hangBurg_IconBox {
+  display: none;
+}
+
+.pageTab_Box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.pageTab {
+  border: 1px solid #31a0d717;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabLink {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.loginBox {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+  position: relative;
+}
+
+/* Navbar Drop Down */
+.dropDown_container {
+  position: absolute;
+  min-width: 200px;
+  top: 40px;
+  left: -50px;
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0deg);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: #fff;
+  min-height: 200px;
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  z-index: 10;
+}
+
+.DropDown_header {
+  border-bottom: 1px solid #6b7280;
+  display: flex;
+  padding: 5px;
+}
+
+.DropDown_userImage {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.user_image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user_infoBox {
+  padding: 10px;
+}
+
+.user_nameBox {
+  font-weight: 700;
+  font-family: sans-serif;
+  color: #111827;
+}
+
+.dropdown_optionBox {
+  padding: 5px;
+  border-bottom: 1px solid #4b55634c;
+}
+
+.dropdown_optionLink {
+  text-decoration: none;
+  font-family: sans-serif;
+  display: flex;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+.dropdown_optionLink:hover {
+  background-color: #4b556329;
+  border: 1px solid #4b55634c;
+  display: flex;
+  padding: 5px;
+}
+
+.option_IconBox {
+  font-size: 16px;
+  color: #8692a1;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.option_textBox {
+  color: #4b5563;
+  font-size: 16px;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+.dropDown_footer {
+  padding: 5px 5px;
+  /* border: 1px solid #4b55634c; */
+}
+
+.linkStyle {
+  color: #fff;
+}
+
+.login_btn {
+  background-color: #bfbfbf;
+  border-radius: 0.4rem;
+  padding: 7px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+  .navBar_mainContainer {
+    position: fixed;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+  .pageTab_Box {
+    display: none;
+  }
+  .loginBox {
+    display: none;
+  }
+  .hangBurg_IconBox {
+    display: flex;
+    padding: 10px;
+    font-size: 22px;
+    align-items: center;
+    cursor: pointer;
+  }
+}

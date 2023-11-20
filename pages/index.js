@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import Head from "next/head";
-import Image from "next/image";
 import Layout from "../Components/layouts/Layout";
 import FeatureListing from "../Components/HomePageSections/FeatureListing";
 import { getAllProjectsAction } from "../Actions/ProjectAction";
@@ -8,23 +6,21 @@ import { ProjectContext } from "../contextApi/ProjectContextApi";
 import HomeHeroSection from "../Components/layouts/HomeHeroSection";
 
 export default function Home({ initialProject }) {
-  const { allProjects, setallProjects } = useContext(ProjectContext);
+  const { setallProjects } = useContext(ProjectContext);
 
-  // Set all project
+  // SET ALL PROJECTS
   setallProjects(initialProject);
-  console.log(initialProject);
   return (
     <>
       <Layout>
         <HomeHeroSection />
-
         <FeatureListing />
       </Layout>
     </>
   );
 }
 
-// Get Static Props
+// GET STATIC PROPS TO GET ALL PROJECTS
 export async function getServerSideProps() {
   console.log("run");
   try {
