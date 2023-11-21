@@ -1,0 +1,50 @@
+/* Light.css */
+
+/* Styling for the light container */
+.light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 2px solid #000;
+
+  background-color: #ff4136; /* Red */
+  box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.3);
+  background-color: #2ecc40; /* Green */
+}
+
+.greenLight {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 2px solid #2ecc40;
+  box-shadow: 0 0 3px 3px rgb(5, 213, 33, 0.1);
+  background-color: #2ecc40; /* Green */
+}
+
+.redLight {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 2px solid #ff4136;
+
+  background-color: #ff4136; /* Red */
+  box-shadow: 0 0 3px 3px rgba(255, 43, 43, 0.1);
+}
+
+/* Red light */
+.red {
+  background-color: #f00;
+}
+
+/* Green light */
+.green {
+  background-color: #2ecc40; /* Green */
+}
+
+/* Active light style */
+.active {
+  box-shadow: 0 0 15px 5px #fff;
+}

@@ -1,0 +1,26 @@
+.main_container {
+  width: 100%;
+  min-height: 700px;
+  border: 1px solid gray;
+}
+
+.Blog_mainContainer {
+  width: 100%;
+  display: flex;
+  padding: 50px 7%;
+  justify-content: space-between;
+}
+
+.Blog_Container {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  column-gap: 30px;
+  row-gap: 30px;
+  flex-wrap: wrap;
+}
+
+.formSide_container {
+  width: 20%;
+  border: 1px solid gray;
+}

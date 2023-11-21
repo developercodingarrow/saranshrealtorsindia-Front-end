@@ -33,7 +33,7 @@ const pages = [
   },
   {
     Page: "Blogs",
-    hrfLink: "/blog",
+    hrfLink: "/blogs",
   },
 ];
 

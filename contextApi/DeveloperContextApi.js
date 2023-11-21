@@ -14,8 +14,6 @@ export default function DeveloperContextApiProvide({ children }) {
   const handelGetAllDeveloper = async () => {
     try {
       const response = await getAllDeveloperAction(loginToken);
-      console.log(response);
-      console.log(response.data.result);
       setallDeveloper(response.data.result);
     } catch (error) {
       console.log(error);
@@ -25,7 +23,6 @@ export default function DeveloperContextApiProvide({ children }) {
   const handelAddDeveloper = async (inputdata) => {
     try {
       const response = await createDeveloperAction(inputdata, loginToken);
-      console.log(response);
       return response;
     } catch (error) {
       console.log(error);
@@ -34,9 +31,7 @@ export default function DeveloperContextApiProvide({ children }) {
 
   const handelDeleteDeveloper = async (inputdata) => {
     try {
-      console.log(inputdata);
       const response = await DeleteDeveloperAction(inputdata, loginToken);
-      console.log(response);
       return response;
     } catch (error) {
       console.log(error);

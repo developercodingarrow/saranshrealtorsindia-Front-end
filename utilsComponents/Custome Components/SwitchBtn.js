@@ -8,7 +8,6 @@ export default function SwitchBtn({ btnSatus, handelAction, dataId }) {
 
   const toggleSwitch = (dataId) => {
     const requestData = { _id: dataId };
-
     handelAction(requestData, token);
     setIsOn(!isOn);
   };

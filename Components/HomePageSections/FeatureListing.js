@@ -40,7 +40,7 @@ export default function FeatureListing() {
         </div>
         <div className={style.carousel_container}>
           <Carousel responsive={responsive}>
-            {allProjects.map((el, i) => {
+            {allProjects?.map((el, i) => {
               return (
                 <div key={el._id}>
                   <Card key={el._id} data={el} />

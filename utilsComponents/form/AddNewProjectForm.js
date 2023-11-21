@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import style from "../../styles/super-admin/addNewProjectform.module.css";
 import { getLoginCookies } from "../../Actions/authAction";
 import { useForm, Controller } from "react-hook-form";
@@ -7,6 +7,7 @@ import CreateProjectFormInput from "./CreateProjectFormInput";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import toast, { Toaster } from "react-hot-toast";
 import { AppContext } from "../../contextApi/AppContextApi";
+import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
 
 export default function AddNewProjectForm() {
   const fileInputRef = useRef(null);
@@ -15,6 +16,7 @@ export default function AddNewProjectForm() {
   const { handleImageChange, createProject, setprojectThumblin } =
     useContext(ProjectContext);
   const { btnLoading, setbtnLoading } = useContext(AppContext);
+  const { allDeveloper, handelGetAllDeveloper } = useContext(DeveloperContext);
 
   const {
     register,
@@ -25,6 +27,10 @@ export default function AddNewProjectForm() {
   } = useForm({
     mode: "all", // Use "onChange" mode for real-time validation as the user types
   });
+
+  useEffect(() => {
+    handelGetAllDeveloper();
+  }, []);
 
   const handleFileInputChange = () => {
     // Handle the file input change event here
@@ -44,7 +50,6 @@ export default function AddNewProjectForm() {
   const handelProjectsubmit = async (formdata) => {
     try {
       setbtnLoading(true);
-      console.log(formdata);
       const result = await createProject(formdata, token);
       console.log(result);
       console.log(result.data.status);
@@ -160,10 +165,13 @@ export default function AddNewProjectForm() {
               <div className={style.select_box}>
                 <label className={style.select_lable}>SELECT DEVELOPER</label>
                 <select className={style.selectBar} {...register("developer")}>
-                  <option>Godrej</option>
-                  <option>GLS</option>
-                  <option>DLF</option>
-                  <option>Sun City</option>
+                  {allDeveloper.map((el, i) => {
+                    return (
+                      <option key={el._id} value={el.DeveloperName}>
+                        {el.DeveloperName}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
             </div>

@@ -1,0 +1,153 @@
+.CreateAdminComponent_mainContainer {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.CreateAdminComponent_TitleBox {
+  font-family: sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 10px 0px;
+}
+
+.CreateAdminComponent_FormBox {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.form_upRow {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+
+.form_inputox {
+  flex-grow: 1;
+}
+
+.inputStyle {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  height: 30px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  outline: none;
+}
+
+.btn {
+  border: none;
+  border-radius: 2px;
+  fill: currentColor;
+  font-weight: 500;
+  padding: 7px 10px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #007bffd4;
+}
+
+.table_container {
+  margin-top: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.table_header {
+  display: flex;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  height: 30px;
+  font-size: 16px;
+  row-gap: 20px;
+  color: #9aa2b1;
+  background-color: #fafafa;
+}
+
+.Serioul_Number,
+.status {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.Craeted_date {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.admin_Name,
+.password,
+.user_name,
+.action {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.table_body {
+  margin: 10px 0px;
+}
+
+.table_row {
+  display: flex;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  height: 30px;
+  font-size: 14px;
+  row-gap: 20px;
+  color: #9aa2b1;
+  margin: 5px 0px;
+}
+
+.table_row:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+  color: #363636;
+}

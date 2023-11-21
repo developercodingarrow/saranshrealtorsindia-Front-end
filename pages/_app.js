@@ -3,6 +3,8 @@ import AppContextApiProvider from "../contextApi/AppContextApi";
 import ProjectContextApiProvider from "../contextApi/ProjectContextApi";
 import UserContextApiProvider from "../contextApi/UserContextApi";
 import DeveloperContextApiProvide from "../contextApi/DeveloperContextApi";
+import AdminContextApiProvider from "../contextApi/AdminContextApi";
+import BlogContextApiProvide from "../contextApi/BlogContextApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,7 +12,11 @@ function MyApp({ Component, pageProps }) {
       <UserContextApiProvider>
         <ProjectContextApiProvider>
           <DeveloperContextApiProvide>
-            <Component {...pageProps} />;
+            <AdminContextApiProvider>
+              <BlogContextApiProvide>
+                <Component {...pageProps} />
+              </BlogContextApiProvide>
+            </AdminContextApiProvider>
           </DeveloperContextApiProvide>
         </ProjectContextApiProvider>
       </UserContextApiProvider>

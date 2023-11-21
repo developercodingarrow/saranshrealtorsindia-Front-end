@@ -160,4 +160,15 @@ export const superAdminOptions = [
     page: "ADD DEVELOPER",
     hrf: "/super-admin/add-developer",
   },
+  {
+    id: 7,
+    page: "CREATE ADMIN",
+    hrf: "/super-admin/create-admin",
+  },
+
+  {
+    id: 8,
+    page: "CREATE BLOG",
+    hrf: "/super-admin/blog/create-blog",
+  },
 ];
