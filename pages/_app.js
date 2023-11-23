@@ -5,6 +5,7 @@ import UserContextApiProvider from "../contextApi/UserContextApi";
 import DeveloperContextApiProvide from "../contextApi/DeveloperContextApi";
 import AdminContextApiProvider from "../contextApi/AdminContextApi";
 import BlogContextApiProvide from "../contextApi/BlogContextApi";
+import EnquireyContextApiProvider from "../contextApi/EnquireyContextApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }) {
           <DeveloperContextApiProvide>
             <AdminContextApiProvider>
               <BlogContextApiProvide>
-                <Component {...pageProps} />
+                <EnquireyContextApiProvider>
+                  <Component {...pageProps} />
+                </EnquireyContextApiProvider>
               </BlogContextApiProvide>
             </AdminContextApiProvider>
           </DeveloperContextApiProvide>

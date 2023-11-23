@@ -1,0 +1,85 @@
+.EnquiresListComponent_mainContainer {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.EnquiresListComponent_TitleBox {
+  font-family: sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 10px 0px;
+}
+
+.table_container {
+  margin-top: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.table_header {
+  display: flex;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  height: 30px;
+  font-size: 16px;
+  row-gap: 20px;
+  color: #9aa2b1;
+  background-color: #fafafa;
+}
+
+.Serioul_Number,
+.status {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.Craeted_date {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.admin_Name,
+.password,
+.user_name,
+.action,
+.mobile_Number {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid gainsboro;
+  border-right: none;
+  border-left: none;
+}
+
+.table_body {
+  margin: 10px 0px;
+}
+
+.table_row {
+  display: flex;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  height: 30px;
+  font-size: 14px;
+  row-gap: 20px;
+  color: #9aa2b1;
+  margin: 5px 0px;
+}
+
+.table_row:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+  color: #363636;
+}

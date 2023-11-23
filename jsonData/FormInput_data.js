@@ -171,4 +171,10 @@ export const superAdminOptions = [
     page: "CREATE BLOG",
     hrf: "/super-admin/blog/create-blog",
   },
+
+  {
+    id: 9,
+    page: "ENQUIRES",
+    hrf: "/super-admin/enquire",
+  },
 ];

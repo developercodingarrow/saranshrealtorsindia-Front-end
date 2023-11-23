@@ -7,6 +7,7 @@ export default function BlogContextApiProvide({ children }) {
   const loginToken = getLoginCookies();
   const [blogFeatureImage, setblogFeatureImage] = useState("");
   const [allblogsList, setallblogsList] = useState([]);
+  const [singleBlog, setsingleBlog] = useState("");
 
   // Create Project
   const createBlog = async (inputdata, descreption) => {
@@ -34,6 +35,8 @@ export default function BlogContextApiProvide({ children }) {
         createBlog,
         allblogsList,
         setallblogsList,
+        singleBlog,
+        setsingleBlog,
       }}
     >
       {children}

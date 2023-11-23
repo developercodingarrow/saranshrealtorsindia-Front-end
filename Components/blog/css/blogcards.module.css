@@ -40,9 +40,12 @@
   width: 100%;
 }
 
-.btn {
+.linstyle {
   width: 100%;
   color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
   padding: 7px;
   text-transform: uppercase;
   letter-spacing: 3px;

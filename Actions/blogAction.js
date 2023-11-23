@@ -42,3 +42,25 @@ export const getAllBlogsAction = async () => {
     return error.response;
   }
 };
+
+// GET ALL BLOG ACTION
+export const getSingleBlogsAction = async (slug) => {
+  console.log("blog action");
+  console.log(slug);
+  try {
+    const res = await axios.get(
+      `http://127.0.0.1:5000/blogs/single-blog/${slug}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json",
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
