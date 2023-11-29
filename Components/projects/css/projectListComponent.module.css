@@ -38,19 +38,24 @@ position: relative;
 
 .sideForm_Container{
 width: 20%;
-   
+position: relative;  
+}
+
+.inner_container{
+  position: fixed;
+  width: 17%;
 }
 
 .fillter_barContainer{
-    display: none;
+display: none;
 }
 
 .project_card_wrapper{
-    border: 1px solid red;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    row-gap: 10px;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+column-gap: 20px;
+row-gap: 20px;
 }
 
 /* Tablete Screen */
@@ -104,6 +109,7 @@ width: 20%;
   .sideForm_Container{
     width: 25%;
     border: 1px solid #fff;
+    position: relative;
   }
   }
 

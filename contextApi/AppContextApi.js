@@ -8,7 +8,7 @@ export default function AppContextApiProvider({ children }) {
   const [modelBox, setmodelBox] = useState(false);
   const [itemActionId, setitemActionId] = useState("");
   const [btnLoading, setbtnLoading] = useState(false);
-  const [projectFillerDrawer, setprojectFillerDrawer] = useState(false)
+  const [projectFillerDrawer, setprojectFillerDrawer] = useState(true)
 
   // Toogle Project Fillter Drawer
   const handelToggleFillterDrawer = ()=>{

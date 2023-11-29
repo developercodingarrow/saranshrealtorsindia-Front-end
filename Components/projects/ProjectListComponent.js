@@ -4,6 +4,7 @@ import {AppContext} from '../../contextApi/AppContextApi';
 import Card from '../../utilsComponents/Card';
 import {ProjectContext} from '../../contextApi/ProjectContextApi'
 import SideEnquireForm from '../../utilsComponents/form/SideEnquireForm';
+import CardOne from '../../utilsComponents/cards/CardOne';
 
 
 
@@ -57,16 +58,17 @@ useEffect(()=>{
               <div className={styles.project_card_wrapper}>
                 {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].map((data, i )=>{
                   return (
-                   <div className={styles.dummy_Card}>
-                    <p>Card</p>
-                     </div>
+                      <CardOne key={i} />
                   )
                 })}
                 
               </div>
             </div>
             <div className={styles.sideForm_Container}>
+              <div className={styles.inner_container}>
               <SideEnquireForm />
+              </div>
+            
             </div>
         </div>
        </div>
