@@ -35,6 +35,10 @@ const pages = [
     Page: "Blogs",
     hrfLink: "/blogs",
   },
+  {
+    Page: "Projects",
+    hrfLink: "/project",
+  },
 ];
 
 export default function Navbar() {

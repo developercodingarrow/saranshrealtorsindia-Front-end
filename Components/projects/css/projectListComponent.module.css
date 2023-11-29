@@ -1,0 +1,139 @@
+.Page_mainContainer{
+ background-color: #fff;
+ min-height: 800px;
+}
+
+.inner_Container{
+width: 100%;
+min-height: 800px;
+display: flex;
+}
+
+.sideBar_container{
+position: fixed;
+left: 0px;
+top: 0px;
+width: 200px;
+height: 100%;
+padding-top: 40px;
+background-color: ghostwhite;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.content_Conatiner{
+position: relative;
+left: 210px;
+width: calc(100% - 210px);
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+padding: 20px;
+}
+
+.content_wrapper{
+width: 75%;
+border: 1px solid #fff;
+position: relative;
+}
+
+.sideForm_Container{
+width: 20%;
+   
+}
+
+.fillter_barContainer{
+    display: none;
+}
+
+.project_card_wrapper{
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+    .content_wrapper{
+        position: relative;
+    }
+    .fillter_barContainer{
+        font-size: 16px;
+        width: 65%;
+        display: flex;
+        border: 1px solid gray;
+        justify-content: center;
+        position: fixed;
+        color: black;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    }
+
+   .project_card_wrapper{
+    margin-top: 30px;
+    }
+  .sideBar_container{
+    position: fixed;
+    height: 100%;
+    left: 0px;
+    top: 0px !important;
+    z-index: 100;
+  }
+
+  .close_SideBar_container{
+    position: fixed;
+    height: 100%;
+    left: -200px;
+    top: 0px !important;
+    z-index: 100; 
+  }
+
+  .content_Conatiner{
+    margin-top: 40px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .content_wrapper{
+    width: 70%;
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sideForm_Container{
+    width: 25%;
+    border: 1px solid #fff;
+  }
+  }
+
+  .dummy_Card{
+    border: 1px solid red;
+    color: black;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Mobile Screen  */
+@media screen and (max-width: 550px) {
+  .content_Conatiner{
+    flex-direction: column;
+  }
+  .content_wrapper{
+    width: 100%;
+    border: 1px solid red;
+    margin-top: 70px;
+    min-height: 600px;
+  }
+
+  .fillter_barContainer{
+    width: 100%;
+    top: 50px;
+    cursor: pointer;
+  }
+
+  .sideForm_Container{
+    width: 100%;
+  }
+  
+  }

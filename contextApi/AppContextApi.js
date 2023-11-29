@@ -8,6 +8,12 @@ export default function AppContextApiProvider({ children }) {
   const [modelBox, setmodelBox] = useState(false);
   const [itemActionId, setitemActionId] = useState("");
   const [btnLoading, setbtnLoading] = useState(false);
+  const [projectFillerDrawer, setprojectFillerDrawer] = useState(false)
+
+  // Toogle Project Fillter Drawer
+  const handelToggleFillterDrawer = ()=>{
+    setprojectFillerDrawer(!projectFillerDrawer)
+  }
 
   // super admin side bar toogle
   const handleToggleSidebar = () => {
@@ -54,6 +60,8 @@ export default function AppContextApiProvider({ children }) {
         itemActionId,
         btnLoading,
         setbtnLoading,
+        handelToggleFillterDrawer,
+        projectFillerDrawer
       }}
     >
       {children}

@@ -196,6 +196,7 @@ export default function ProjectContextApiProvider({ children }) {
         handlePreviwImageChange,
         selectedImage,
         handelupdateProjectThumblin,
+        getAllProjectHandel
       }}
     >
       {children}
