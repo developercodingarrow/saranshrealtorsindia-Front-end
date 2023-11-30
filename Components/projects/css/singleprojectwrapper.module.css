@@ -1,0 +1,14 @@
+.wrapper_mainContainer{
+width: 100%;
+}
+
+.titleContainer{
+width: 100%;
+box-shadow: var(--single-project-containerbox-shadow);
+padding: 10px 2%;
+}
+
+.titleContainer p{
+padding: 3px 0px;
+font-size: 14px;
+}
