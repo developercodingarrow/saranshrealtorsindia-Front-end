@@ -6,6 +6,9 @@ import ImageContainer from './ImageContainer';
 import AboutProject from './AboutProject';
 import ProjectContent from './ProjectContent';
 import Amenities from './Amenities';
+import ProjectSpacification from './ProjectSpacification';
+import FloorPlan from './FloorPlan';
+import LayoutPlan from './LayoutPlan';
 
 export default function SingleProjectWrapper() {
   return (
@@ -32,6 +35,18 @@ export default function SingleProjectWrapper() {
 
           <div>
             <Amenities />
+          </div>
+
+          <div>
+            <ProjectSpacification />
+          </div>
+
+          <div>
+            <FloorPlan />
+          </div>
+
+          <div>
+            <LayoutPlan />
           </div>
         
         </div>
