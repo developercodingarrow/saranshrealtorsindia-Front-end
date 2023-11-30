@@ -5,12 +5,26 @@ import Card from '../../utilsComponents/Card';
 import {ProjectContext} from '../../contextApi/ProjectContextApi'
 import SideEnquireForm from '../../utilsComponents/form/SideEnquireForm';
 import CardOne from '../../utilsComponents/cards/CardOne';
+import SideBarFillterComponentns from './SideBarFillterComponentns';
 
-
+const sampleData = [
+  {
+    title: "brand",
+    items: ["Godrej", "GLS", "DLF"],
+  },
+  {
+    title: "size",
+    items: ["2BHK", "3BHK"],
+  },
+  {
+    title: "category",
+    items: ["Commercial", "Residential"],
+  },
+];
 
 
 export default function ProjectListComponent() {
- const {allProjects , getAllProjectHandel} = useContext(ProjectContext)
+ const {allProjects , getAllProjectHandel , filteredProjects} = useContext(ProjectContext)
 const { handelToggleFillterDrawer, projectFillerDrawer} = useContext(AppContext);
 
 console.log(allProjects)
@@ -46,17 +60,22 @@ useEffect(()=>{
     <div className={styles.Page_mainContainer}>
        <div className={styles.inner_Container}>
         <div className={fillterDrawer}>
-          {[1,2,3,4,5,6,7,8,9].map((el)=>{
+          <div>
+          {sampleData.map((el, i) => {
             return (
-              <p>{el}</p>
-            )
+              <div key={i}>
+                <SideBarFillterComponentns title={el.title} items={el.items} />
+              </div>
+            );
           })}
+          </div>
+        
         </div>
         <div className={styles.content_Conatiner}>
             <div className={styles.content_wrapper}>
               <div className={styles.fillter_barContainer} onClick={handelToggleFillterDrawer}>Fiilter bar</div>
               <div className={styles.project_card_wrapper}>
-                {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].map((data, i )=>{
+                {filteredProjects.map((data, i )=>{
                   return (
                       <CardOne key={i} />
                   )

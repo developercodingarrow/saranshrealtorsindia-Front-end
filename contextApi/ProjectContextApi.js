@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getLoginCookies } from "../Actions/authAction";
+import projectsData from '../jsonData/ProjectData'
 
 import {
   getAllProjectsAction,
@@ -16,6 +17,12 @@ import {
 export const ProjectContext = createContext();
 
 export default function ProjectContextApiProvider({ children }) {
+  const [selectedFilters, setSelectedFilters] = useState({
+    brand: [],
+    size: [],
+    category: [],
+    subCategory: [],
+  });
   const loginToken = getLoginCookies();
   const [allProjects, setallProjects] = useState([]);
   const [projectThumblin, setprojectThumblin] = useState("");
@@ -29,6 +36,32 @@ export default function ProjectContextApiProvider({ children }) {
   const [imageUrl, setimageUrl] = useState("");
   const [imageAltText, setimageAltText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+
+    // This Function for CheckBox Check-UnCheck
+    const handleFilterChange = (filterType, value) => {
+      console.log(filterType, value);
+      setSelectedFilters({
+        ...selectedFilters,
+        [filterType]: selectedFilters[filterType].includes(value)
+          ? selectedFilters[filterType].filter((filter) => filter !== value)
+          : [...selectedFilters[filterType], value],
+      });
+    };
+
+
+      // Fiilter data function
+  const filteredProjects = projectsData.filter((project) => {
+    return (
+      (selectedFilters.brand.length === 0 ||
+        selectedFilters.brand.includes(project.brand)) &&
+      (selectedFilters.size.length === 0 ||
+        selectedFilters.size.includes(project.size)) &&
+      (selectedFilters.category.length === 0 ||
+        selectedFilters.category.includes(project.category)) &&
+      (selectedFilters.subCategory.length === 0 ||
+        selectedFilters.subCategory.includes(project.subCategory))
+    );
+  });
 
   // Handel CHange for image
   const handleImageChange = (event) => {
@@ -172,6 +205,8 @@ export default function ProjectContextApiProvider({ children }) {
     }
   };
 
+
+
   return (
     <ProjectContext.Provider
       value={{
@@ -196,7 +231,10 @@ export default function ProjectContextApiProvider({ children }) {
         handlePreviwImageChange,
         selectedImage,
         handelupdateProjectThumblin,
-        getAllProjectHandel
+        getAllProjectHandel,
+        handleFilterChange,
+        selectedFilters,
+        filteredProjects
       }}
     >
       {children}
