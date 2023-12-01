@@ -145,8 +145,8 @@ export const superAdminOptions = [
 
   {
     id: 4,
-    page: "CREATE PROMOTIONAL PAGE",
-    hrf: "/super-admin",
+    page: "CREATE DEVELOPER PAGE",
+    hrf: "/super-admin/projects/developer",
   },
 
   {
