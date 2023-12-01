@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import styles from './css/createPageui.module.css';
 import { useForm, Controller } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 import {ProjectPageContext} from '../../../contextApi/ProjectPageContextApi'
 
 export default function CreatePageUI(props) {
-  const {handelDeveloperList} = useContext(ProjectPageContext)
+  const {handelDeveloperList , handelCreateDeveloperProject , setsending} = useContext(ProjectPageContext)
     const {pageTitle} = props;
     const {
         register,
@@ -16,17 +17,31 @@ export default function CreatePageUI(props) {
         mode: "all", // Use "onChange" mode for real-time validation as the user types
       });
 
-      const handelcreatepage = async(formdata)=>{
-        console.log(formdata)
-      }
+    
 
       useEffect(()=>{
         handelDeveloperList() 
       }, [])
 
 
+      const handelcreatepage = async(formdata)=>{
+         try {
+          setsending(true)
+          const result = await handelCreateDeveloperProject(formdata)
+          if (result.data.status === "Success") {
+            toast.success(result.data.message);
+            setsending(false);
+          } else if (result.data.status === "error") {
+            toast.error("somting wrong");
+            setsending(false);
+          }
+         } catch (error) {
+          console.log(error)
+         }
+      }
   return (
     <>
+      <Toaster position="top-right" />
     <div className={styles.main_container}>
     <div className={styles.CreatePageUI_TitleBox}>
           {pageTitle}
@@ -44,7 +59,7 @@ export default function CreatePageUI(props) {
           <div className={styles.select_Box}>
             <select className={styles.selectBar} {...register("developer")}>
                 <option>Godrej</option>
-                <option>DLF</option>
+                <option>GLS</option>
                 <option>Signature</option>
             </select>
           </div>

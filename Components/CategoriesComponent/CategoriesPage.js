@@ -6,18 +6,19 @@ import SideEnquireForm from '../../utilsComponents/form/SideEnquireForm';
 import CardOne from '../../utilsComponents/cards/CardOne';
 
 
-export default function CategoriesPage() {
+export default function CategoriesPage(props) {
+  const {projectBy , projects} = props
   return (
     <>
      <div className={styles.main_container}>
         <div className={styles.page_Header}>
         <div className={styles.title_box}>
-            <h1> Godrej Projects  </h1>
+            <h1> {projectBy}  </h1>
            </div>
         </div>
         <div className={styles.Inner_Container}>
            <div className={styles.card_container}>
-              {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((el , i)=>{
+              {projects.map((el , i)=>{
                 return(
 
                     <CardOne key={i}/>
