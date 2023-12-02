@@ -149,31 +149,38 @@ export const superAdminOptions = [
     hrf: "/super-admin/projects/developer",
   },
 
+
   {
     id: 5,
+    page: "CREATE LOCATION PAGE",
+    hrf: "/super-admin/projects/location",
+  },
+
+  {
+    id: 6,
     page: "BLOGS LIST",
     hrf: "/super-admin",
   },
 
   {
-    id: 6,
+    id: 7,
     page: "ADD DEVELOPER",
     hrf: "/super-admin/add-developer",
   },
   {
-    id: 7,
+    id: 8,
     page: "CREATE ADMIN",
     hrf: "/super-admin/create-admin",
   },
 
   {
-    id: 8,
+    id: 9,
     page: "CREATE BLOG",
     hrf: "/super-admin/blog/create-blog",
   },
 
   {
-    id: 9,
+    id: 10,
     page: "ENQUIRES",
     hrf: "/super-admin/enquire",
   },

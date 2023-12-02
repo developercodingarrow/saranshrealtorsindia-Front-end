@@ -61,3 +61,22 @@ export const DeveloperProjectsAction = async (slug) => {
     return error.response;
   }
 };
+
+
+// Create Location Project Action
+export const createLocationPageAction = async (requestData, token) => {
+  try {
+    return await axios.post(
+      "http://127.0.0.1:5000/location-project/create-new-location-project-page",
+      requestData,
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};

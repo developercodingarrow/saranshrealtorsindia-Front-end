@@ -5,15 +5,15 @@ import CreatePageUI from '../../../../Components/admin/Developer-project/CreateP
 import {ProjectPageContext} from '../../../../contextApi/ProjectPageContextApi'
 
 
-const optionList = [ "Godrej", "GLS", "Signature"]
+const optionList = [ "sector 4", "sector 61",]
 
-export default function CreateDeveloperPage() {
-  const {handelDeveloperList , handelCreateDeveloperProject , setsending} = useContext(ProjectPageContext)
+export default function CreateLOcationPage() {
+    const {handelCreateLocationrProject} = useContext(ProjectPageContext)
   return (
     <>
     <SuperAdminPrivate>
         <SuperAdminLayout>
-            <CreatePageUI pageTitle="CREATE NEW DEVELOPER PAGE" submitHandel={handelCreateDeveloperProject} slectType={"developer"} options={optionList} />
+        <CreatePageUI pageTitle="CREATE NEW LOCATION PAGE" submitHandel={handelCreateLocationrProject}  slectType={"ProjectCity"}  options={optionList}/>
         </SuperAdminLayout>
     </SuperAdminPrivate>
     </>

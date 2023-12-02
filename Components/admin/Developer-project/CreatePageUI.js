@@ -6,7 +6,7 @@ import {ProjectPageContext} from '../../../contextApi/ProjectPageContextApi'
 
 export default function CreatePageUI(props) {
   const {handelDeveloperList , handelCreateDeveloperProject , setsending} = useContext(ProjectPageContext)
-    const {pageTitle} = props;
+    const {pageTitle , slectType, options, submitHandel} = props;
     const {
         register,
         handleSubmit,
@@ -17,17 +17,14 @@ export default function CreatePageUI(props) {
         mode: "all", // Use "onChange" mode for real-time validation as the user types
       });
 
-    
-
       useEffect(()=>{
         handelDeveloperList() 
       }, [])
 
-
       const handelcreatepage = async(formdata)=>{
          try {
           setsending(true)
-          const result = await handelCreateDeveloperProject(formdata)
+          const result = await submitHandel(formdata)
           if (result.data.status === "Success") {
             toast.success(result.data.message);
             setsending(false);
@@ -57,10 +54,13 @@ export default function CreatePageUI(props) {
                 })} />
           </div>
           <div className={styles.select_Box}>
-            <select className={styles.selectBar} {...register("developer")}>
-                <option>Godrej</option>
-                <option>GLS</option>
-                <option>Signature</option>
+            <select className={styles.selectBar} {...register(slectType)}>
+              {options.map((option , i)=>{
+                return (
+                  <option key={i}>{option}</option>
+                )
+              })}
+              
             </select>
           </div>
         </div>
