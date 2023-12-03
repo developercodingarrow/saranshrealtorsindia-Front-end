@@ -1,21 +1,26 @@
-import React from 'react'
-import styles from '../css/singleprojectwrapper.module.css';
+import React, { useContext } from "react";
+import styles from "../css/singleprojectwrapper.module.css";
+import { ProjectContext } from "../../../contextApi/ProjectContextApi";
 
 export default function TitleSection() {
-  return (
-    <> 
-    <div className={styles.titleContainer}>
-      <div className={styles.left_part}>
-      <h1>Pareena Laxmi Apartments</h1>
-         <p> RERA: 25 of 2017</p>
-         <p>Sector 99A, Dwarka Expressway, Gurgaon </p>
-      </div>
-         <div className={styles.right_part}>
-          <h3>18 Lac Onwards</h3>
-          <p>600 - 2400 Sq.Ft.</p>
-         </div>
+  const { singleProject } = useContext(ProjectContext);
 
-    </div>
+  return (
+    <>
+      <div className={styles.titleContainer}>
+        <div className={styles.left_part}>
+          <h1>{singleProject.projectName}</h1>
+          <p> RERA: 25 of 2017</p>
+          <p>
+            {" "}
+            {singleProject.ProjectSector}, {singleProject.ProjectCity}{" "}
+          </p>
+        </div>
+        <div className={styles.right_part}>
+          <h3>{singleProject.BasicPrice}</h3>
+          <p>{singleProject.FlatSizeRange}.</p>
+        </div>
+      </div>
     </>
-  )
+  );
 }

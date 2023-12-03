@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
-import styles from './css/projectListComponent.module.css'
-import {AppContext} from '../../contextApi/AppContextApi';
-import Card from '../../utilsComponents/Card';
-import {ProjectContext} from '../../contextApi/ProjectContextApi'
-import SideEnquireForm from '../../utilsComponents/form/SideEnquireForm';
-import CardOne from '../../utilsComponents/cards/CardOne';
-import SideBarFillterComponentns from './SideBarFillterComponentns';
+import React, { useContext, useEffect } from "react";
+import styles from "./css/projectListComponent.module.css";
+import { AppContext } from "../../contextApi/AppContextApi";
+import Card from "../../utilsComponents/Card";
+import { ProjectContext } from "../../contextApi/ProjectContextApi";
+import SideEnquireForm from "../../utilsComponents/form/SideEnquireForm";
+import CardOne from "../../utilsComponents/cards/CardOne";
+import SideBarFillterComponentns from "./SideBarFillterComponentns";
 
 const sampleData = [
   {
@@ -22,18 +22,19 @@ const sampleData = [
   },
 ];
 
-
 export default function ProjectListComponent() {
- const {allProjects , getAllProjectHandel , filteredProjects} = useContext(ProjectContext)
-const { handelToggleFillterDrawer, projectFillerDrawer} = useContext(AppContext);
+  const { allProjects, getAllProjectHandel, filteredProjects } =
+    useContext(ProjectContext);
+  const { handelToggleFillterDrawer, projectFillerDrawer } =
+    useContext(AppContext);
 
-console.log(allProjects)
-useEffect(()=>{
-  getAllProjectHandel();
-}, [])
+  useEffect(() => {
+    getAllProjectHandel();
+  }, []);
 
-  const fillterDrawer  = projectFillerDrawer ? styles.sideBar_container : styles.close_SideBar_container;
-
+  const fillterDrawer = projectFillerDrawer
+    ? styles.sideBar_container
+    : styles.close_SideBar_container;
 
   useEffect(() => {
     const sidebar = document.querySelector(`.${fillterDrawer}`);
@@ -58,39 +59,42 @@ useEffect(()=>{
   }, []);
   return (
     <div className={styles.Page_mainContainer}>
-       <div className={styles.inner_Container}>
+      <div className={styles.inner_Container}>
         <div className={fillterDrawer}>
           <div>
-          {sampleData.map((el, i) => {
-            return (
-              <div key={i}>
-                <SideBarFillterComponentns title={el.title} items={el.items} />
-              </div>
-            );
-          })}
+            {sampleData.map((el, i) => {
+              return (
+                <div key={i}>
+                  <SideBarFillterComponentns
+                    title={el.title}
+                    items={el.items}
+                  />
+                </div>
+              );
+            })}
           </div>
-        
         </div>
         <div className={styles.content_Conatiner}>
-            <div className={styles.content_wrapper}>
-              <div className={styles.fillter_barContainer} onClick={handelToggleFillterDrawer}>Fiilter bar</div>
-              <div className={styles.project_card_wrapper}>
-                {filteredProjects.map((data, i )=>{
-                  return (
-                      <CardOne key={i} />
-                  )
-                })}
-                
-              </div>
+          <div className={styles.content_wrapper}>
+            <div
+              className={styles.fillter_barContainer}
+              onClick={handelToggleFillterDrawer}
+            >
+              Fiilter bar
             </div>
-            <div className={styles.sideForm_Container}>
-              <div className={styles.inner_container}>
+            <div className={styles.project_card_wrapper}>
+              {filteredProjects.map((project, i) => {
+                return <CardOne key={i} data={project} />;
+              })}
+            </div>
+          </div>
+          <div className={styles.sideForm_Container}>
+            <div className={styles.inner_container}>
               <SideEnquireForm />
-              </div>
-            
             </div>
+          </div>
         </div>
-       </div>
+      </div>
     </div>
-  )
+  );
 }

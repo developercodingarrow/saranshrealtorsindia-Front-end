@@ -20,16 +20,15 @@ export const getAllProjectsAction = async () => {
   }
 };
 
-export const getSingleProjectsAction = async (_id, token) => {
+export const getSingleProjectsAction = async (slug) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/projects/get-single-project/${_id}`,
+      `http://127.0.0.1:5000/projects/get-single-project/${slug}`,
 
       {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`,
         },
       }
     );

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getLoginCookies } from "../Actions/authAction";
-import projectsData from '../jsonData/ProjectData'
+import projectsData from "../jsonData/ProjectData";
 
 import {
   getAllProjectsAction,
@@ -23,6 +23,9 @@ export default function ProjectContextApiProvider({ children }) {
     category: [],
     subCategory: [],
   });
+
+  const [allProjectData, setallProjectData] = useState([]);
+  const [singleProject, setsingleProject] = useState("");
   const loginToken = getLoginCookies();
   const [allProjects, setallProjects] = useState([]);
   const [projectThumblin, setprojectThumblin] = useState("");
@@ -37,20 +40,19 @@ export default function ProjectContextApiProvider({ children }) {
   const [imageAltText, setimageAltText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-    // This Function for CheckBox Check-UnCheck
-    const handleFilterChange = (filterType, value) => {
-      console.log(filterType, value);
-      setSelectedFilters({
-        ...selectedFilters,
-        [filterType]: selectedFilters[filterType].includes(value)
-          ? selectedFilters[filterType].filter((filter) => filter !== value)
-          : [...selectedFilters[filterType], value],
-      });
-    };
+  // This Function for CheckBox Check-UnCheck
+  const handleFilterChange = (filterType, value) => {
+    console.log(filterType, value);
+    setSelectedFilters({
+      ...selectedFilters,
+      [filterType]: selectedFilters[filterType].includes(value)
+        ? selectedFilters[filterType].filter((filter) => filter !== value)
+        : [...selectedFilters[filterType], value],
+    });
+  };
 
-
-      // Fiilter data function
-  const filteredProjects = projectsData.filter((project) => {
+  // Fiilter data function
+  const filteredProjects = allProjectData.filter((project) => {
     return (
       (selectedFilters.brand.length === 0 ||
         selectedFilters.brand.includes(project.brand)) &&
@@ -205,8 +207,6 @@ export default function ProjectContextApiProvider({ children }) {
     }
   };
 
-
-
   return (
     <ProjectContext.Provider
       value={{
@@ -234,7 +234,11 @@ export default function ProjectContextApiProvider({ children }) {
         getAllProjectHandel,
         handleFilterChange,
         selectedFilters,
-        filteredProjects
+        filteredProjects,
+        allProjectData,
+        setallProjectData,
+        singleProject,
+        setsingleProject,
       }}
     >
       {children}
