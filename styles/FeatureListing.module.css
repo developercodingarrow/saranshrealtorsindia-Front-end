@@ -1,6 +1,7 @@
 .FeatureListing_mainContainer {
   padding: 100px 10%;
   font-family: sans-serif;
+  background-color: #fff;
 }
 
 .section_text {
@@ -19,7 +20,7 @@
 
 .carousel_container {
   margin-top: 70px;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 15px;
 }
 
 /* Tablete Screen */

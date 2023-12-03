@@ -1,18 +1,19 @@
-import React, { useContext, useState } from 'react';
-import styles from './css/SideBarFillterComponentns.module.css'
-import {ProjectContext} from '../../contextApi/ProjectContextApi'
+import React, { useContext, useState } from "react";
+import styles from "./css/SideBarFillterComponentns.module.css";
+import { ProjectContext } from "../../contextApi/ProjectContextApi";
+
 export default function SideBarFillterComponentns(props) {
-    const { title, items } = props;
-    const [isExpend, setisExpend] = useState(true)
-    const { handleFilterChange, selectedFilters} = useContext(ProjectContext)
-    const handelIsExpend = () => {
+  const { title, items } = props;
+  const [isExpend, setisExpend] = useState(true);
+  const { handleFilterChange, selectedFilters } = useContext(ProjectContext);
+  const handelIsExpend = () => {
     setisExpend(!isExpend);
     console.log(isExpend);
-    };
+  };
   return (
     <>
-    <div className={styles.filed_wraper}>
-    <div className={styles.filed_header} onClick={handelIsExpend} >
+      <div className={styles.filed_wraper}>
+        <div className={styles.filed_header} onClick={handelIsExpend}>
           <p>{title}</p>
           <p>+</p>
         </div>
@@ -37,7 +38,7 @@ export default function SideBarFillterComponentns(props) {
             );
           })}
         </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }

@@ -15,6 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import userimage from "../../public/user-images/user-image.jpg";
 import NavDropDown from "../../utilsComponents/NavDropDown";
+import Search from "../../utilsComponents/search/Search";
 
 const pages = [
   {
@@ -120,6 +121,9 @@ export default function Navbar() {
               </div>
             );
           })}
+        </div>
+        <div className={style.NavBar_serachBox}>
+          <Search />
         </div>
         <div className={style.loginBox} ref={dropdownRef}>
           {loginUser?.email ? (

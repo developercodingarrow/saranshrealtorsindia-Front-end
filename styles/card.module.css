@@ -1,8 +1,10 @@
 .cardBox {
   width: 370px;
-  min-height: 390px;
+  height: 390px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  color: #000;
+  border: 1px solid rgba(128, 128, 128, 0.399);
 }
 
 .card_imageBox {

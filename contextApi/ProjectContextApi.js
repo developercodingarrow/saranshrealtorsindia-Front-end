@@ -55,11 +55,11 @@ export default function ProjectContextApiProvider({ children }) {
   const filteredProjects = allProjectData.filter((project) => {
     return (
       (selectedFilters.brand.length === 0 ||
-        selectedFilters.brand.includes(project.brand)) &&
+        selectedFilters.brand.includes(project.developer)) &&
       (selectedFilters.size.length === 0 ||
         selectedFilters.size.includes(project.size)) &&
       (selectedFilters.category.length === 0 ||
-        selectedFilters.category.includes(project.category)) &&
+        selectedFilters.category.includes(project.ProjectType2)) &&
       (selectedFilters.subCategory.length === 0 ||
         selectedFilters.subCategory.includes(project.subCategory))
     );

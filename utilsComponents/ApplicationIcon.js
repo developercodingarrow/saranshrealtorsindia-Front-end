@@ -14,14 +14,23 @@ import {
 } from "react-icons/bs";
 import { BiLogoLinkedin, BiSolidUser, BiCategoryAlt } from "react-icons/bi";
 import { FiFacebook } from "react-icons/fi";
-import { FaUserAlt, FaExchangeAlt } from "react-icons/fa";
+import {
+  FaUserAlt,
+  FaExchangeAlt,
+  FaBuilding,
+  FaWhatsappSquare,
+} from "react-icons/fa";
 import { FaXTwitter, FaBars } from "react-icons/fa6";
-import { MdProductionQuantityLimits } from "react-icons/md";
+import { MdProductionQuantityLimits, MdTipsAndUpdates } from "react-icons/md";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { HiMagnifyingGlass, HiOutlineBuildingOffice } from "react-icons/hi2";
 import { PiUserCirclePlusThin, PiUserCircleMinusThin } from "react-icons/pi";
 import { LuIndianRupee } from "react-icons/lu";
-import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
+import {
+  IoMdArrowDropright,
+  IoMdArrowDropleft,
+  IoMdHome,
+} from "react-icons/io";
 import { TbLogout } from "react-icons/tb";
 
 import { CiLocationOn } from "react-icons/ci";
@@ -58,6 +67,9 @@ export {
   FaExchangeAlt,
   LiaRupeeSignSolid,
   CiLocationOn,
-
+  IoMdHome,
+  FaBuilding,
+  FaWhatsappSquare,
+  MdTipsAndUpdates,
   // Add more icons as needed
 };

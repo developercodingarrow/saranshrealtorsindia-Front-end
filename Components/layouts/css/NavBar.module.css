@@ -1,6 +1,6 @@
 .navBar_mainContainer {
   width: 100%;
-  background-color: #004274;
+  background-color: hsl(206, 100%, 23%);
   padding: 0px 10%;
   color: #fff;
   display: flex;
@@ -45,6 +45,14 @@
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.NavBar_serachBox {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 0px 25px;
+  box-sizing: border-box;
 }
 
 .loginBox {
@@ -159,6 +167,8 @@
 @media screen and (max-width: 950px) {
   .navBar_mainContainer {
     position: fixed;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
@@ -176,5 +186,9 @@
     font-size: 22px;
     align-items: center;
     cursor: pointer;
+  }
+  .NavBar_serachBox {
+    width: 90%;
+    padding: 0px 2px;
   }
 }

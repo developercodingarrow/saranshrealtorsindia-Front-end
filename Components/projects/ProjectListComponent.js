@@ -10,7 +10,7 @@ import SideBarFillterComponentns from "./SideBarFillterComponentns";
 const sampleData = [
   {
     title: "brand",
-    items: ["Godrej", "GLS", "DLF"],
+    items: ["Signature", "GLS", "Godrej"],
   },
   {
     title: "size",
@@ -41,14 +41,27 @@ export default function ProjectListComponent() {
     const initialTopPosition = 100;
     const scrollOffset = 15; // Adjust this value for the additional scroll before sidebar movement
 
+    // Function to set initial top position on page load
+    const setInitialTopPosition = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const topPosition = Math.max(
+        0,
+        initialTopPosition - scrollY + scrollOffset
+      );
+      sidebar.style.top = `${topPosition}px`;
+    };
+
+    // Set initial top position on page load
+    setInitialTopPosition();
+
+    // Event listener for scroll to adjust top position
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
-
-      if (scrollY > initialTopPosition + scrollOffset) {
-        sidebar.style.top = "0px"; // Change this value to move sidebar up when scrolled down
-      } else {
-        sidebar.style.top = initialTopPosition - scrollY + "px";
-      }
+      const topPosition = Math.max(
+        0,
+        initialTopPosition - scrollY + scrollOffset
+      );
+      sidebar.style.top = `${topPosition}px`;
     };
 
     window.addEventListener("scroll", handleScroll);

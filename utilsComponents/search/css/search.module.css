@@ -1,0 +1,35 @@
+/* styles.module.css */
+
+/* Basic styles for the search container */
+.searchContainer {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #f0f5ff;
+}
+
+/* Style for the search input */
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  padding: 5px;
+  background-color: transparent;
+  color: gray;
+}
+
+/* Style for the search icon */
+.searchIcon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px;
+  fill: #888; /* Adjust color as needed */
+}
+
+/* Hover effect for the search icon */
+.searchIcon:hover {
+  fill: #333; /* Adjust hover color as needed */
+}
