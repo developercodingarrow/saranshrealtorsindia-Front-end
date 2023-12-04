@@ -1,6 +1,7 @@
 .Page_mainContainer {
   background-color: #fff;
   min-height: 800px;
+  color: #000;
 }
 
 .inner_Container {

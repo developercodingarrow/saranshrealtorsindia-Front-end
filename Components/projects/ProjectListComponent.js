@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./css/projectListComponent.module.css";
 import { AppContext } from "../../contextApi/AppContextApi";
 import Card from "../../utilsComponents/Card";
@@ -6,36 +6,37 @@ import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import SideEnquireForm from "../../utilsComponents/form/SideEnquireForm";
 import CardOne from "../../utilsComponents/cards/CardOne";
 import SideBarFillterComponentns from "./SideBarFillterComponentns";
-
-const sampleData = [
-  {
-    title: "brand",
-    items: ["Signature", "GLS", "Godrej"],
-  },
-  {
-    title: "size",
-    items: ["2BHK", "3BHK"],
-  },
-  {
-    title: "category",
-    items: ["Commercial", "Residential"],
-  },
-];
+import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
+import useSideBarFillter from "../../custome-hook/useSideBarFillter";
 
 export default function ProjectListComponent() {
+  const { handelGetAllDeveloper, allDeveloper } = useContext(DeveloperContext);
+  const { generateSampleData } = useSideBarFillter();
+  const sampleData = generateSampleData(allDeveloper);
+
   const { allProjects, getAllProjectHandel, filteredProjects } =
     useContext(ProjectContext);
   const { handelToggleFillterDrawer, projectFillerDrawer } =
     useContext(AppContext);
 
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const initialDisplayCount = 10;
+
   useEffect(() => {
+    handelGetAllDeveloper();
     getAllProjectHandel();
   }, []);
+
+  useEffect(() => {
+    const initialProjects = filteredProjects.slice(0, initialDisplayCount);
+    setDisplayedProjects(initialProjects);
+  }, [filteredProjects]);
 
   const fillterDrawer = projectFillerDrawer
     ? styles.sideBar_container
     : styles.close_SideBar_container;
 
+  // For Sidebar
   useEffect(() => {
     const sidebar = document.querySelector(`.${fillterDrawer}`);
     const initialTopPosition = 100;
@@ -96,7 +97,7 @@ export default function ProjectListComponent() {
               Fiilter bar
             </div>
             <div className={styles.project_card_wrapper}>
-              {filteredProjects.map((project, i) => {
+              {displayedProjects.map((project, i) => {
                 return <CardOne key={i} data={project} />;
               })}
             </div>

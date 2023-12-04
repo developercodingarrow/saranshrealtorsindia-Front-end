@@ -19,8 +19,9 @@ import {
   FaExchangeAlt,
   FaBuilding,
   FaWhatsappSquare,
+  FaRegSave,
 } from "react-icons/fa";
-import { FaXTwitter, FaBars } from "react-icons/fa6";
+import { FaXTwitter, FaBars, FaArrowRightArrowLeft } from "react-icons/fa6";
 import { MdProductionQuantityLimits, MdTipsAndUpdates } from "react-icons/md";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { HiMagnifyingGlass, HiOutlineBuildingOffice } from "react-icons/hi2";
@@ -35,6 +36,7 @@ import { TbLogout } from "react-icons/tb";
 
 import { CiLocationOn } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { IoCloudUpload } from "react-icons/io5";
 
 export {
   AiOutlineInstagram,
@@ -71,5 +73,8 @@ export {
   FaBuilding,
   FaWhatsappSquare,
   MdTipsAndUpdates,
+  FaArrowRightArrowLeft,
+  IoCloudUpload,
+  FaRegSave,
   // Add more icons as needed
 };

@@ -6,12 +6,22 @@ import { ProjectContext } from "../../../contextApi/ProjectContextApi";
 
 export default function ImageContainer() {
   const { singleProject } = useContext(ProjectContext);
-  const coverImage = singleProject.ProjectThumblin[0];
+
+  if (
+    !singleProject ||
+    !singleProject.ProjectThumblin ||
+    singleProject.ProjectThumblin.length === 0
+  ) {
+    // Data is not available yet, you can render a placeholder or loading state here
+    return <div>Loading...</div>;
+  }
+  const coverImage = singleProject.ProjectThumblin[0]?.url;
+
   return (
     <div className={styles.image_container}>
       {coverImage && (
         <Image
-          src={`/project-feature-images/${coverImage.url}`}
+          src={`/project-feature-images/${coverImage}`}
           alt="blog-image"
           width={500}
           height={500}

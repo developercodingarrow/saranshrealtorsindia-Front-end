@@ -12,9 +12,6 @@ export default function CardOne(props) {
   const { data } = props;
 
   const cardImage = data.ProjectThumblin[0];
-
-  console.log(data);
-  console.log(cardImage);
   return (
     <div className={styles.card_container}>
       <div className={styles.image_box}>

@@ -39,6 +39,7 @@ export default function ProjectContextApiProvider({ children }) {
   const [imageUrl, setimageUrl] = useState("");
   const [imageAltText, setimageAltText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [laoding, setlaoding] = useState(false);
 
   // This Function for CheckBox Check-UnCheck
   const handleFilterChange = (filterType, value) => {
@@ -239,6 +240,8 @@ export default function ProjectContextApiProvider({ children }) {
         setallProjectData,
         singleProject,
         setsingleProject,
+        laoding,
+        setlaoding,
       }}
     >
       {children}
