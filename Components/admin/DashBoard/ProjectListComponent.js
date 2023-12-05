@@ -9,8 +9,11 @@ export default function ProjectListComponent() {
 
   return (
     <>
+      <ModelBox
+        actionHandel={handelDeleteSingleProject}
+        ModelMesg="Are you sure to delect this Project if yes then Click on Yes Otherwise No"
+      />
       <div className={styles.ProjectListComponent_mainContainer}>
-        <ModelBox actionHandel={handelDeleteSingleProject} />
         <div className={styles.ProjectListComponent_titleBox}>
           {" "}
           Project List

@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import styles from "./css/ModelBox.module.css";
 import { AppContext } from "../../contextApi/AppContextApi";
 import { getLoginCookies } from "../../Actions/authAction";
+import Buttons from "../buttons/Buttons";
 
 export default function ModelBox(props) {
   const token = getLoginCookies();
   const { modelBox, handelCloseModelBox, itemActionId } =
     useContext(AppContext);
 
-  const { actionHandel } = props;
+  const { actionHandel, ModelMesg } = props;
 
   return (
     <>
@@ -19,25 +20,26 @@ export default function ModelBox(props) {
       >
         <div className={styles.model_innerBox}>
           <div className={styles.Model_ContentBox}>
-            <h4>Are You Sure to delete the Project</h4>
-            <p>
-              You are select to Delete this project {itemActionId} Project if
-              you are sure to Delete project then click on yes otherwise click
-              on no
-            </p>
+            <div className={styles.Model_headingBox}>Confirm</div>
+            <div className={styles.Model_msgBox}>
+              <p>{ModelMesg}</p>
+            </div>
+
             <div className={styles.model_actionBox}>
-              <button
-                className={styles.Action_btnStyle}
-                onClick={handelCloseModelBox}
-              >
-                No
-              </button>
-              <button
-                className={styles.Action_btnStyle}
-                onClick={() => actionHandel(itemActionId, token)}
-              >
-                Yes
-              </button>
+              <Buttons
+                text={"No"}
+                buttonstyle={"smallbtn"}
+                btnColor={"seconderyBtnColor"}
+                btnSze={"smallbtn"}
+                btnAction={handelCloseModelBox}
+              />
+              <Buttons
+                text={"YES"}
+                buttonstyle={"smallbtn"}
+                btnColor={"primaryBtnColor"}
+                btnSze={"smallbtn"}
+                btnAction={() => actionHandel(itemActionId, token)}
+              />
             </div>
           </div>
         </div>

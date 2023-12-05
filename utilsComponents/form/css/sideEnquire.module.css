@@ -1,14 +1,13 @@
 .form_Container {
-  background: #f9f9f9;
-  padding: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background: var(--enquire-form-bg);
+  padding: var(--enquire-form-padding);
+  box-shadow: var(--side-enqurie-container-box-shadow);
 }
 
 .form_heading {
   display: block;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: var(--font-weight300);
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
@@ -35,7 +34,7 @@
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #4caf50;
+  background-color: var(--enqurie-form-btn-bg);
   color: #fff;
   margin: 0 0 5px;
   padding: 5px;

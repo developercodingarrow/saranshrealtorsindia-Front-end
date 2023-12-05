@@ -6,12 +6,21 @@ html {
 
 :root {
   --primary-color: #004274;
+  --top-bar-main-padding: 0% 10%;
   --text-white: #fff;
   --side-bar-bg: #6a7ca2a1;
   --side-bar-heading-bg: #667698;
   --box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   --single-project-containerbox-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  /*enquire side form css Varible */
+  --side-enqurie-container-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --enqurie-form-btn-bg: #4caf50;
+  --enquire-form-bg: #f9f9f9;
+  --enquire-form-padding: 15px;
+  --font-weight300: 300;
+  --footer-background-color: #172337;
 }
 
 body {
@@ -29,14 +38,4 @@ body {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }

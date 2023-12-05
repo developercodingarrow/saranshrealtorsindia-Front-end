@@ -5,15 +5,15 @@ export const AppContext = createContext();
 export default function AppContextApiProvider({ children }) {
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [toggleSideBar, settoggleSideBar] = useState(true);
-  const [modelBox, setmodelBox] = useState(false);
+  const [modelBox, setmodelBox] = useState(true);
   const [itemActionId, setitemActionId] = useState("");
   const [btnLoading, setbtnLoading] = useState(false);
-  const [projectFillerDrawer, setprojectFillerDrawer] = useState(true)
+  const [projectFillerDrawer, setprojectFillerDrawer] = useState(true);
 
   // Toogle Project Fillter Drawer
-  const handelToggleFillterDrawer = ()=>{
-    setprojectFillerDrawer(!projectFillerDrawer)
-  }
+  const handelToggleFillterDrawer = () => {
+    setprojectFillerDrawer(!projectFillerDrawer);
+  };
 
   // super admin side bar toogle
   const handleToggleSidebar = () => {
@@ -61,7 +61,7 @@ export default function AppContextApiProvider({ children }) {
         btnLoading,
         setbtnLoading,
         handelToggleFillterDrawer,
-        projectFillerDrawer
+        projectFillerDrawer,
       }}
     >
       {children}

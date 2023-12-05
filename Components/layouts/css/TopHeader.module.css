@@ -1,6 +1,6 @@
 .container {
   background-color: #fff;
-  padding: 0% 10%;
+  padding: var(--top-bar-main-padding);
   display: flex;
   width: 100%;
   height: 100px;
@@ -42,7 +42,7 @@
   /* border: 1px solid red; */
   padding: 10px 7px;
   font-size: 26px;
-  color: #004274;
+  color: var(--primary-color);
 }
 
 .contactInformation {
@@ -50,7 +50,7 @@
   padding: 8px;
   font-size: 16px;
   font-family: sans-serif;
-  color: #004274;
+  color: var(--primary-color);
 }
 
 .mobileNumber {
@@ -64,7 +64,7 @@
   font-size: 22px;
   width: 30%;
   justify-content: space-between;
-  color: #004274;
+  color: var(--primary-color);
   font-weight: 200;
 }
 

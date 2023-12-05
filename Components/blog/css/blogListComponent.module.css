@@ -1,13 +1,12 @@
 .main_container {
   width: 100%;
-  min-height: 700px;
-  border: 1px solid gray;
+  min-height: 800px;
 }
 
 .Blog_mainContainer {
   width: 100%;
   display: flex;
-  padding: 50px 7%;
+  padding: 50px 3%;
   justify-content: space-between;
 }
 
@@ -22,7 +21,6 @@
 
 .formSide_container {
   width: 20%;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .form_section {

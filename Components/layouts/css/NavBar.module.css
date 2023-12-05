@@ -1,7 +1,7 @@
 .navBar_mainContainer {
   width: 100%;
-  background-color: hsl(206, 100%, 23%);
-  padding: 0px 10%;
+  background-color: var(--primary-color);
+  padding: var(--top-bar-main-padding);
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,6 @@
   position: sticky;
   z-index: 100;
   top: 0px;
-  /* margin-top: 100px; */
 }
 
 .sticky {
@@ -17,7 +16,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  /* Additional styles for the sticky navbar */
 }
 
 .hangBurg_IconBox {
@@ -32,7 +30,6 @@
 }
 
 .pageTab {
-  border: 1px solid #31a0d717;
   font-size: 14px;
   padding: 5px 10px;
   font-family: sans-serif;

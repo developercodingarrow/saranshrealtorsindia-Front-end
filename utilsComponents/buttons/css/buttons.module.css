@@ -1,0 +1,60 @@
+.largebtn {
+  border: none;
+  background: #1a79ff;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: var(--bs-font-family);
+}
+
+.smallbtn {
+  border: none;
+  background: #1a79ff;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--bs-font-family);
+}
+
+/* styles/Button.module.css */
+/* components/Button.module.css */
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.primaryBtnColor {
+  background-color: #3b82f6;
+}
+
+.seconderyBtnColor {
+  background-color: #f6793b;
+}
+
+.smallbtn {
+  font-size: 14px;
+  padding: 7px 18px;
+}
+
+.button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.button:focus {
+  outline: none;
+}
