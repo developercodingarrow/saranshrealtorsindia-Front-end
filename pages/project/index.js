@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
 import Layout from "../../Components/layouts/Layout";
 import ProjectListComponent from "../../Components/projects/ProjectListComponent";
-import { getAllProjectsAction } from "../../Actions/ProjectAction";
+import {
+  getAllProjectsAction,
+  searchProjectsAction,
+} from "../../Actions/ProjectAction";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
+import queryString from "query-string";
 export default function ProjectPage({ initialProject }) {
-  const { allProjectData, setallProjectData } = useContext(ProjectContext);
+  const { allProjectData, setallProjectData, setisFectProject } =
+    useContext(ProjectContext);
 
   setallProjectData(initialProject);
 
@@ -18,19 +23,28 @@ export default function ProjectPage({ initialProject }) {
 }
 
 // GET STATIC PROPS TO GET ALL PROJECTS
-export async function getServerSideProps() {
-  console.log("run");
+export async function getServerSideProps(context) {
   try {
+    // Extract the search query from the URL query parameters
+    const qs = queryString.stringify(context.query);
+
+    // If there's a search query, perform the search action
+    if (qs) {
+      const result = await searchProjectsAction(qs);
+      return {
+        props: {
+          initialProject: result.data.result,
+        },
+      };
+    }
+
     const result = await getAllProjectsAction();
-    console.log(result);
     return {
       props: {
         initialProject: result.data.result,
       },
     };
   } catch (error) {
-    console.log(error);
-
     return {
       props: {
         initialProject: {},

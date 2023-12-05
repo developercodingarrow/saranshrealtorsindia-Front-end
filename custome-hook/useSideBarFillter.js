@@ -3,7 +3,7 @@ import React from "react";
 export default function useSideBarFillter() {
   // Function to generate sampleData based on allDeveloper
   const generateSampleData = (developers) => {
-    const sideBarfiiter = developers.map((brand) => brand.DeveloperName);
+    const sideBarfiiter = developers?.map((brand) => brand.DeveloperName);
 
     return [
       {

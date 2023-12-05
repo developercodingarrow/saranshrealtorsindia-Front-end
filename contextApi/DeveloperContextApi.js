@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { getLoginCookies } from "../Actions/authAction";
 import {
   getAllDeveloperAction,
@@ -10,6 +10,10 @@ export const DeveloperContext = createContext();
 export default function DeveloperContextApiProvide({ children }) {
   const loginToken = getLoginCookies();
   const [allDeveloper, setallDeveloper] = useState([]);
+
+  useEffect(() => {
+    handelGetAllDeveloper();
+  }, []);
 
   const handelGetAllDeveloper = async () => {
     try {

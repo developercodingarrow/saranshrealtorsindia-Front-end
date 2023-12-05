@@ -17,6 +17,7 @@ import {
 export const ProjectContext = createContext();
 
 export default function ProjectContextApiProvider({ children }) {
+  const [isFectProject, setisFectProject] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
     brand: [],
     size: [],
@@ -43,7 +44,6 @@ export default function ProjectContextApiProvider({ children }) {
 
   // This Function for CheckBox Check-UnCheck
   const handleFilterChange = (filterType, value) => {
-    console.log(filterType, value);
     setSelectedFilters({
       ...selectedFilters,
       [filterType]: selectedFilters[filterType].includes(value)
@@ -53,7 +53,7 @@ export default function ProjectContextApiProvider({ children }) {
   };
 
   // Fiilter data function
-  const filteredProjects = allProjectData.filter((project) => {
+  const filteredProjects = allProjectData?.filter((project) => {
     return (
       (selectedFilters.brand.length === 0 ||
         selectedFilters.brand.includes(project.developer)) &&
@@ -87,7 +87,6 @@ export default function ProjectContextApiProvider({ children }) {
 
   // Create Project
   const createProject = async (inputdata, token) => {
-    console.log(inputdata);
     try {
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
@@ -110,7 +109,6 @@ export default function ProjectContextApiProvider({ children }) {
   };
 
   const handelupdateProjectThumblin = async (imageId) => {
-    console.log(imageId);
     try {
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
@@ -120,7 +118,6 @@ export default function ProjectContextApiProvider({ children }) {
         imageId
       );
 
-      console.log(result);
       return result;
     } catch (error) {
       console.log(error);
@@ -242,6 +239,8 @@ export default function ProjectContextApiProvider({ children }) {
         setsingleProject,
         laoding,
         setlaoding,
+        isFectProject,
+        setisFectProject,
       }}
     >
       {children}

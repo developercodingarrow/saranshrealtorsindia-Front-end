@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "./css/search.module.css";
+
 export default function Search() {
+  const [searchvalue, setsearchvalue] = useState("");
+  const router = useRouter();
+  const handelSearchValue = (e) => {
+    const value = e.target.value;
+    setsearchvalue(value);
+    console.log(value);
+  };
+
+  const handelredirect = () => {
+    router.push(`project?search=${searchvalue}`);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handelredirect();
+    }
+  };
+
   return (
     <>
       <div className={styles.searchContainer}>
@@ -8,8 +28,10 @@ export default function Search() {
           type="text"
           className={styles.searchInput}
           placeholder="Search..."
+          onChange={handelSearchValue}
+          onKeyPress={handleKeyPress}
         />
-        <div className={styles.searchIcon}>
+        <div className={styles.searchIcon} onClick={handelredirect}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -22,7 +22,7 @@ export default function SideBarFillterComponentns(props) {
             isExpend ? styles.filed_ListWraper : styles.filed_ListWraperClose
           }`}
         >
-          {items.map((el, i) => {
+          {items?.map((el, i) => {
             return (
               <div className={styles.filed_list} key={i}>
                 <div>

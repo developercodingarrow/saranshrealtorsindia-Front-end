@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import styles from "./css/projectListComponent.module.css";
 import { AppContext } from "../../contextApi/AppContextApi";
 import Card from "../../utilsComponents/Card";
@@ -8,13 +14,15 @@ import CardOne from "../../utilsComponents/cards/CardOne";
 import SideBarFillterComponentns from "./SideBarFillterComponentns";
 import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
 import useSideBarFillter from "../../custome-hook/useSideBarFillter";
+import PageLoading from "../../utilsComponents/loading/PageLoading";
 
 export default function ProjectListComponent() {
+  const sidebarRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { handelGetAllDeveloper, allDeveloper } = useContext(DeveloperContext);
   const { generateSampleData } = useSideBarFillter();
-  const sampleData = generateSampleData(allDeveloper);
 
-  const { allProjects, getAllProjectHandel, filteredProjects } =
+  const { allProjects, getAllProjectHandel, filteredProjects, isFectProject } =
     useContext(ProjectContext);
   const { handelToggleFillterDrawer, projectFillerDrawer } =
     useContext(AppContext);
@@ -31,6 +39,10 @@ export default function ProjectListComponent() {
     const initialProjects = filteredProjects.slice(0, initialDisplayCount);
     setDisplayedProjects(initialProjects);
   }, [filteredProjects]);
+
+  const sampleData = generateSampleData(allDeveloper);
+
+  console.log(filteredProjects);
 
   const fillterDrawer = projectFillerDrawer
     ? styles.sideBar_container
@@ -71,6 +83,7 @@ export default function ProjectListComponent() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <div className={styles.Page_mainContainer}>
       <div className={styles.inner_Container}>
