@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useForm, Controller } from "react-hook-form";
 import AdminContdentUI from "./AdminContdentUI";
 import styles from "./css/addcity.module.css";
 import DynamicTable from "../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../utilsComponents/model/ModelBox";
 import { AppContext } from "../../../contextApi/AppContextApi";
-const sampleData = [{ cityName: "Gurgaon" }, { cityName: "Noida" }];
+import { CityContext } from "../../../contextApi/CityContextApi";
 
 export default function AddCity() {
   const {
@@ -16,6 +17,9 @@ export default function AddCity() {
     modelBox,
   } = useContext(AppContext);
 
+  const { allCties, handelAddCity, loadingcity, setloadingcity } =
+    useContext(CityContext);
+
   const {
     register,
     handleSubmit,
@@ -25,6 +29,23 @@ export default function AddCity() {
   } = useForm({
     mode: "all", // Use "onChange" mode for real-time validation as the user types
   });
+
+  const handelNewCity = async (formdata) => {
+    try {
+      setloadingcity(true);
+      const result = await handelAddCity(formdata);
+
+      if (result.data.status === "Success") {
+        setloadingcity(false);
+        toast.success(result.data.message);
+      } else if (result.data.status === "error") {
+        setloadingcity(false);
+        toast.error("somting wrong");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // Configuration object for table columns role
   const tableColumns = [
@@ -45,10 +66,11 @@ export default function AddCity() {
           actionHandel={handelbtnAction}
           ModelMesg="Are you sure to delect this Project if yes then Click on Yes Otherwise No"
         />
+        <Toaster position="top-right" />
         <AdminContdentUI pageTitle={"ADD NEW CITY"}>
           <div className={styles.form_container}>
             <div className={styles.form_container}>
-              <form>
+              <form onSubmit={handleSubmit(handelNewCity)}>
                 <div className={styles.form_inner_Container}>
                   <div className={styles.form_inputox}>
                     <input
@@ -72,7 +94,7 @@ export default function AddCity() {
           </div>
           <div className={styles.table_container}>
             <DynamicTable
-              tableData={sampleData}
+              tableData={allCties}
               tableColumns={tableColumns}
               handelbtnAction={handelOpenModelBox}
             />
