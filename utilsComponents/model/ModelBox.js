@@ -22,7 +22,9 @@ export default function ModelBox(props) {
           <div className={styles.Model_ContentBox}>
             <div className={styles.Model_headingBox}>Confirm</div>
             <div className={styles.Model_msgBox}>
-              <p>{ModelMesg}</p>
+              <p>
+                {ModelMesg} {itemActionId}
+              </p>
             </div>
 
             <div className={styles.model_actionBox}>
@@ -38,7 +40,7 @@ export default function ModelBox(props) {
                 buttonstyle={"smallbtn"}
                 btnColor={"primaryBtnColor"}
                 btnSze={"smallbtn"}
-                btnAction={() => actionHandel(itemActionId, token)}
+                btnAction={() => actionHandel(itemActionId)}
               />
             </div>
           </div>

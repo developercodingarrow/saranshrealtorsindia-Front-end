@@ -4,6 +4,7 @@ import {
   getAllAdmins,
   createNewAdmin,
   UpdateAdminStatusAction,
+  DeleteAdminAction,
 } from "../Actions/adminAction";
 export const AdminContext = createContext();
 
@@ -40,6 +41,17 @@ export default function AdminContextApiProvider({ children }) {
     }
   };
 
+  const handelDeleteAdmin = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+      const response = await DeleteAdminAction(requestData, loginToken);
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AdminContext.Provider
       value={{
@@ -47,6 +59,7 @@ export default function AdminContextApiProvider({ children }) {
         handelgetAllAdmins,
         handelCreateNewAdmin,
         handelUpdateAdminStatus,
+        handelDeleteAdmin,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ export const AppContext = createContext();
 export default function AppContextApiProvider({ children }) {
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [toggleSideBar, settoggleSideBar] = useState(true);
-  const [modelBox, setmodelBox] = useState(true);
+  const [modelBox, setmodelBox] = useState(false);
   const [itemActionId, setitemActionId] = useState("");
   const [btnLoading, setbtnLoading] = useState(false);
   const [projectFillerDrawer, setprojectFillerDrawer] = useState(true);
@@ -62,6 +62,7 @@ export default function AppContextApiProvider({ children }) {
         setbtnLoading,
         handelToggleFillterDrawer,
         projectFillerDrawer,
+        setmodelBox,
       }}
     >
       {children}

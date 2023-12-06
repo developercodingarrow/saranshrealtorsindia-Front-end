@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "./css/singleProject.module.css";
 import SingleProjectWrapper from "./singleProjectSection/SingleProjectWrapper";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
+import SideEnquireForm from "../../utilsComponents/form/SideEnquireForm";
 
 export default function SingleProject() {
   const { singleProject } = useContext(ProjectContext);
@@ -16,7 +17,11 @@ export default function SingleProject() {
           <div className={styles.content_part}>
             <SingleProjectWrapper />
           </div>
-          <div className={styles.form_part}>For part</div>
+          <div className={styles.formSide_container}>
+            <div className={styles.form_section}>
+              <SideEnquireForm />
+            </div>
+          </div>
         </div>
       </div>
     </>

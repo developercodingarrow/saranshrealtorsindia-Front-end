@@ -55,7 +55,6 @@ export default function DynamicTable(props) {
 
 // Helper function to render cell content based on component type
 const renderCellContent = (indexNo, data, id, componentType, handler) => {
-  console.log(data);
   switch (componentType) {
     case "number":
       return indexNo + 1;

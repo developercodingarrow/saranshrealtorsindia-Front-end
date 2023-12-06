@@ -27,10 +27,6 @@
   border-radius: 5px;
 }
 
-.tableTr {
-  border: 1px solid blue;
-}
-
 .table_body {
   border: 1px solid black;
 }
@@ -38,7 +34,7 @@
 /* Adjust padding for both th and td */
 .table th,
 .table td {
-  padding: 8px;
+  padding: 5px;
   border: 1px solid rgba(128, 128, 128, 0.623);
   text-align: center;
 }

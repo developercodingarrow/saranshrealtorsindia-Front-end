@@ -62,3 +62,22 @@ export const UpdateAdminStatusAction = async (requestData, token) => {
     return error.response;
   }
 };
+
+export const DeleteAdminAction = async (requestData, token) => {
+  console.log(requestData);
+  try {
+    const response = await axios({
+      method: "delete",
+      url: "http://127.0.0.1:5000/user/delete-admin",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      data: requestData, // Pass the data payload here
+    });
+    console.log(response);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
