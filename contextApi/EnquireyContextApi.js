@@ -1,6 +1,10 @@
 import React, { createContext, useState, useContext } from "react";
 export const EnqureContext = createContext();
-import { newEnquireAction, getAllEnquires } from "../Actions/enquireAction";
+import {
+  newEnquireAction,
+  getAllEnquires,
+  DeleteEnquireAction,
+} from "../Actions/enquireAction";
 import { getLoginCookies } from "../Actions/authAction";
 
 export default function EnquireyContextApiProvider({ children }) {
@@ -25,6 +29,17 @@ export default function EnquireyContextApiProvider({ children }) {
       console.log(error);
     }
   };
+
+  const handelDeleteEnqure = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+      const response = await DeleteEnquireAction(requestData, loginToken);
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <EnqureContext.Provider
       value={{
@@ -34,6 +49,7 @@ export default function EnquireyContextApiProvider({ children }) {
         handelgetEnquires,
         allEnquires,
         setallEnquires,
+        handelDeleteEnqure,
       }}
     >
       {children}
