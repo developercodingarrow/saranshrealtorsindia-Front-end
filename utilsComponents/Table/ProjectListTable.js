@@ -36,7 +36,7 @@ export default function ProjectListTable() {
 
   useEffect(() => {
     getAllProjectHandel();
-  }, []);
+  }, [modelBox]);
 
   // Radio Button Select handel Chnage
   const handleOptionChange = (value) => {

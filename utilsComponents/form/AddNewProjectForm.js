@@ -8,8 +8,12 @@ import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import toast, { Toaster } from "react-hot-toast";
 import { AppContext } from "../../contextApi/AppContextApi";
 import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
+import { CityContext } from "../../contextApi/CityContextApi";
+import { LocationContext } from "../../contextApi/LocationContextApi";
 
 export default function AddNewProjectForm() {
+  const { allCties } = useContext(CityContext);
+  const { allLocation } = useContext(LocationContext);
   const fileInputRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState("No file chosen..");
   const token = getLoginCookies();
@@ -169,6 +173,37 @@ export default function AddNewProjectForm() {
                     return (
                       <option key={el._id} value={el.DeveloperName}>
                         {el.DeveloperName}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+
+            <div className={style.city_locationBox}>
+              <div className={style.select_box}>
+                <label className={style.select_lable}>SELECT CITY</label>
+                <select className={style.selectBar} {...register("cityName")}>
+                  {allCties.map((el, i) => {
+                    return (
+                      <option key={el._id} value={el.cityName}>
+                        {el.cityName}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+
+              <div className={style.select_box}>
+                <label className={style.select_lable}>SELECT LOCATION</label>
+                <select
+                  className={style.selectBar}
+                  {...register("locationName")}
+                >
+                  {allLocation.map((el, i) => {
+                    return (
+                      <option key={el._id} value={el.locationName}>
+                        {el.locationName}
                       </option>
                     );
                   })}

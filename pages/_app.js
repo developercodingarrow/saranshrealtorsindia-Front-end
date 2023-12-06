@@ -8,6 +8,7 @@ import BlogContextApiProvide from "../contextApi/BlogContextApi";
 import EnquireyContextApiProvider from "../contextApi/EnquireyContextApi";
 import ProjectPageContextApiProvider from "../contextApi/ProjectPageContextApi";
 import CityContextApiProvider from "../contextApi/CityContextApi";
+import LocationContextApiProvider from "../contextApi/LocationContextApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }) {
                 <EnquireyContextApiProvider>
                   <ProjectPageContextApiProvider>
                     <CityContextApiProvider>
-                      <Component {...pageProps} />
+                      <LocationContextApiProvider>
+                        <Component {...pageProps} />
+                      </LocationContextApiProvider>
                     </CityContextApiProvider>
                   </ProjectPageContextApiProvider>
                 </EnquireyContextApiProvider>

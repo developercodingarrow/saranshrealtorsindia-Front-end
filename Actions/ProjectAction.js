@@ -136,6 +136,7 @@ export const UpdateProjectStatusTypeAction = async (requestData, token) => {
 // DELETE SINGLE Project Action
 export const DeleteSingleProjectAction = async (requestData, token) => {
   try {
+    console.log(requestData);
     const response = await axios({
       method: "delete",
       url: "http://127.0.0.1:5000/projects/delete-single-project",

@@ -1,15 +1,16 @@
 import axios from "axios";
 
 // DELETE SINGLE Project Action
-export const getAllCityAction = async () => {
+export const getAllLocationAction = async () => {
   try {
     const response = await axios({
       method: "GET",
-      url: "http://127.0.0.1:5000/city",
+      url: "http://127.0.0.1:5000/location",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
     });
+
     return response;
   } catch (error) {
     return error.response;
@@ -17,18 +18,17 @@ export const getAllCityAction = async () => {
 };
 
 // DELETE SINGLE Project Action
-export const AddNewCityAction = async (requestData, token) => {
+export const AddNewLocationAction = async (requestData, token) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://127.0.0.1:5000/city/add-new-city",
+      url: "http://127.0.0.1:5000/location/add-new-location",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: `Bearer ${token}`,
       },
       data: requestData, // Pass the data payload here
     });
-
     return response;
   } catch (error) {
     return error.response;
@@ -36,17 +36,18 @@ export const AddNewCityAction = async (requestData, token) => {
 };
 
 // DELETE SINGLE Project Action
-export const DeleteCityerAction = async (requestData, token) => {
+export const DeleteLocationAction = async (requestData, token) => {
   try {
     const response = await axios({
       method: "delete",
-      url: "http://127.0.0.1:5000/city/delete-city",
+      url: "http://127.0.0.1:5000/location/delete-location",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: `Bearer ${token}`,
       },
       data: requestData, // Pass the data payload here
     });
+
     return response;
   } catch (error) {
     return error.response;

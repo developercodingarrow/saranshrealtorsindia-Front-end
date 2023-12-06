@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getLoginCookies } from "../Actions/authAction";
 import projectsData from "../jsonData/ProjectData";
@@ -41,6 +41,10 @@ export default function ProjectContextApiProvider({ children }) {
   const [imageAltText, setimageAltText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [laoding, setlaoding] = useState(false);
+
+  useEffect(() => {
+    getAllProjectHandel();
+  }, []);
 
   // This Function for CheckBox Check-UnCheck
   const handleFilterChange = (filterType, value) => {
@@ -165,13 +169,14 @@ export default function ProjectContextApiProvider({ children }) {
     }
   };
 
-  const handelDeleteSingleProject = async (dataId, token) => {
-    const requestData = { _id: dataId };
+  const handelDeleteSingleProject = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
 
-    const response = await DeleteSingleProjectAction(requestData, token);
-
-    if (response.data.status === "Success") {
-      toast.success(response.data.message);
+      const response = await DeleteSingleProjectAction(requestData, loginToken);
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   };
 

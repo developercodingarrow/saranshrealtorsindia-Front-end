@@ -6,9 +6,9 @@ import styles from "./css/addcity.module.css";
 import DynamicTable from "../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../utilsComponents/model/ModelBox";
 import { AppContext } from "../../../contextApi/AppContextApi";
-import { CityContext } from "../../../contextApi/CityContextApi";
+import { LocationContext } from "../../../contextApi/LocationContextApi";
 
-export default function AddCity() {
+export default function AddLocation() {
   const {
     btnLoading,
     setbtnLoading,
@@ -18,12 +18,14 @@ export default function AddCity() {
   } = useContext(AppContext);
 
   const {
-    allCties,
-    handelAddCity,
-    loadingcity,
-    setloadingcity,
-    handelDelectCity,
-  } = useContext(CityContext);
+    allLocation,
+    setallLocation,
+    handelGetAllLocation,
+    handelAddLocation,
+    loadingLocation,
+    setloadingLocation,
+    handelDelectLocation,
+  } = useContext(LocationContext);
 
   const {
     register,
@@ -35,16 +37,16 @@ export default function AddCity() {
     mode: "all", // Use "onChange" mode for real-time validation as the user types
   });
 
-  const handelNewCity = async (formdata) => {
+  const handelNewLocation = async (formdata) => {
     try {
-      setloadingcity(true);
-      const result = await handelAddCity(formdata);
+      setloadingLocation(true);
+      const result = await handelAddLocation(formdata);
 
       if (result.data.status === "Success") {
-        setloadingcity(false);
+        setloadingLocation(false);
         toast.success(result.data.message);
       } else if (result.data.status === "error") {
-        setloadingcity(false);
+        setloadingLocation(false);
         toast.error("somting wrong");
       }
     } catch (error) {
@@ -55,7 +57,7 @@ export default function AddCity() {
   // Configuration object for table columns role
   const tableColumns = [
     { label: "S No", key: "name", component: "number" },
-    { label: "Name", key: "cityName", component: "text" },
+    { label: "Name", key: "locationName", component: "text" },
     { label: "DELETE", key: "id", component: "delete" },
     // Add more columns as needed
     // ... repeat additional columns
@@ -63,16 +65,16 @@ export default function AddCity() {
 
   const handelbtnAction = async (id) => {
     try {
-      setloadingcity(true);
-      const result = await handelDelectCity(id);
+      setloadingLocation(true);
+      const result = await handelDelectLocation(id);
       if (result.data.status === "Success") {
         toast.success(result.data.message);
         setmodelBox(false);
-        setloadingcity(false);
+        setloadingLocation(false);
       } else if (result.data.status === "Error") {
         toast.error(result.data.message);
         setmodelBox(false);
-        setloadingcity(false);
+        setloadingLocation(false);
       }
     } catch (error) {
       console.log(error);
@@ -89,14 +91,14 @@ export default function AddCity() {
         <AdminContdentUI pageTitle={"ADD NEW CITY"}>
           <div className={styles.form_container}>
             <div className={styles.form_container}>
-              <form onSubmit={handleSubmit(handelNewCity)}>
+              <form onSubmit={handleSubmit(handelNewLocation)}>
                 <div className={styles.form_inner_Container}>
                   <div className={styles.form_inputox}>
                     <input
                       className={styles.inputStyle}
-                      placeholder="Enter city Name "
-                      name="cityName"
-                      {...register("cityName", {
+                      placeholder="Enter Location Name "
+                      name="locationName"
+                      {...register("locationName", {
                         required: true,
                       })}
                     />
@@ -104,7 +106,7 @@ export default function AddCity() {
 
                   <div>
                     <button type="submit" className={styles.btn}>
-                      {false ? "Loading.." : "ADD CITY"}
+                      {false ? "Loading.." : "ADD LOcation"}
                     </button>
                   </div>
                 </div>
@@ -113,7 +115,7 @@ export default function AddCity() {
           </div>
           <div className={styles.table_container}>
             <DynamicTable
-              tableData={allCties}
+              tableData={allLocation}
               tableColumns={tableColumns}
               handelbtnAction={handelOpenModelBox}
             />

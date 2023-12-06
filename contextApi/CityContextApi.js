@@ -1,7 +1,11 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { getLoginCookies } from "../Actions/authAction";
 export const CityContext = createContext();
-import { getAllCityAction, AddNewCityAction } from "../Actions/cityAction";
+import {
+  getAllCityAction,
+  AddNewCityAction,
+  DeleteCityerAction,
+} from "../Actions/cityAction";
 
 export default function CityContextApiProvider({ children }) {
   const loginToken = getLoginCookies();
@@ -31,6 +35,16 @@ export default function CityContextApiProvider({ children }) {
     }
   };
 
+  const handelDelectCity = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+      const response = await DeleteCityerAction(requestData, loginToken);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <CityContext.Provider
       value={{
@@ -40,6 +54,7 @@ export default function CityContextApiProvider({ children }) {
         handelAddCity,
         loadingcity,
         setloadingcity,
+        handelDelectCity,
       }}
     >
       {children}

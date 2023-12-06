@@ -188,4 +188,9 @@ export const superAdminOptions = [
     page: "CREATE CITY",
     hrf: "/super-admin/add-city",
   },
+  {
+    id: 12,
+    page: "CREATE LOCATION",
+    hrf: "/super-admin/add-location",
+  },
 ];
