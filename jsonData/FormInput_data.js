@@ -27,28 +27,7 @@ export const loginInputs = [
 
 export const createProjectFiled = [
   {
-    id: 2,
-    name: "ProjectCity",
-    type: "text",
-    placeholder: "Project City",
-    lable: "City",
-    validation: {
-      required: "Project city is required.",
-    },
-  },
-  {
-    id: 3,
-    name: "ProjectSector",
-    type: "text",
-    placeholder: "Project Sector",
-    lable: "Project Sector",
-    validation: {
-      required: "Project sector is required.",
-    },
-  },
-
-  {
-    id: 4,
+    id: 1,
     name: "Budget",
     type: "text",
     placeholder: "Budget",
@@ -59,10 +38,10 @@ export const createProjectFiled = [
   },
 
   {
-    id: 6,
+    id: 2,
     name: "BasicPrice",
     type: "text",
-    placeholder: "Basic Price",
+    placeholder: "Ex. 125/Sq.Ft or 150/sq. yards ",
     lable: "Basic Price",
     validation: {
       required: "Basic Price is required.",
@@ -70,7 +49,7 @@ export const createProjectFiled = [
   },
 
   {
-    id: 7,
+    id: 3,
     name: "NoofFloors",
     type: "text",
     placeholder: "NoofFloors",
@@ -81,7 +60,7 @@ export const createProjectFiled = [
   },
 
   {
-    id: 8,
+    id: 4,
     name: "NoofUnits",
     type: "text",
     placeholder: "No of Units",
@@ -91,21 +70,21 @@ export const createProjectFiled = [
     },
   },
   {
-    id: 9,
-    name: "Unit Type",
+    id: 5,
+    name: "UnitType",
     type: "text",
-    placeholder: "2bhk , 3bhk",
-    lable: "No of Units",
+    placeholder: "EX. 2bhk , 3bhk",
+    lable: "Unit Type *",
     validation: {
       required: "Unit Type is required.",
     },
   },
 
   {
-    id: 10,
+    id: 6,
     name: "FlatSizeRange",
     type: "text",
-    placeholder: "Flat Size Range",
+    placeholder: "Ex. 450-750 SqFt",
     lable: "Flat Size Range",
     validation: {
       required: "Flat Size Range is required.",
@@ -113,11 +92,29 @@ export const createProjectFiled = [
   },
 
   {
-    id: 11,
+    id: 7,
+    name: "RERANo",
+    type: "text",
+    placeholder: "RERA No",
+    lable: "RERA No",
+  },
+  {
+    id: 8,
     name: "Possession",
     type: "text",
     placeholder: "Possession",
     lable: "Possession",
+    validation: {
+      required: "Possession is required.",
+    },
+  },
+
+  {
+    id: 8,
+    name: "address",
+    type: "text",
+    placeholder: "Address",
+    lable: "Project Complete Address *",
     validation: {
       required: "Possession is required.",
     },

@@ -18,7 +18,7 @@ export default function AboutProject() {
           <div className={styles.table_row}>
             <div className={styles.table_left}>Project Location</div>
             <div className={styles.table_right}>
-              {singleProject.ProjectSector}
+              {singleProject.locationName}
             </div>
           </div>
           <div className={styles.table_row}>
@@ -27,7 +27,7 @@ export default function AboutProject() {
           </div>
           <div className={styles.table_row}>
             <div className={styles.table_left}>RERA NO</div>
-            <div className={styles.table_right}>Rera no filed add</div>
+            <div className={styles.table_right}>{singleProject.RERANo}</div>
           </div>
           <div className={styles.table_row}>
             <div className={styles.table_left}>Project Area</div>

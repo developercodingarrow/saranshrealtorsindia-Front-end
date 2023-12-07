@@ -97,12 +97,15 @@ export default function ProjectContextApiProvider({ children }) {
       formData.append("projectName", inputdata.projectName);
       formData.append("ProjectType2", inputdata.ProjectType2);
       formData.append("developer", inputdata.developer);
-      formData.append("ProjectCity", inputdata.ProjectCity);
-      formData.append("ProjectSector", inputdata.ProjectSector);
+      formData.append("cityName", inputdata.cityName);
+      formData.append("locationName", inputdata.locationName);
       formData.append("Budget", inputdata.Budget);
       formData.append("BasicPrice", inputdata.BasicPrice);
       formData.append("NoofFloors", inputdata.NoofFloors);
-      formData.append("NoofUnits", inputdata.NoofUnits);
+      formData.append("UnitType", inputdata.UnitType);
+      formData.append("FlatSizeRange", inputdata.FlatSizeRange);
+      formData.append("RERANo", inputdata.RERANo);
+      formData.append("address", inputdata.address);
 
       const result = await createProjectAction(formData, token);
 
@@ -145,27 +148,35 @@ export default function ProjectContextApiProvider({ children }) {
 
   // handel Toggel Feature Project Status
   const handelToggleProjectFeature = async (requestData, token) => {
-    const response = await UpdateProjectFeatureAction(requestData, token);
+    try {
+      const response = await UpdateProjectFeatureAction(requestData, token);
 
-    if (response.data.status === "Success") {
-      toast.success(response.data.message);
+      if (response.data.status === "Success") {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const handelProjectStatusTyple = async (requestData, token) => {
-    const response = await UpdateProjectStatusTypeAction(requestData, token);
+    try {
+      const response = await UpdateProjectStatusTypeAction(requestData, token);
 
-    if (response.data.status === "Success") {
-      toast.success(response.data.message);
-      setprojects((prevProjects) => {
-        return prevProjects.map((project) => {
-          if (project._id === requestData._id) {
-            // Update only the specific project's ProjectStatus
-            return { ...project, ProjectStatus: requestData.optionValue };
-          }
-          return project;
+      if (response.data.status === "Success") {
+        toast.success(response.data.message);
+        setprojects((prevProjects) => {
+          return prevProjects.map((project) => {
+            if (project._id === requestData._id) {
+              // Update only the specific project's ProjectStatus
+              return { ...project, ProjectStatus: requestData.optionValue };
+            }
+            return project;
+          });
         });
-      });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -193,11 +204,18 @@ export default function ProjectContextApiProvider({ children }) {
   };
 
   const handelMultipleDeleteProject = async () => {
-    const requestBody = { projectIds: selectedProjects };
-    const response = await DeleteMultipleProjectAction(requestBody, loginToken);
+    try {
+      const requestBody = { projectIds: selectedProjects };
+      const response = await DeleteMultipleProjectAction(
+        requestBody,
+        loginToken
+      );
 
-    if (response.data.status === "Success") {
-      toast.success(response.data.message);
+      if (response.data.status === "Success") {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

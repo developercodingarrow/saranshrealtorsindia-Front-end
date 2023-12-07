@@ -53,6 +53,7 @@ export default function AddNewProjectForm() {
 
   const handelProjectsubmit = async (formdata) => {
     try {
+      console.log(formdata);
       setbtnLoading(true);
       const result = await createProject(formdata, token);
       console.log(result);
@@ -168,7 +169,11 @@ export default function AddNewProjectForm() {
 
               <div className={style.select_box}>
                 <label className={style.select_lable}>SELECT DEVELOPER</label>
-                <select className={style.selectBar} {...register("developer")}>
+                <select
+                  className={style.selectBar}
+                  name="developer"
+                  {...register("developer")}
+                >
                   {allDeveloper.map((el, i) => {
                     return (
                       <option key={el._id} value={el.DeveloperName}>
@@ -183,7 +188,11 @@ export default function AddNewProjectForm() {
             <div className={style.city_locationBox}>
               <div className={style.select_box}>
                 <label className={style.select_lable}>SELECT CITY</label>
-                <select className={style.selectBar} {...register("cityName")}>
+                <select
+                  className={style.selectBar}
+                  name="cityName"
+                  {...register("cityName")}
+                >
                   {allCties.map((el, i) => {
                     return (
                       <option key={el._id} value={el.cityName}>
@@ -198,6 +207,7 @@ export default function AddNewProjectForm() {
                 <label className={style.select_lable}>SELECT LOCATION</label>
                 <select
                   className={style.selectBar}
+                  name="locationName"
                   {...register("locationName")}
                 >
                   {allLocation.map((el, i) => {

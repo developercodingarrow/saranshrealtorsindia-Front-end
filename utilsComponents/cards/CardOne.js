@@ -32,7 +32,7 @@ export default function CardOne(props) {
             <CiLocationOn />
           </div>
           <div className={styles.location_text}>
-            {data.ProjectCity} - {data.ProjectSector}
+            {data.cityName} - {data.locationName}
           </div>
         </div>
         <div className={styles.unitType_warpeer}>
@@ -54,7 +54,7 @@ export default function CardOne(props) {
             .
           </div>
         </div>
-        <div className={styles.Rera_No_Box}>24 Of 2018</div>
+        <div className={styles.Rera_No_Box}>{data.RERANo}</div>
       </div>
     </div>
   );
