@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Layout from "../../Components/layouts/Layout";
 import { getAllBlogsAction } from "../../Actions/blogAction";
 import { BlogContext } from "../../contextApi/BlogContextApi";
@@ -7,8 +7,11 @@ import BlogListComponent from "../../Components/blog/BlogListComponent";
 export default function BlogsListPage({ initialProject }) {
   const { allblogsList, setallblogsList } = useContext(BlogContext);
 
-  setallblogsList(initialProject);
-  console.log(allblogsList);
+  useEffect(() => {
+    // Update allblogsList after initial render
+    setallblogsList(initialProject);
+  }, [initialProject]);
+
   return (
     <>
       <div>

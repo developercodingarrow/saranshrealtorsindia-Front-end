@@ -1,6 +1,10 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { getLoginCookies } from "../Actions/authAction";
-import { createNewBlogAction, getAllBlogsAction } from "../Actions/blogAction";
+import {
+  createNewBlogAction,
+  getAllBlogsAction,
+  deleteSingleBlogAction,
+} from "../Actions/blogAction";
 export const BlogContext = createContext();
 
 export default function BlogContextApiProvide({ children }) {
@@ -8,6 +12,13 @@ export default function BlogContextApiProvide({ children }) {
   const [blogFeatureImage, setblogFeatureImage] = useState("");
   const [allblogsList, setallblogsList] = useState([]);
   const [singleBlog, setsingleBlog] = useState("");
+  const [blogListData, setblogListData] = useState([]);
+  const [loadingBlog, setloadingBlog] = useState(false);
+
+  useEffect(() => {
+    console.log("run");
+    handelGetAllBlosgs();
+  }, [loadingBlog]);
 
   // Create Project
   const createBlog = async (inputdata, descreption) => {
@@ -27,6 +38,26 @@ export default function BlogContextApiProvide({ children }) {
     }
   };
 
+  const handelGetAllBlosgs = async () => {
+    try {
+      const response = await getAllBlogsAction();
+      console.log(response);
+      setblogListData(response.data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelDelectBlog = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+      const response = await deleteSingleBlogAction(requestData, loginToken);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <BlogContext.Provider
       value={{
@@ -37,6 +68,11 @@ export default function BlogContextApiProvide({ children }) {
         setallblogsList,
         singleBlog,
         setsingleBlog,
+        handelGetAllBlosgs,
+        blogListData,
+        setblogListData,
+        handelDelectBlog,
+        setloadingBlog,
       }}
     >
       {children}

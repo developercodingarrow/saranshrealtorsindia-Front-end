@@ -43,7 +43,7 @@ export const getAllBlogsAction = async () => {
   }
 };
 
-// GET ALL BLOG ACTION
+// GET SINGLE BLOG ACTION
 export const getSingleBlogsAction = async (slug) => {
   console.log("blog action");
   console.log(slug);
@@ -59,6 +59,25 @@ export const getSingleBlogsAction = async (slug) => {
       }
     );
     return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
+
+// GET SINGLE BLOG ACTION
+export const deleteSingleBlogAction = async (requestData, token) => {
+  try {
+    const response = await axios({
+      method: "delete",
+      url: "http://127.0.0.1:5000/blogs/delete-single-blog",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      data: requestData, // Pass the data payload here
+    });
+    return response;
   } catch (error) {
     console.log(error.response);
     return error.response;

@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function BlogCard(props) {
   const { blogTitle, blogDescreption, slug, blogimage } = props;
-  console.log(blogimage[0]);
 
   const truncateContent = (content, maxLength) => {
     return content.length > maxLength

@@ -1,0 +1,7 @@
+.table_container {
+  margin-top: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  padding: 1.25rem;
+  overflow-x: auto;
+}

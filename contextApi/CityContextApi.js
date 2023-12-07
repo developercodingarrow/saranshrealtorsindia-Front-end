@@ -14,7 +14,6 @@ export default function CityContextApiProvider({ children }) {
 
   useEffect(() => {
     handelGetAllCities();
-    console.log(allCties);
   }, [loadingcity]);
 
   const handelGetAllCities = async () => {
