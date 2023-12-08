@@ -20,7 +20,14 @@
 
 .carousel_container {
   margin-top: 70px;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 25px 10px 25px;
+  /* border: 1px solid red; */
+}
+
+.carouselItem {
+  /* margin: 10px 5px; */
+  display: flex;
+  justify-content: center;
 }
 
 /* Tablete Screen */

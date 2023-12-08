@@ -20,9 +20,14 @@ import {
   FaBuilding,
   FaWhatsappSquare,
   FaRegSave,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { FaXTwitter, FaBars, FaArrowRightArrowLeft } from "react-icons/fa6";
-import { MdProductionQuantityLimits, MdTipsAndUpdates } from "react-icons/md";
+import {
+  MdProductionQuantityLimits,
+  MdTipsAndUpdates,
+  MdMessage,
+} from "react-icons/md";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { HiMagnifyingGlass, HiOutlineBuildingOffice } from "react-icons/hi2";
 import { PiUserCirclePlusThin, PiUserCircleMinusThin } from "react-icons/pi";
@@ -76,5 +81,7 @@ export {
   FaArrowRightArrowLeft,
   IoCloudUpload,
   FaRegSave,
+  FaPhoneAlt,
+  MdMessage,
   // Add more icons as needed
 };

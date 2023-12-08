@@ -4,19 +4,20 @@ import Card from "../../utilsComponents/Card";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import CardOne from "../../utilsComponents/cards/CardOne";
 
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 4,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1040 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1024, min: 1035 },
     items: 2,
   },
   mobile: {
@@ -39,11 +40,16 @@ export default function FeatureListing() {
           </p>
         </div>
         <div className={style.carousel_container}>
-          <Carousel responsive={responsive}>
+          <Carousel
+            responsive={responsive}
+            autoPlaySpeed={3000}
+            infinite
+            itemClass={style.carouselItem}
+          >
             {allProjects?.map((el, i) => {
               return (
                 <div key={el._id}>
-                  <Card key={el._id} data={el} />
+                  <CardOne key={el._id} data={el} />
                 </div>
               );
             })}

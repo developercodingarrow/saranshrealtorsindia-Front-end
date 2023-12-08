@@ -24,8 +24,9 @@ export default function BlogListComponent() {
   const tableColumns = [
     { label: "S No", key: "name", component: "number" },
     { label: "Title", key: "blogTitle", component: "text" },
-    { label: "UPDATE", key: "id", component: "update" },
-    { label: "DELETE", key: "id", component: "delete" },
+    { label: "DATE", key: "createAt", component: "date" },
+    { label: "UPDATE", key: "_id", component: "update" },
+    { label: "DELETE", key: "_id", component: "delete" },
     // Add more columns as needed
     // ... repeat additional columns
   ];
@@ -47,6 +48,10 @@ export default function BlogListComponent() {
       console.log(error);
     }
   };
+
+  const handelUpdate = async (id) => {
+    console.log(id);
+  };
   return (
     <>
       <div>
@@ -61,6 +66,7 @@ export default function BlogListComponent() {
               tableData={blogListData}
               tableColumns={tableColumns}
               handelbtnAction={handelOpenModelBox}
+              handelUpdateAction={handelUpdate}
             />
           </div>
         </AdminContdentUI>

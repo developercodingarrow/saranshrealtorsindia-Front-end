@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./css/dynimicTable.module.css";
 import SwitchBtn from "../Custome Components/SwitchBtn";
 import ButtonElements from "../Custome Components/ButtonElement";
+import { formatDate } from "../DateFormate/formatDate";
 
 export default function DynamicTable(props) {
   const {
@@ -10,12 +11,14 @@ export default function DynamicTable(props) {
     handleCheckboxChange,
     handelbtnAction,
     handelSwitch,
+    handelUpdateAction,
   } = props;
 
   const handlers = {
     checkbox: handleCheckboxChange,
     delete: handelbtnAction,
     switch: handelSwitch,
+    update: handelUpdateAction,
     // Add more handlers as needed based on component types
   };
 
@@ -60,6 +63,10 @@ const renderCellContent = (indexNo, data, id, componentType, handler) => {
       return indexNo + 1;
     case "text":
       return data;
+
+    case "date":
+      return formatDate(data);
+
     case "checkbox":
       if (handler) {
         return <p>Check box</p>;
@@ -82,6 +89,20 @@ const renderCellContent = (indexNo, data, id, componentType, handler) => {
               label="DELETE"
               onClick={handler}
               btnDesign={"DeleteButton"}
+              itemId={id}
+            />
+          </>
+        );
+      }
+
+    case "update":
+      if (handler) {
+        return (
+          <>
+            <ButtonElements
+              label="UPDATE"
+              onClick={handler}
+              btnDesign={"EditButton"}
               itemId={id}
             />
           </>
