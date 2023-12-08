@@ -42,6 +42,7 @@ import { TbLogout } from "react-icons/tb";
 import { CiLocationOn } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { IoCloudUpload } from "react-icons/io5";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 export {
   AiOutlineInstagram,
@@ -83,5 +84,6 @@ export {
   FaRegSave,
   FaPhoneAlt,
   MdMessage,
+  IoIosArrowRoundForward,
   // Add more icons as needed
 };

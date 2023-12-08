@@ -17,15 +17,90 @@
 
 .DekstopFooter_mainContainer {
   box-sizing: border-box;
-  border: 1px solid #fff;
   display: flex;
   height: 300px;
   margin: 50px 5%;
 }
 
 .DekstopFooter_columOne {
-  border: 1px solid #fff;
   padding: 0px 10px;
+  width: 300px;
+}
+
+.DekstopFooter_coumn_logoBox {
+  margin-bottom: 20px;
+}
+
+.footerLogo_Style {
+  width: 200px;
+  height: 100px;
+}
+
+.DekstopFooter_sortAbout {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.social_mediaPart {
+  display: flex;
+  column-gap: 10px;
+}
+
+.DekstopFooter_iconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: #fff;
+  font-size: 20px;
+  color: var(--footer-background-color);
+  cursor: pointer;
+}
+
+.DekstopFooter_iconBox:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: var(--footer-background-color);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.DekstopFooter_columTwo {
+  width: 250px;
+  padding: 0px 10px;
+}
+
+.DekstopFooter_columTitle {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.DekstopFooter_linkBox {
+  display: flex;
+  text-decoration: none;
+  column-gap: 10px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.linkIcon_Box {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link_textBox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
 
 /* Tablete Screen */
