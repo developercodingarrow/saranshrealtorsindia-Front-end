@@ -4,6 +4,7 @@ import FeatureListing from "../Components/HomePageSections/FeatureListing";
 import { getAllProjectsAction } from "../Actions/ProjectAction";
 import { ProjectContext } from "../contextApi/ProjectContextApi";
 import HomeHeroSection from "../Components/layouts/HomeHeroSection";
+import HomePageWrapper from "../Components/HomePageSections/HomePageWrapper";
 
 export default function Home({ initialProject }) {
   const { setallProjects } = useContext(ProjectContext);
@@ -13,8 +14,7 @@ export default function Home({ initialProject }) {
   return (
     <>
       <Layout>
-        <HomeHeroSection />
-        <FeatureListing />
+        <HomePageWrapper />
       </Layout>
     </>
   );

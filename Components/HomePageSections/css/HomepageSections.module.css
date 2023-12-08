@@ -1,0 +1,93 @@
+/* Home page About us Section start */
+.HomePageAbout_mainContainer {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+  row-gap: 15px;
+}
+
+.section_Title {
+  font-size: 18px;
+  font-family: sans-serif;
+  padding: 10px;
+  font-weight: 300;
+}
+
+.section_descreption {
+  text-align: center;
+  font-size: 16px;
+  color: #7a7a7a;
+  font-weight: 300;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.HomePageAbout_btnBox {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.readMoreLink_style {
+  color: #00aeff;
+  background-color: transparent;
+  border-color: #00aeff;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #00aeff;
+  padding: 10px 15px;
+}
+
+.readMoreLink_style:hover {
+  background-color: #00aeff;
+  color: #fff;
+}
+
+/* Home page About us Section End */
+
+/* HomePageProjectTypeSection start */
+.HomePageProjectTypeSection_mainContainer {
+  background-color: #fff;
+  background-image: url("../../../public/Company-logo/background-image.jpg");
+  padding: 100px 10%;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.residention_Container {
+  display: flex;
+  border: 1px solid red;
+  column-gap: 10px;
+}
+
+.residention_RightPart {
+  display: flex;
+}
+
+.Big_imageBox {
+  border: 1px solid gray;
+  height: 300px;
+  width: 200px;
+}
+
+.small_image_container {
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.small_imageBox {
+  border: 1px solid gray;
+  height: 150px;
+  width: 200px;
+}
+
+.commercial_container {
+  display: flex;
+}
