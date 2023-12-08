@@ -20,24 +20,43 @@ export default function ContactUsFormSection() {
                 <div className={styles.input_fileds_wrapper}>
                   <div className={styles.form_inputRow}>
                     <div className={styles.form_inputBox}>
-                      <input type="text" className={styles.input_style} />
+                      <input
+                        type="text"
+                        placeholder="Full Name"
+                        className={styles.input_style}
+                      />
                     </div>
                     <div className={styles.form_inputBox}>
-                      <input type="text" className={styles.input_style} />
+                      <input
+                        type="text"
+                        placeholder="Moblie NUmber"
+                        className={styles.input_style}
+                      />
                     </div>
                   </div>
 
                   <div className={styles.form_inputRow}>
                     <div className={styles.form_inputBox}>
-                      <input type="text" className={styles.input_style} />
+                      <input
+                        type="text"
+                        placeholder="E-mail"
+                        className={styles.input_style}
+                      />
                     </div>
                     <div className={styles.form_inputBox}>
-                      <input type="text" className={styles.input_style} />
+                      <input
+                        type="text"
+                        placeholder="Subject"
+                        className={styles.input_style}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className={styles.form_textAreaBox}>
-                  <textarea className={styles.textArea_style} />
+                  <textarea
+                    placeholder="About Your Project"
+                    className={styles.textArea_style}
+                  />
                 </div>
                 <div className={styles.btnBox}>
                   <button className={styles.btn_style}>SUBMIT</button>

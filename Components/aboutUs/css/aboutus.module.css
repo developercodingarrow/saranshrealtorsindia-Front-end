@@ -1,0 +1,13 @@
+.aboutHero_section {
+  padding: 100px;
+  height: 250px;
+  box-sizing: border-box;
+  background-image: url("../../../public/Company-logo/about-us-banner.jpg");
+  background-size: cover;
+  color: #fff;
+}
+
+.abouthero_heading {
+  font-size: 24px;
+  letter-spacing: 1.5px;
+}
