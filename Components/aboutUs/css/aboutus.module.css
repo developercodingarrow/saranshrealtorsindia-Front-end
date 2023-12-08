@@ -11,3 +11,21 @@
   font-size: 24px;
   letter-spacing: 1.5px;
 }
+
+.aboutus_wrapperConatiner {
+  margin: 50px 5%;
+}
+
+.aboutUssection_container {
+}
+
+.AboutUsSection_headingBox {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.AboutUsSection_detailsBox {
+  font-size: 18px;
+  line-height: 1.5;
+}
