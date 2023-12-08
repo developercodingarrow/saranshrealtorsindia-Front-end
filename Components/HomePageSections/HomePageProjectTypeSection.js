@@ -32,9 +32,14 @@ export default function HomePageProjectTypeSection() {
               eiusmod tempor incidi dunt
             </p>
           </div>
-
-          <div className={styles.commercial_ImageBox}>commercial boxImage</div>
-          <div className={styles.commercial_ImageBox}>commercial boxImage</div>
+          <div className={styles.comercial_image_Container}>
+            <div className={styles.commercial_ImageBox}>
+              commercial boxImage
+            </div>
+            <div className={styles.commercial_ImageBox}>
+              commercial boxImage
+            </div>
+          </div>
         </div>
       </div>
     </>
