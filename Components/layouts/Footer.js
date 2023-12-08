@@ -7,11 +7,16 @@ import {
   FaWhatsappSquare,
   MdTipsAndUpdates,
 } from "../../utilsComponents/ApplicationIcon";
+import DekstopFooter from "./footer/DekstopFooter";
 
 export default function Footer() {
   return (
     <>
       <div className={styles.main_Container}>
+        <div className={styles.footer_dekstopView}>
+          <DekstopFooter />
+        </div>
+
         <div className={styles.mobile_view}>
           <Link href={"/"} className={styles.mobile_footerLink}>
             <div className={styles.linkBox}>
