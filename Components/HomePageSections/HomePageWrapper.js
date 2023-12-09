@@ -6,6 +6,7 @@ import styles from "./css/HomepageSections.module.css";
 import HomePageProjectTypeSection from "./HomePageProjectTypeSection";
 import FormSection from "./FormSection";
 import TeamSection from "./TeamSection";
+import Testimonials from "./Testimonials";
 
 export default function HomePageWrapper() {
   return (
@@ -28,6 +29,9 @@ export default function HomePageWrapper() {
         </div>
         <div>
           <TeamSection />
+        </div>
+        <div>
+          <Testimonials />
         </div>
       </div>
     </>
