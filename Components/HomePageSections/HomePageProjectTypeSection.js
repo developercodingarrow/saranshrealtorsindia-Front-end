@@ -10,14 +10,16 @@ export default function HomePageProjectTypeSection() {
             <div className={styles.content_part}>
               <h3>Residential</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidi dunt
+                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incidi dunt */}
               </p>
             </div>
-            <div>Image Box</div>
+            <div className={styles.regidencial_leftImageBox}> Image</div>
           </div>
           <div className={styles.residention_RightPart}>
-            <div className={styles.Big_imageBox}>Big Image</div>
+            <div className={styles.big_imagewrapper}>
+              <div className={styles.Big_imageBox}>Big Image</div>
+            </div>
             <div className={styles.small_image_container}>
               <div className={styles.small_imageBox}>small Image box</div>
               <div className={styles.small_imageBox}>small Image box</div>
@@ -25,12 +27,14 @@ export default function HomePageProjectTypeSection() {
           </div>
         </div>
         <div className={styles.commercial_container}>
-          <div className={styles.commercial_contentBox}>
-            <h3>Commercial</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidi dunt
-            </p>
+          <div className={styles.commercial_containerWrapper}>
+            <div className={styles.commercial_contentBox}>
+              <h3>Commercial</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incidi dunt
+              </p>
+            </div>
           </div>
           <div className={styles.comercial_image_Container}>
             <div className={styles.commercial_ImageBox}>
