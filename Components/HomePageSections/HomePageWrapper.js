@@ -5,6 +5,7 @@ import HomePageAbout from "./HomePageAbout";
 import styles from "./css/HomepageSections.module.css";
 import HomePageProjectTypeSection from "./HomePageProjectTypeSection";
 import FormSection from "./FormSection";
+import TeamSection from "./TeamSection";
 
 export default function HomePageWrapper() {
   return (
@@ -24,6 +25,9 @@ export default function HomePageWrapper() {
         </div>
         <div>
           <FormSection />
+        </div>
+        <div>
+          <TeamSection />
         </div>
       </div>
     </>
