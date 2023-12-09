@@ -1,0 +1,142 @@
+.FormSection_mainContainer {
+  background-color: #ffffff;
+  background-image: url("../../../public/Company-logo/form-section-bg.jpg");
+  background-position: center left;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.form_innerContainer {
+  background-color: rgba(0, 51, 90, 0.85);
+  height: 100%;
+  width: 100%;
+  padding: 50px 10% 50px 10%;
+  display: flex;
+}
+
+.formSection_ContentPart {
+  width: 60%;
+  padding: 50px 10px 10px 10px;
+}
+
+.formSection_formPart {
+  width: 40%;
+  padding: 10px;
+}
+
+.form_wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+.form_Title {
+  font-family: "Roboto", Sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 5px 0px;
+}
+
+.form_descreption {
+  font-family: "Roboto", Sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  padding: 5px 0px;
+}
+
+.input_box {
+  margin-bottom: 10px;
+}
+
+.input_style {
+  width: 100%;
+  font-size: 16px;
+  min-height: 40px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border-color: #dce0e0;
+  border-width: 1px 1px 1px 1px;
+  outline: none;
+}
+
+.textarea_style {
+  width: 100%;
+  font-size: 16px;
+  min-height: 150px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border-color: #dce0e0;
+  border-width: 2px 2px 2px 2px;
+  outline: none;
+}
+
+.btn_style {
+  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 4px;
+  background-color: #00aeff;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+.content_topBox {
+  display: flex;
+  column-gap: 10%;
+  margin-bottom: 50px;
+}
+
+.content_box {
+  width: 40%;
+}
+
+.content_number {
+  color: #ffffff;
+  font-family: "Noto Serif JP", Sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.content_title {
+  color: #ffffff;
+  font-family: "Roboto", Sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.4em;
+  letter-spacing: 0px;
+  margin-bottom: 15px;
+}
+
+.content_sortDescreption {
+  color: rgba(255, 255, 255, 0.63);
+  font-family: "Roboto", Sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+@media screen and (max-width: 950px) {
+  .form_innerContainer {
+    flex-direction: column;
+    padding: 50px 1% 50px 1%;
+  }
+
+  .formSection_ContentPart {
+    width: 100%;
+  }
+
+  .formSection_formPart {
+    width: 100%;
+  }
+  .content_box {
+    width: 50%;
+  }
+}

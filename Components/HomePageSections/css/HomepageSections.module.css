@@ -85,7 +85,7 @@
 
 .regidencial_leftImageBox {
   height: 200px;
-  width: 100%;
+  width: 300px;
   background-image: url("../../../public/Company-logo/banglore.jpg");
   background-size: cover;
   background-position: center;
@@ -117,7 +117,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  width: 350px;
+  width: 300px;
 }
 
 .small_imageBox {
@@ -160,7 +160,7 @@
 }
 
 .commercial_ImageBox {
-  width: 350px;
+  width: 300px;
   height: 200px;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
   background-image: url("../../../public/Company-logo/chanai.jpg");
@@ -191,6 +191,10 @@
     flex-direction: column;
   }
 
+  .HomePageProjectTypeSection_mainContainer {
+    padding: 50px 1%;
+  }
+
   .residention_leftPart {
     width: 100%;
     display: flex;
@@ -202,7 +206,8 @@
 
   .content_part {
     width: 80%;
-    height: 200px;
+    height: 150px;
+    align-items: center;
   }
 
   .regidencial_leftImageBox {
