@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./css/HomepageSections.module.css";
+import bangloreImag from "../../public/Company-logo/banglore.jpg";
 
 export default function HomePageProjectTypeSection() {
   return (
@@ -8,10 +9,10 @@ export default function HomePageProjectTypeSection() {
         <div className={styles.residention_Container}>
           <div className={styles.residention_leftPart}>
             <div className={styles.content_part}>
-              <h3>Residential</h3>
-              <p>
-                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidi dunt */}
+              <h3 className={styles.TypeSection_content_title}>Residential</h3>
+              <p className={styles.typeSection_contnet_details}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incidi dunt
               </p>
             </div>
             <div className={styles.regidencial_leftImageBox}> Image</div>
@@ -29,8 +30,8 @@ export default function HomePageProjectTypeSection() {
         <div className={styles.commercial_container}>
           <div className={styles.commercial_containerWrapper}>
             <div className={styles.commercial_contentBox}>
-              <h3>Commercial</h3>
-              <p>
+              <h3 className={styles.TypeSection_content_title}>Commercial</h3>
+              <p className={styles.typeSection_contnet_details}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incidi dunt
               </p>

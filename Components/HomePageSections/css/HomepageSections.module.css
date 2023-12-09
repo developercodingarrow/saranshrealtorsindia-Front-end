@@ -69,7 +69,6 @@
 
 .residention_leftPart {
   width: 30%;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,38 +76,44 @@
 }
 
 .content_part {
-  border: 1px solid green;
   height: 250px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .regidencial_leftImageBox {
-  border: 1px solid green;
   height: 200px;
   width: 100%;
+  background-image: url("../../../public/Company-logo/banglore.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .residention_RightPart {
   display: flex;
-  border: 1px solid green;
   column-gap: 30px;
   row-gap: 30px;
   height: 500px;
 }
 
 .big_imagewrapper {
-  border: 1px solid red;
   display: flex;
 }
 
 .Big_imageBox {
-  border: 1px solid gray;
   height: 100%;
   width: 350px;
+  background-image: url("../../../public/Company-logo/gurgaon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .small_image_container {
-  border: 1px solid gray;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -116,21 +121,23 @@
 }
 
 .small_imageBox {
-  border: 1px solid gray;
   height: 200px;
   width: 100%;
+  background-image: url("../../../public/Company-logo/pune.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .commercial_container {
   display: flex;
   column-gap: 30px;
-  border: 1px solid green;
 }
 
 .commercial_containerWrapper {
   width: 30%;
   display: flex;
-  border: 1px solid blue;
   margin-bottom: 30px;
   height: 300px;
   box-sizing: border-box;
@@ -139,8 +146,10 @@
 
 .commercial_contentBox {
   width: 100%;
-  border: 1px solid red;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .comercial_image_Container {
@@ -153,7 +162,27 @@
 .commercial_ImageBox {
   width: 350px;
   height: 200px;
-  border: 1px solid red;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  background-image: url("../../../public/Company-logo/chanai.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.TypeSection_content_title {
+  font-family: "Roboto", Sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.typeSection_contnet_details {
+  color: #7a7a7a;
+  font-family: "Roboto", Sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 30px;
 }
 
 /* Tablete Screen */
@@ -185,7 +214,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     height: 700px;
   }
 
@@ -197,11 +225,9 @@
   .Big_imageBox {
     width: 80%;
     height: 200px;
-    border: 2px solid green;
   }
 
   .small_image_container {
-    border: 1px solid red;
     width: 80%;
   }
 
