@@ -1,3 +1,32 @@
+.main_container {
+  width: 100%;
+  min-height: 800px;
+  padding: var(--sectionTwo-container-padding);
+}
+
+.Blog_mainContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Blog_Container {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  column-gap: 30px;
+  row-gap: 30px;
+  flex-wrap: wrap;
+}
+
+.formSide_container {
+  width: 20%;
+}
+
+.form_section {
+  padding: 5px;
+}
+
 .SingleBlog_mainContainer {
   width: 100%;
   min-height: 600px;
@@ -8,7 +37,7 @@
 
 .featureImage_Container {
   width: 100%;
-  height: 600px;
+  height: 500px;
 }
 
 .feature_imageStyle {
@@ -21,6 +50,21 @@
 }
 
 .blog_titleBox {
-  font-size: 30px;
   margin-bottom: 20px;
+  font-size: 26px;
+  font-family: var(--font-family-poppins);
+  font-weight: 500;
+}
+
+.Blog_content {
+  font-family: var(--font-family-roboto);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+.Blog_Container a {
+  text-decoration: none;
+  font-weight: 400;
 }

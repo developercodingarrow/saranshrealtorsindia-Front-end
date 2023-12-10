@@ -1,5 +1,5 @@
 .aboutHero_section {
-  padding: 100px;
+  padding: var(--sectionTwo-container-padding);
   height: 250px;
   box-sizing: border-box;
   background-image: url("../../../public/Company-logo/about-us-banner.jpg");
@@ -8,12 +8,11 @@
 }
 
 .abouthero_heading {
-  font-size: 24px;
   letter-spacing: 1.5px;
 }
 
 .aboutus_wrapperConatiner {
-  margin: 50px 5%;
+  padding: var(--sectionTwo-container-padding);
 }
 
 .aboutUssection_container {
@@ -26,6 +25,9 @@
 }
 
 .AboutUsSection_detailsBox {
-  font-size: 18px;
   line-height: 1.5;
+  font-family: var(--font-family-roboto);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
 }

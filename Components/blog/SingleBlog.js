@@ -19,17 +19,14 @@ export default function SingleBlog() {
           {singleBlog && singleBlog.image && singleBlog.image[0] && (
             <Image
               src={`/blog-images/${singleBlog.image[0].url}`}
-              width={500}
-              height={500}
+              width={800}
+              height={800}
               className={styles.feature_imageStyle}
             />
           )}
         </div>
         <div className={styles.Blog_contentBox}>
           <div className={styles.blog_titleBox}>{singleBlog.blogTitle}</div>
-          {/* <div className={styles.Blog_content}>
-            {singleBlog.blogDescreption}
-          </div> */}
           <div
             className={styles.Blog_content}
             dangerouslySetInnerHTML={{

@@ -1,6 +1,7 @@
 import React from "react";
 import SideEnquireForm from "../../utilsComponents/form/SideEnquireForm";
-import styles from "./css/blogListComponent.module.css";
+// import styles from "./css/blogListComponent.module.css";
+import styles from "./css/singleBlog.module.css";
 import SingleBlog from "./SingleBlog";
 
 export default function SingleBlogComponent() {

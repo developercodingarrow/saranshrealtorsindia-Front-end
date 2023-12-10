@@ -6,8 +6,8 @@ export default function AboutUsSection() {
     <>
       <div className={styles.aboutUssection_container}>
         <div className={styles.AboutUsSection_headingBox}>
-          <h2> ABOUT US</h2>
-          <p>Welcome to Saransh Realtors</p>
+          <h2 className="section_title"> ABOUT US</h2>
+          <p className="section_descreption">Welcome to Saransh Realtors</p>
         </div>
         <div className={styles.AboutUsSection_detailsBox}>
           <p>
