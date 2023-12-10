@@ -7,7 +7,7 @@ export default function HomePageAbout() {
     <>
       <div className={styles.HomePageAbout_mainContainer}>
         <div className={styles.section_Title}>
-          <h3>About Us</h3>
+          <h3 className={"section_title"}>About Us</h3>
         </div>
         <div className={styles.section_descreption}>
           <p>

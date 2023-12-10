@@ -56,11 +56,13 @@ export default function FormSection() {
           <div className={styles.formSection_formPart}>
             <div className={styles.form_wrapper}>
               <div className={styles.form_Title}>
-                <h2>Real Estate Inquiry Form </h2>{" "}
+                <h2 className={"section_title"}>Real Estate Inquiry Form </h2>{" "}
               </div>
               <div className={styles.form_descreption}>
-                Design custom lead capture forms that integrate with the Houzez
-                CRM
+                <p className="section_descreption">
+                  Design custom lead capture forms that integrate with the
+                  Houzez CRM
+                </p>
               </div>
               <form className={styles.form_part}>
                 <div className={styles.input_box}>

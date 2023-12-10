@@ -43,8 +43,10 @@ import { CiLocationOn } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { IoCloudUpload } from "react-icons/io5";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 export {
+  RiDoubleQuotesL,
   AiOutlineInstagram,
   AiOutlineFacebook,
   FaXTwitter,

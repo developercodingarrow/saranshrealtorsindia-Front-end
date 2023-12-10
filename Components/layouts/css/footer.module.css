@@ -77,9 +77,10 @@
 .DekstopFooter_columTitle {
   color: #fff;
   margin-bottom: 20px;
-  font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-family: var(--font-family-poppins);
+  font-weight: 500;
 }
 
 .DekstopFooter_linkBox {
@@ -88,6 +89,8 @@
   column-gap: 10px;
   color: #fff;
   margin-bottom: 10px;
+  font-family: var(--font-family-poppins);
+  font-weight: 400;
 }
 
 .linkIcon_Box {

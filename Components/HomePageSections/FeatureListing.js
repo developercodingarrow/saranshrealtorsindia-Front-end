@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import style from "../../styles/FeatureListing.module.css";
+import style from "./css/FeatureListing.module.css";
 import Card from "../../utilsComponents/Card";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import Carousel from "react-multi-carousel";
@@ -33,8 +33,8 @@ export default function FeatureListing() {
     <>
       <div className={style.FeatureListing_mainContainer}>
         <div className={style.section_text}>
-          <h3>Discover Our Featured Listings</h3>
-          <p>
+          <h3 className={"section_title"}>Discover Our Featured Listings</h3>
+          <p className="section_descreption">
             Explore a curated selection of top-notch listings in our showcase of
             premier properties and exceptional real estate opportunities
           </p>

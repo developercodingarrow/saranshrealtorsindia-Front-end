@@ -11,7 +11,7 @@
   background-color: rgba(0, 51, 90, 0.85);
   height: 100%;
   width: 100%;
-  padding: 50px 10% 50px 10%;
+  padding: var(--section-container-padding);
   display: flex;
 }
 
@@ -40,10 +40,6 @@
 }
 
 .form_descreption {
-  font-family: "Roboto", Sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.5em;
   margin-bottom: 10px;
   padding: 5px 0px;
 }
@@ -54,7 +50,6 @@
 
 .input_style {
   width: 100%;
-  font-size: 16px;
   min-height: 40px;
   padding: 3px 8px;
   border-radius: 4px;
@@ -62,11 +57,14 @@
   border-color: #dce0e0;
   border-width: 1px 1px 1px 1px;
   outline: none;
+  font-family: var(--font-family-roboto);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
 }
 
 .textarea_style {
   width: 100%;
-  font-size: 16px;
   min-height: 150px;
   padding: 3px 8px;
   border-radius: 4px;
@@ -74,6 +72,10 @@
   border-color: #dce0e0;
   border-width: 2px 2px 2px 2px;
   outline: none;
+  font-family: var(--font-family-roboto);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
 }
 
 .btn_style {

@@ -1,103 +1,101 @@
-.card_container{
-    color: black;
-    width: 270px;
-    min-height: 350px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+.card_container {
+  color: black;
+  width: 270px;
+  min-height: 350px;
+  font-family: var(--font-family-roboto);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.image_box{
-    width: 100%;
-    height: 180px;
-    border: 1px solid gray;
+.image_box {
+  width: 100%;
+  height: 180px;
+  border: 1px solid gray;
 }
 
-.image_style{
-    width: 100%;
-    height: 100%;
+.image_style {
+  width: 100%;
+  height: 100%;
 }
 
-.card_body{
-    padding: 7px;
+.card_body {
+  padding: 7px;
 }
 
-.project_title{
-    font-size: 16px;
+.project_title {
+  font-size: 16px;
 }
-.location_wrapper{
-display: flex;
-margin: 10px 0px;
-margin: 15px 0px;
+.location_wrapper {
+  display: flex;
+  margin: 10px 0px;
+  margin: 15px 0px;
 }
-.location_IconBox{
+.location_IconBox {
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.location_text{
-font-size: 14px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: sans-serif;
-margin-left: 10px;
+.location_text {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  margin-left: 10px;
 }
 
-.unitType_warpeer{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0px;
-    font-size: 14px;
-    margin: 15px 0px;
+.unitType_warpeer {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  font-size: 14px;
+  margin: 15px 0px;
 }
 
-
-.price_btn_Container{
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0px;
+.price_btn_Container {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px;
 }
 
-.priceBox{
-    width: 60%;
-    display: flex;
+.priceBox {
+  width: 60%;
+  display: flex;
 }
 
-.rupeess_IconBox{
-    font-size: 18px;
-    
+.rupeess_IconBox {
+  font-size: 18px;
 }
-.price_text{
-    font-size: 14px;
-    display: flex;
-}
-
-.btn_Box{
+.price_text {
+  font-size: 14px;
+  display: flex;
 }
 
-.linkStyle{
-    display: flex;
-    width: 70px;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background-color: #004274;
-    height: 100%;
-    color: #fff;
-    letter-spacing: 1px;
-    border-radius: 3px;
-    
+.btn_Box {
 }
 
-.linkStyle:hover{
-    background-color: #004274eb;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+.linkStyle {
+  display: flex;
+  width: 70px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #004274;
+  height: 100%;
+  color: #fff;
+  letter-spacing: 1px;
+  border-radius: 3px;
 }
 
+.linkStyle:hover {
+  background-color: #004274eb;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
 
-.Rera_No_Box{
-    border-top: 1px solid gainsboro;
-    padding: 5px 0px;
-    font-size: 12px;
+.Rera_No_Box {
+  border-top: 1px solid gainsboro;
+  padding: 5px 0px;
+  font-size: 12px;
 }

@@ -1,7 +1,7 @@
 .navBar_mainContainer {
   width: 100%;
   background-color: var(--primary-color);
-  padding: var(--top-bar-main-padding);
+  padding: var(--ten-main-padding);
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -30,12 +30,13 @@
 }
 
 .pageTab {
-  font-size: 14px;
   padding: 5px 10px;
-  font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
+  font-family: var(--font-family-poppins);
+  font-weight: 500;
 }
 
 .tabLink {
@@ -160,6 +161,16 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1200px) {
+  .pageTab {
+    font-size: 12px;
+  }
+
+  .NavBar_serachBox {
+    width: 40%;
+  }
+}
+
 /* Tablete Screen */
 @media screen and (max-width: 950px) {
   .navBar_mainContainer {
@@ -167,13 +178,37 @@
     padding-left: 5%;
     padding-right: 5%;
   }
+
+  .pageTab {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .pageTab_Box {
+    display: none;
+  }
+
+  .hangBurg_IconBox {
+    display: flex;
+    padding: 10px;
+    font-size: 22px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .NavBar_serachBox {
+    width: 90%;
+    padding: 0px 2px;
+  }
+
+  .loginBox {
+    display: none;
+  }
 }
 
 /* Mobile Screen  */
 @media screen and (max-width: 550px) {
-  .pageTab_Box {
-    display: none;
-  }
   .loginBox {
     display: none;
   }

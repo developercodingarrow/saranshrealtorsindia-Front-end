@@ -1,5 +1,5 @@
 .TeamSection_mainContainer {
-  padding: 100px 10%;
+  padding: var(--section-container-padding);
 }
 
 .static_container {

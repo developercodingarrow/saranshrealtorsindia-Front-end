@@ -8,9 +8,11 @@ export default function TeamSection() {
       <div className={styles.TeamSection_mainContainer}>
         <div className={styles.static_container}>
           <div>
-            <h3>Meet Our Team</h3>
+            <h3 className={"section_title"}>Meet Our Team</h3>
           </div>
-          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+          <div className="section_descreption">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </div>
         </div>
         <div className={styles.Team_cardBox}>
           <div className={styles.team_card}>

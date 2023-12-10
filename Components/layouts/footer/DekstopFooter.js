@@ -29,7 +29,7 @@ export default function DekstopFooter() {
             />
           </div>
           <div className={styles.DekstopFooter_sortAbout}>
-            <p>
+            <p className="content_style">
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia.
             </p>
