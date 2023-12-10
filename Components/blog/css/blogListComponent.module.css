@@ -1,7 +1,6 @@
 .main_container {
   width: 100%;
   min-height: 800px;
-  border: 1px solid red;
   padding: var(--sectionTwo-container-padding);
 }
 
@@ -9,7 +8,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid green;
 }
 
 .Blog_Container {
@@ -19,7 +17,6 @@
   column-gap: 30px;
   row-gap: 30px;
   flex-wrap: wrap;
-  border: 1px solid blue;
 }
 
 .formSide_container {

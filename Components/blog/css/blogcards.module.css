@@ -24,34 +24,56 @@
   align-items: start;
   padding: 16px;
   min-height: 200px;
+  position: relative;
 }
 
 .card_title {
+  margin: 5px 0;
   font-size: 16px;
-  margin: 8px 0;
+  font-family: var(--font-family-poppins);
+  font-weight: 500;
 }
 
 .card_sortDescreption {
   font-size: 14px;
-  margin: 8px 0 16px 0;
+  margin: 5px 0 16px 0;
+  font-family: var(--font-family-roboto);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.card_sortDescreption strong {
+  font-weight: 300;
+}
+
+.card_sortDescreption h3 {
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .card_Btn {
   width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
 }
 
 .linstyle {
-  width: 100%;
+  width: 90%;
   color: #fff;
   text-decoration: none;
   display: flex;
   justify-content: center;
-  padding: 7px;
+  padding: 5px;
   text-transform: uppercase;
   letter-spacing: 3px;
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
+  font-size: 12px;
+  font-family: var(--font-family-poppins);
+  font-weight: 400;
 }
 
 .btn:hover {
