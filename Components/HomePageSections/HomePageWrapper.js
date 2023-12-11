@@ -7,6 +7,7 @@ import HomePageProjectTypeSection from "./HomePageProjectTypeSection";
 import FormSection from "./FormSection";
 import TeamSection from "./TeamSection";
 import Testimonials from "./Testimonials";
+import UpcomingProjects from "./UpcomingProjects";
 
 export default function HomePageWrapper() {
   return (
@@ -26,6 +27,9 @@ export default function HomePageWrapper() {
         </div>
         <div>
           <FormSection />
+        </div>
+        <div>
+          <UpcomingProjects />
         </div>
         <div>
           <TeamSection />

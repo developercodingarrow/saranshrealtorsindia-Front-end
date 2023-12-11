@@ -14,13 +14,23 @@
   padding: 10px 25px 10px 25px;
   display: flex;
   column-gap: 50px;
+  row-gap: 50px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .carouselItem {
   /* margin: 10px 5px; */
   display: flex;
   justify-content: center;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 900px) {
+  .carousel_container {
+    column-gap: 10px;
+    justify-content: flex-start;
+  }
 }
 
 /* Tablete Screen */
@@ -31,8 +41,17 @@
   .FeatureListing_mainContainer {
     padding: 100px 5%;
   }
+  .carousel_container {
+    column-gap: 10px;
+  }
 }
 
 /* Mobile Screen  */
 @media screen and (max-width: 550px) {
+  .carousel_container {
+    padding: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
