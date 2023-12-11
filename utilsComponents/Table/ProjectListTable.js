@@ -62,7 +62,7 @@ export default function ProjectListTable() {
         <div className={styles.table_detailsBox}>Details</div>
         <div className={styles.table_activeStatusBox}>Avtive/inactive</div>
         <div className={styles.table_ProjectStatusBox}> project Status </div>
-        <div className={styles.table_ActionBox}>Avtions</div>
+        <div className={styles.table_ActionBox}>Action</div>
       </div>
       {projects.map((project, i) => {
         return (
@@ -87,8 +87,11 @@ export default function ProjectListTable() {
                 />
               </div>
               <div>
-                <Link href={`/super-admin/update-image/${project._id}`}>
-                  Action
+                <Link
+                  href={`/super-admin/update-image/${project._id}`}
+                  className={styles.editImageLink_style}
+                >
+                  Edit
                 </Link>
               </div>
             </div>

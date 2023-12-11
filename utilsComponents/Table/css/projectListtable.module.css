@@ -11,6 +11,8 @@
   display: flex;
   box-shadow: var(--box-shadow);
   font-size: 16px;
+  font-family: var(--font-family-poppins);
+  /* font-weight: 500; */
 }
 
 .Table_serioulNumber {
@@ -29,15 +31,20 @@
   align-items: center;
 }
 
+.editImageLink_style {
+  text-decoration: none;
+  color: gray;
+}
+
 .table_detailsBox {
-  min-width: 30%;
+  min-width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .table_activeStatusBox {
-  width: 10%;
+  width: 12%;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -85,13 +92,19 @@
 }
 
 .row_detailsBox {
-  width: 30%;
+  width: 25%;
   padding: 5px;
   height: 100%;
+  font-size: 16px;
+  color: rgb(137, 137, 137);
+  font-family: var(--font-family-open-sans);
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
 }
 
 .row_activeStatusBox {
-  width: 10%;
+  width: 12%;
   height: 100%;
 }
 .row_projectStatusBox {

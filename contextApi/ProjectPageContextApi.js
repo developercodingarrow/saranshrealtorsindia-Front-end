@@ -1,8 +1,11 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import {
   allDeveloperProjectListAction,
   createDeveloperPageAction,
   createLocationPageAction,
+  deletePormotionalPage,
+  deleteLocationPage,
+  getAllLocationPageAction,
 } from "../Actions/pageAction";
 import { getLoginCookies } from "../Actions/authAction";
 export const ProjectPageContext = createContext();
@@ -10,7 +13,13 @@ export const ProjectPageContext = createContext();
 export default function ProjectPageContextApiProvider({ children }) {
   const loginToken = getLoginCookies();
   const [projectPageList, setprojectPageList] = useState([]);
+  const [locationPages, setlocationPages] = useState([]);
   const [sending, setsending] = useState(false);
+
+  useEffect(() => {
+    handelDeveloperList();
+    handelLocationPageList();
+  }, [sending]);
 
   //  Handel get Developer List
   const handelDeveloperList = async () => {
@@ -18,6 +27,15 @@ export default function ProjectPageContextApiProvider({ children }) {
       const response = await allDeveloperProjectListAction();
       console.log(response.data.result);
       setprojectPageList(response.data.result);
+    } catch (error) {}
+  };
+
+  //  Handel get Developer List
+  const handelLocationPageList = async () => {
+    try {
+      const response = await getAllLocationPageAction();
+      console.log(response.data.result);
+      setlocationPages(response.data.result);
     } catch (error) {}
   };
 
@@ -41,6 +59,28 @@ export default function ProjectPageContextApiProvider({ children }) {
     }
   };
 
+  const handelDeletePormotionalPage = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+
+      const response = await deletePormotionalPage(requestData, loginToken);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelDeleteLocationPage = async (dataId) => {
+    try {
+      const requestData = { _id: dataId };
+
+      const response = await deleteLocationPage(requestData, loginToken);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ProjectPageContext.Provider
       value={{
@@ -49,6 +89,10 @@ export default function ProjectPageContextApiProvider({ children }) {
         projectPageList,
         setsending,
         handelCreateLocationrProject,
+        handelDeletePormotionalPage,
+        sending,
+        locationPages,
+        handelDeleteLocationPage,
       }}
     >
       {children}

@@ -190,4 +190,15 @@ export const superAdminOptions = [
     page: "CREATE LOCATION",
     hrf: "/super-admin/add-location",
   },
+  {
+    id: 13,
+    page: "PROMOTIONAL DEVELOPER",
+    hrf: "/super-admin/promotional/developer",
+  },
+
+  {
+    id: 14,
+    page: "PROMOTIONAL LOCATION",
+    hrf: "/super-admin/promotional/location",
+  },
 ];
