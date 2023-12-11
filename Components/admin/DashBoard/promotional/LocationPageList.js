@@ -23,6 +23,8 @@ export default function LocationPageList() {
     { label: "Title", key: "pageTitle", component: "text" },
     { label: "LOCATION", key: "ProjectCity", component: "text" },
     { label: "DELETE", key: "_id", component: "delete" },
+    { label: "View", key: "slug", component: "view" },
+
     // Add more columns as needed
     // ... repeat additional columns
   ];
@@ -45,6 +47,10 @@ export default function LocationPageList() {
     }
   };
 
+  const handelPageRedirect = (slug) => {
+    alert(slug);
+  };
+
   return (
     <>
       <div>
@@ -59,6 +65,7 @@ export default function LocationPageList() {
               tableData={locationPages}
               tableColumns={tableColumns}
               handelbtnAction={handelOpenModelBox}
+              handelViewAction={handelPageRedirect}
             />
           </div>
         </AdminContdentUI>

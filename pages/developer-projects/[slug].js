@@ -1,23 +1,25 @@
-import React from 'react';
-import Layout from '../../Components/layouts/Layout'
-import CategoriesPage from '../../Components/CategoriesComponent/CategoriesPage'
-import {DeveloperProjectsAction} from '../../Actions/pageAction';
-
+import React, { useContext, useEffect } from "react";
+import Layout from "../../Components/layouts/Layout";
+import CategoriesPage from "../../Components/CategoriesComponent/CategoriesPage";
+import { DeveloperProjectsAction } from "../../Actions/pageAction";
+import { ProjectPageContext } from "../../contextApi/ProjectPageContextApi";
 
 export default function DeveloperProjectsPage({ initialProject }) {
- 
-  const projects = initialProject.projects 
-  const developer = initialProject.developer
+  const { setdeveloperProjects, developerProjects } =
+    useContext(ProjectPageContext);
+
+  useEffect(() => {
+    setdeveloperProjects(initialProject.result);
+  }, [initialProject]);
+
   return (
     <>
-    <Layout>
-        <CategoriesPage projectBy={developer} projects={projects} />
-    </Layout>
+      <Layout>
+        <CategoriesPage projectBy={developerProjects} />
+      </Layout>
     </>
-  )
+  );
 }
-
-
 
 // GET STATIC PROPS TO GET ALL PROJECTS
 export async function getServerSideProps(context) {
@@ -26,11 +28,12 @@ export async function getServerSideProps(context) {
     const { slug } = context.params;
     console.log(slug);
 
-    const result = await DeveloperProjectsAction(slug);
+    const response = await DeveloperProjectsAction(slug);
+    const data = response.data;
 
     return {
       props: {
-        initialProject: result
+        initialProject: data,
       },
     };
   } catch (error) {
@@ -38,10 +41,8 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        initialProject: {},
+        initialProject: [],
       },
     };
   }
 }
-
-

@@ -12,6 +12,7 @@ export default function DynamicTable(props) {
     handelbtnAction,
     handelSwitch,
     handelUpdateAction,
+    handelViewAction,
   } = props;
 
   const handlers = {
@@ -19,6 +20,7 @@ export default function DynamicTable(props) {
     delete: handelbtnAction,
     switch: handelSwitch,
     update: handelUpdateAction,
+    view: handelViewAction,
     // Add more handlers as needed based on component types
   };
 
@@ -42,6 +44,7 @@ export default function DynamicTable(props) {
                       no,
                       row[column.key],
                       row._id,
+                      row.slug,
                       column.component,
                       handlers[column.component]
                     )}
@@ -57,7 +60,7 @@ export default function DynamicTable(props) {
 }
 
 // Helper function to render cell content based on component type
-const renderCellContent = (indexNo, data, id, componentType, handler) => {
+const renderCellContent = (indexNo, data, id, slug, componentType, handler) => {
   switch (componentType) {
     case "number":
       return indexNo + 1;
@@ -104,6 +107,20 @@ const renderCellContent = (indexNo, data, id, componentType, handler) => {
               onClick={handler}
               btnDesign={"EditButton"}
               itemId={id}
+            />
+          </>
+        );
+      }
+
+    case "view":
+      if (handler) {
+        return (
+          <>
+            <ButtonElements
+              label="View"
+              onClick={handler}
+              btnDesign={"EditButton"}
+              itemId={slug}
             />
           </>
         );

@@ -14,6 +14,7 @@ export default function ProjectPageContextApiProvider({ children }) {
   const loginToken = getLoginCookies();
   const [projectPageList, setprojectPageList] = useState([]);
   const [locationPages, setlocationPages] = useState([]);
+  const [developerProjects, setdeveloperProjects] = useState([]);
   const [sending, setsending] = useState(false);
 
   useEffect(() => {
@@ -25,7 +26,6 @@ export default function ProjectPageContextApiProvider({ children }) {
   const handelDeveloperList = async () => {
     try {
       const response = await allDeveloperProjectListAction();
-      console.log(response.data.result);
       setprojectPageList(response.data.result);
     } catch (error) {}
   };
@@ -34,7 +34,6 @@ export default function ProjectPageContextApiProvider({ children }) {
   const handelLocationPageList = async () => {
     try {
       const response = await getAllLocationPageAction();
-      console.log(response.data.result);
       setlocationPages(response.data.result);
     } catch (error) {}
   };
@@ -93,6 +92,8 @@ export default function ProjectPageContextApiProvider({ children }) {
         sending,
         locationPages,
         handelDeleteLocationPage,
+        setdeveloperProjects,
+        developerProjects,
       }}
     >
       {children}

@@ -39,9 +39,27 @@ export const createDeveloperPageAction = async (requestData, token) => {
   }
 };
 
+export const deletePormotionalPage = async (requestData, token) => {
+  try {
+    const response = await axios({
+      method: "delete",
+      url: "http://127.0.0.1:5000/developer-project/delete-pormotional-page",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      data: requestData, // Pass the data payload here
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 // Get Developer Projects Action
 
 export const DeveloperProjectsAction = async (slug) => {
+  console.log("action run");
   console.log(slug);
   try {
     const res = await axios.get(
@@ -54,7 +72,8 @@ export const DeveloperProjectsAction = async (slug) => {
         },
       }
     );
-    return res.data;
+    console.log(res);
+    return res;
   } catch (error) {
     console.log(error.response);
     return error.response;
@@ -74,23 +93,6 @@ export const createLocationPageAction = async (requestData, token) => {
         },
       }
     );
-  } catch (error) {
-    return error.response;
-  }
-};
-
-export const deletePormotionalPage = async (requestData, token) => {
-  try {
-    const response = await axios({
-      method: "delete",
-      url: "http://127.0.0.1:5000/developer-project/delete-pormotional-page",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: `Bearer ${token}`,
-      },
-      data: requestData, // Pass the data payload here
-    });
-    return response;
   } catch (error) {
     return error.response;
   }

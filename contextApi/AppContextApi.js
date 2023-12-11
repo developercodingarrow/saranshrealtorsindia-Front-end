@@ -18,20 +18,17 @@ export default function AppContextApiProvider({ children }) {
   // super admin side bar toogle
   const handleToggleSidebar = () => {
     settoggleSideBar(!toggleSideBar);
-    console.log(toggleSideBar);
   };
 
   const handleToggleDrawer = (event) => {
     if (event.target === event.currentTarget) {
       setToggleDrawer((prev) => !prev); // Toggle the state
-      console.log(toggleDrawer);
     }
   };
 
   const handelOpenModelBox = (itemID) => {
     setmodelBox(true);
     setitemActionId(itemID);
-    console.log(itemID);
   };
 
   const handelCloseModelBox = () => {
@@ -40,7 +37,6 @@ export default function AppContextApiProvider({ children }) {
 
   const DeleteSingleProject = async (requestData, token) => {
     const response = await DeleteSingleProjectAction(requestData, token);
-    console.log(response);
     if (response.data.status === "Success") {
       toast.success(response.data.message);
     }

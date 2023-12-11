@@ -16,13 +16,11 @@ export default function BlogContextApiProvide({ children }) {
   const [loadingBlog, setloadingBlog] = useState(false);
 
   useEffect(() => {
-    console.log("run");
     handelGetAllBlosgs();
   }, [loadingBlog]);
 
   // Create Project
   const createBlog = async (inputdata, descreption) => {
-    console.log(inputdata);
     try {
       const formData = new FormData();
       formData.append("image", blogFeatureImage);
@@ -41,7 +39,6 @@ export default function BlogContextApiProvide({ children }) {
   const handelGetAllBlosgs = async () => {
     try {
       const response = await getAllBlogsAction();
-      console.log(response);
       setblogListData(response.data.result);
     } catch (error) {
       console.log(error);

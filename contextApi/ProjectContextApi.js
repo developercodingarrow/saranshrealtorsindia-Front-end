@@ -168,7 +168,6 @@ export default function ProjectContextApiProvider({ children }) {
   const handelToggleUpcomingProject = async (requestData, token) => {
     try {
       const response = await UpdateProjectUpcomingAction(requestData, token);
-      console.log(response);
       if (response.data.status === "Success") {
         toast.success(response.data.message);
       }
