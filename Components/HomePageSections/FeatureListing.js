@@ -5,6 +5,7 @@ import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardOne from "../../utilsComponents/cards/CardOne";
+import useFilterProjects from "../../custome-hook/useFilterProjects";
 
 const responsive = {
   superLargeDesktop: {
@@ -28,7 +29,8 @@ const responsive = {
 
 export default function FeatureListing() {
   const { allProjects } = useContext(ProjectContext);
-
+  const { filterProjectsByTrueStatus } = useFilterProjects(allProjects);
+  const fetureProjects = filterProjectsByTrueStatus("Featured");
   return (
     <>
       <div className={style.FeatureListing_mainContainer}>
@@ -40,20 +42,13 @@ export default function FeatureListing() {
           </p>
         </div>
         <div className={style.carousel_container}>
-          <Carousel
-            responsive={responsive}
-            autoPlaySpeed={3000}
-            infinite
-            itemClass={style.carouselItem}
-          >
-            {allProjects?.map((el, i) => {
-              return (
-                <div key={el._id}>
-                  <CardOne key={el._id} data={el} />
-                </div>
-              );
-            })}
-          </Carousel>
+          {fetureProjects?.map((el, i) => {
+            return (
+              <div key={el._id}>
+                <CardOne key={el._id} data={el} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

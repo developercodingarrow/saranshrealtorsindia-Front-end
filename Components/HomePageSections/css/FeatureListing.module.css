@@ -12,7 +12,9 @@
 .carousel_container {
   margin-top: 70px;
   padding: 10px 25px 10px 25px;
-  /* border: 1px solid red; */
+  display: flex;
+  column-gap: 50px;
+  justify-content: center;
 }
 
 .carouselItem {

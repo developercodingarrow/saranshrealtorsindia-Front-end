@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Layout from "../Components/layouts/Layout";
 import FeatureListing from "../Components/HomePageSections/FeatureListing";
 import { getAllProjectsAction } from "../Actions/ProjectAction";
@@ -9,8 +9,14 @@ import HomePageWrapper from "../Components/HomePageSections/HomePageWrapper";
 export default function Home({ initialProject }) {
   const { setallProjects } = useContext(ProjectContext);
 
-  // SET ALL PROJECTS
-  setallProjects(initialProject);
+  useEffect(() => {
+    if (initialProject && initialProject.length > 0) {
+      setallProjects(initialProject);
+    } else {
+      // If initialProject is empty or undefined, set state as an empty array
+      setallProjects([]);
+    }
+  }, [initialProject]);
   return (
     <>
       <Layout>
@@ -22,13 +28,13 @@ export default function Home({ initialProject }) {
 
 // GET STATIC PROPS TO GET ALL PROJECTS
 export async function getServerSideProps() {
-  console.log("run");
   try {
     const result = await getAllProjectsAction();
+    let initialProject = result?.data?.result || []; // Ensure a valid value or null
 
     return {
       props: {
-        initialProject: result.data.result,
+        initialProject,
       },
     };
   } catch (error) {
@@ -36,7 +42,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        initialProject: {},
+        initialProject: null,
       },
     };
   }

@@ -16,7 +16,7 @@ export default function Testimonials() {
         <div className={styles.Testimonials_wrapper}>
           {TestimonialsData.map((el, i) => {
             return (
-              <div className={styles.Testimonials_box}>
+              <div className={styles.Testimonials_box} key={i}>
                 <div className={styles.DoubleQuotes_Box}>
                   <RiDoubleQuotesL />
                 </div>
