@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./css/Testimonials.module.css";
 import { RiDoubleQuotesL } from "../../utilsComponents/ApplicationIcon";
+import { TestimonialsData } from "../../jsonData/homePageData";
 
 export default function Testimonials() {
   return (
@@ -13,48 +14,20 @@ export default function Testimonials() {
           </div>
         </div>
         <div className={styles.Testimonials_wrapper}>
-          <div className={styles.Testimonials_box}>
-            <div className={styles.DoubleQuotes_Box}>
-              <RiDoubleQuotesL />
-            </div>
-            <div className={styles.quotes_box}>
-              We just want to thank Saransh Realtors and their team for such
-              careful attention to our beautiful home. Very happy with the
-              services you delivered. Shall refer our friends and co-workers to
-              you. Many thanks
-            </div>
-            <div className={styles.writer_nameBox}>
-              by - <span className={styles.writer_name}> PREETI KAUSHIK</span>{" "}
-            </div>
-          </div>
-          <div className={styles.Testimonials_box}>
-            <div className={styles.DoubleQuotes_Box}>
-              <RiDoubleQuotesL />
-            </div>
-            <div className={styles.quotes_box}>
-              We just want to thank Saransh Realtors and their team for such
-              careful attention to our beautiful home. Very happy with the
-              services you delivered. Shall refer our friends and co-workers to
-              you. Many thanks
-            </div>
-            <div className={styles.writer_nameBox}>
-              by - <span className={styles.writer_name}> PREETI KAUSHIK</span>{" "}
-            </div>
-          </div>
-          <div className={styles.Testimonials_box}>
-            <div className={styles.DoubleQuotes_Box}>
-              <RiDoubleQuotesL />
-            </div>
-            <div className={styles.quotes_box}>
-              We just want to thank Saransh Realtors and their team for such
-              careful attention to our beautiful home. Very happy with the
-              services you delivered. Shall refer our friends and co-workers to
-              you. Many thanks
-            </div>
-            <div className={styles.writer_nameBox}>
-              by - <span className={styles.writer_name}> PREETI KAUSHIK</span>{" "}
-            </div>
-          </div>
+          {TestimonialsData.map((el, i) => {
+            return (
+              <div className={styles.Testimonials_box}>
+                <div className={styles.DoubleQuotes_Box}>
+                  <RiDoubleQuotesL />
+                </div>
+                <div className={styles.quotes_box}>{el.quotes}</div>
+                <div className={styles.writer_nameBox}>
+                  by -{" "}
+                  <span className={styles.writer_name}>{el.writerName}</span>{" "}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

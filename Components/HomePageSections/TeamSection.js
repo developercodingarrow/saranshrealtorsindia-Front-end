@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./css/teamSection.module.css";
 import Image from "next/image";
-import team1 from "../../public/Company-logo/team-1.png";
+import { TeamMember } from "../../jsonData/homePageData";
+
 export default function TeamSection() {
   return (
     <>
@@ -15,65 +16,24 @@ export default function TeamSection() {
           </div>
         </div>
         <div className={styles.Team_cardBox}>
-          <div className={styles.team_card}>
-            <div className={styles.image_Warpper}>
-              <div className={styles.thumblinBox}>
-                <Image
-                  src={team1}
-                  width={300}
-                  height={300}
-                  className={styles.thumblin_Style}
-                />
+          {TeamMember.map((el, i) => {
+            return (
+              <div className={styles.team_card} key={i}>
+                <div className={styles.image_Warpper}>
+                  <div className={styles.thumblinBox}>
+                    <Image
+                      src={`/team-member/${el.photo}`}
+                      width={300}
+                      height={300}
+                      className={styles.thumblin_Style}
+                    />
+                  </div>
+                </div>
+                <div className={styles.team_name}>{el.name}</div>
+                <div className={styles.team_degination}>{el.designation}</div>
               </div>
-            </div>
-            <div className={styles.team_name}>Shashi Gupta</div>
-            <div className={styles.team_degination}>CMD</div>
-          </div>
-
-          <div className={styles.team_card}>
-            <div className={styles.image_Warpper}>
-              <div className={styles.thumblinBox}>
-                <Image
-                  src={team1}
-                  width={300}
-                  height={300}
-                  className={styles.thumblin_Style}
-                />
-              </div>
-            </div>
-            <div className={styles.team_name}>Shashi Gupta</div>
-            <div className={styles.team_degination}>CMD</div>
-          </div>
-
-          <div className={styles.team_card}>
-            <div className={styles.image_Warpper}>
-              <div className={styles.thumblinBox}>
-                <Image
-                  src={team1}
-                  width={300}
-                  height={300}
-                  className={styles.thumblin_Style}
-                />
-              </div>
-            </div>
-            <div className={styles.team_name}>Shashi Gupta</div>
-            <div className={styles.team_degination}>CMD</div>
-          </div>
-
-          <div className={styles.team_card}>
-            <div className={styles.image_Warpper}>
-              <div className={styles.thumblinBox}>
-                <Image
-                  src={team1}
-                  width={300}
-                  height={300}
-                  className={styles.thumblin_Style}
-                />
-              </div>
-            </div>
-            <div className={styles.team_name}>Shashi Gupta</div>
-            <div className={styles.team_degination}>CMD</div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </>
