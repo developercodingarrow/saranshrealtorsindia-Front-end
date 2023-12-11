@@ -114,6 +114,23 @@ export const UpdateProjectFeatureAction = async (requestData, token) => {
   }
 };
 
+export const UpdateProjectUpcomingAction = async (requestData, token) => {
+  try {
+    return await axios.patch(
+      "http://127.0.0.1:5000/projects/update-upcoming-project",
+      requestData,
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};
+
 // Update Project Status Action
 export const UpdateProjectStatusTypeAction = async (requestData, token) => {
   console.log(requestData);

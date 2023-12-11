@@ -27,6 +27,7 @@ export default function ProjectListTable() {
     selectedProjects,
     setSelectedProjects,
     handelMultipleDeleteProject,
+    handelToggleUpcomingProject,
   } = useContext(ProjectContext);
 
   const handleButtonClick = () => {
@@ -130,7 +131,11 @@ export default function ProjectListTable() {
               <div className={styles.actionBox}>
                 <div className={styles.action_Name}>Upcoming</div>
                 <div className={styles.switch_btnBox}>
-                  <SwitchBtn btnSatus={project.upcomingProject} />
+                  <SwitchBtn
+                    btnSatus={project.upcomingProject}
+                    dataId={project._id}
+                    handelAction={handelToggleUpcomingProject}
+                  />
                 </div>
               </div>
             </div>

@@ -13,6 +13,7 @@ import {
   DeleteMultipleProjectAction,
   getSingleProjectsAction,
   UpdateProjectThumblinAction,
+  UpdateProjectUpcomingAction,
 } from "../Actions/ProjectAction";
 export const ProjectContext = createContext();
 
@@ -139,10 +140,14 @@ export default function ProjectContextApiProvider({ children }) {
 
   // handel Toggel Project Status
   const handelToggleProjectstatus = async (requestData, token) => {
-    const response = await UpdateProjectStatusAction(requestData, token);
+    try {
+      const response = await UpdateProjectStatusAction(requestData, token);
 
-    if (response.data.status === "Success") {
-      toast.success(response.data.message);
+      if (response.data.status === "Success") {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -151,6 +156,19 @@ export default function ProjectContextApiProvider({ children }) {
     try {
       const response = await UpdateProjectFeatureAction(requestData, token);
 
+      if (response.data.status === "Success") {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // handel Toggel Feature Project Status
+  const handelToggleUpcomingProject = async (requestData, token) => {
+    try {
+      const response = await UpdateProjectUpcomingAction(requestData, token);
+      console.log(response);
       if (response.data.status === "Success") {
         toast.success(response.data.message);
       }
@@ -264,6 +282,7 @@ export default function ProjectContextApiProvider({ children }) {
         setlaoding,
         isFectProject,
         setisFectProject,
+        handelToggleUpcomingProject,
       }}
     >
       {children}
