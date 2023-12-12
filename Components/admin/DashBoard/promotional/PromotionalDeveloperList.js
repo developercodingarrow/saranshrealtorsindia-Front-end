@@ -6,8 +6,10 @@ import { ProjectPageContext } from "../../../../contextApi/ProjectPageContextApi
 import DynamicTable from "../../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 export default function PromotionalDeveloperList() {
+  const router = useRouter();
   const { projectPageList, handelDeletePormotionalPage, sending, setsending } =
     useContext(ProjectPageContext);
   const {
@@ -17,14 +19,12 @@ export default function PromotionalDeveloperList() {
     handelOpenModelBox,
     modelBox,
   } = useContext(AppContext);
-  // Configuration object for table columns role
   const tableColumns = [
     { label: "S No", key: "name", component: "number" },
     { label: "Title", key: "pageTitle", component: "text" },
     { label: "DEVELOPER", key: "developer", component: "text" },
     { label: "DELETE", key: "_id", component: "delete" },
-    // Add more columns as needed
-    // ... repeat additional columns
+    { label: "View", key: "slug", component: "view" },
   ];
 
   const handelbtnAction = async (id) => {
@@ -45,6 +45,10 @@ export default function PromotionalDeveloperList() {
     }
   };
 
+  const handelRedirectToPage = (slug) => {
+    router.push(`/developer-projects/${slug}`);
+  };
+
   return (
     <>
       <div>
@@ -59,6 +63,7 @@ export default function PromotionalDeveloperList() {
               tableData={projectPageList}
               tableColumns={tableColumns}
               handelbtnAction={handelOpenModelBox}
+              handelViewAction={handelRedirectToPage}
             />
           </div>
         </AdminContdentUI>

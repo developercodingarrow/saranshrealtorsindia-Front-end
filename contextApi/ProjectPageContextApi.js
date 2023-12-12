@@ -15,7 +15,9 @@ export default function ProjectPageContextApiProvider({ children }) {
   const [projectPageList, setprojectPageList] = useState([]);
   const [locationPages, setlocationPages] = useState([]);
   const [developerProjects, setdeveloperProjects] = useState([]);
+  const [projectBy, setprojectBy] = useState("");
   const [sending, setsending] = useState(false);
+  const [locationProjects, setlocationProjects] = useState([]);
 
   useEffect(() => {
     handelDeveloperList();
@@ -35,7 +37,9 @@ export default function ProjectPageContextApiProvider({ children }) {
     try {
       const response = await getAllLocationPageAction();
       setlocationPages(response.data.result);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //Handel create new Developer project page
@@ -94,6 +98,10 @@ export default function ProjectPageContextApiProvider({ children }) {
         handelDeleteLocationPage,
         setdeveloperProjects,
         developerProjects,
+        projectBy,
+        setprojectBy,
+        locationProjects,
+        setlocationProjects,
       }}
     >
       {children}

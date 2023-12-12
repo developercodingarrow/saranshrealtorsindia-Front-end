@@ -135,3 +135,25 @@ export const deleteLocationPage = async (requestData, token) => {
     return error.response;
   }
 };
+
+export const getLocationProjectsAction = async (slug) => {
+  console.log("action run");
+  console.log(slug);
+  try {
+    const res = await axios.get(
+      `http://127.0.0.1:5000/location-project/get-location-projects/${slug}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json",
+        },
+      }
+    );
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};

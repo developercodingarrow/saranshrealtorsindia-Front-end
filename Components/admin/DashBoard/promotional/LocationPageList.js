@@ -6,8 +6,10 @@ import { ProjectPageContext } from "../../../../contextApi/ProjectPageContextApi
 import DynamicTable from "../../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 export default function LocationPageList() {
+  const router = useRouter();
   const { locationPages, handelDeleteLocationPage, sending, setsending } =
     useContext(ProjectPageContext);
   const {
@@ -48,7 +50,7 @@ export default function LocationPageList() {
   };
 
   const handelPageRedirect = (slug) => {
-    alert(slug);
+    router.push(`/location-project/${slug}`);
   };
 
   return (

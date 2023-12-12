@@ -7,7 +7,7 @@ import { ProjectPageContext } from "../../../contextApi/ProjectPageContextApi";
 export default function CreatePageUI(props) {
   const { handelDeveloperList, handelCreateDeveloperProject, setsending } =
     useContext(ProjectPageContext);
-  const { pageTitle, slectType, options, submitHandel } = props;
+  const { pageTitle, slectType, options, submitHandel, propertyName } = props;
   const {
     register,
     handleSubmit,
@@ -60,7 +60,7 @@ export default function CreatePageUI(props) {
               <div className={styles.select_Box}>
                 <select className={styles.selectBar} {...register(slectType)}>
                   {options.map((option, i) => {
-                    return <option key={i}>{option}</option>;
+                    return <option key={i}>{option[propertyName]}</option>;
                   })}
                 </select>
               </div>

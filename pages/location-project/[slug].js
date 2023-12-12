@@ -1,23 +1,23 @@
 import React, { useContext, useEffect } from "react";
 import Layout from "../../Components/layouts/Layout";
 import CategoriesPage from "../../Components/CategoriesComponent/CategoriesPage";
-import { DeveloperProjectsAction } from "../../Actions/pageAction";
+import { getLocationProjectsAction } from "../../Actions/pageAction";
 import { ProjectPageContext } from "../../contextApi/ProjectPageContextApi";
 
-export default function DeveloperProjectsPage({ initialProject }) {
-  const { setdeveloperProjects, developerProjects, projectBy, setprojectBy } =
+export default function LocationProjectPage({ initialProject }) {
+  const { locationProjects, setlocationProjects, projectBy, setprojectBy } =
     useContext(ProjectPageContext);
 
   useEffect(() => {
-    console.log(initialProject.developer);
-    setprojectBy(initialProject.developer);
-    setdeveloperProjects(initialProject.result);
+    console.log(initialProject);
+    setprojectBy(initialProject.location);
+    setlocationProjects(initialProject.projects);
   }, [initialProject]);
 
   return (
     <>
       <Layout>
-        <CategoriesPage projects={developerProjects} projectBy={projectBy} />
+        <CategoriesPage projects={locationProjects} projectBy={projectBy} />
       </Layout>
     </>
   );
@@ -30,7 +30,7 @@ export async function getServerSideProps(context) {
     const { slug } = context.params;
     console.log(slug);
 
-    const response = await DeveloperProjectsAction(slug);
+    const response = await getLocationProjectsAction(slug);
     const data = response.data;
 
     return {
