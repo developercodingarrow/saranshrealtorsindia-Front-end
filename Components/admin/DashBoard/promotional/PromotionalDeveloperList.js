@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AdminContdentUI from "../AdminContdentUI";
 import { BlogContext } from "../../../../contextApi/BlogContextApi";
 import { AppContext } from "../../../../contextApi/AppContextApi";
@@ -7,8 +7,10 @@ import DynamicTable from "../../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
+import useUserRoleColumns from "../../../../custome-hook/useUserRoleColumns";
 
 export default function PromotionalDeveloperList() {
+  const userRole = "super-admin";
   const router = useRouter();
   const { projectPageList, handelDeletePormotionalPage, sending, setsending } =
     useContext(ProjectPageContext);
@@ -19,13 +21,24 @@ export default function PromotionalDeveloperList() {
     handelOpenModelBox,
     modelBox,
   } = useContext(AppContext);
-  const tableColumns = [
+  const Columns = [
     { label: "S No", key: "name", component: "number" },
     { label: "Title", key: "pageTitle", component: "text" },
     { label: "DEVELOPER", key: "developer", component: "text" },
-    { label: "DELETE", key: "_id", component: "delete" },
+    // { label: "DELETE", key: "_id", component: "delete" },
     { label: "View", key: "slug", component: "view" },
   ];
+
+  const SuperAdminColumns = [
+    { label: "DELETE", key: "_id", component: "delete" },
+    // Add more role-specific columns for Blog if needed for each role
+  ];
+
+  const tableColumns = useUserRoleColumns(userRole, Columns, {
+    "super-admin": SuperAdminColumns,
+    admin: [], // Add admin-specific columns for Blog if needed
+    // Add more role-specific columns for Blog or other components as needed
+  });
 
   const handelbtnAction = async (id) => {
     try {

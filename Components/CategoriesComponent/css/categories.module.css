@@ -1,49 +1,47 @@
-.main_container{
-    width: 100%;
-    min-height: 900px;
-    background-color: #fff;
+.main_container {
+  width: 100%;
+  min-height: 900px;
+  background-color: #fff;
 }
 
-.page_Header{
-    width: 100%;
-    height: 150px;
-    border: 1px solid green;
-    position: relative;
-    overflow: hidden;
-    background-image: url('../../../public/Company-logo/banner\ image.jpg');
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    padding-left: 40px;
+.page_Header {
+  width: 100%;
+  height: 150px;
+  border: 1px solid green;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../../public/Company-logo/banner\ image.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
 }
 
-.title_box{
-    z-index: 10;
+.title_box {
+  z-index: 10;
 }
 
-.Inner_Container{
-    display: flex;
-    color: black;
-    column-gap: 10px;
+.Inner_Container {
+  display: flex;
+  color: black;
+  column-gap: 10px;
+  padding: var(--sectionTwo-container-padding);
 }
 
-
-.card_container{
-    width: 80%;
-    padding: 2% 5%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    column-gap: 50px;
-    row-gap: 50px;
+.card_container {
+  width: 80%;
+  padding: 2% 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 50px;
 }
 
-.sideForm_Container{
-    width: 15%;
-    padding: 2% 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+.sideForm_Container {
+  width: 20%;
+  padding: 2% 5px;
 }
 
-    .form_inner_container{
-
-    }
+.form_inner_container {
+}

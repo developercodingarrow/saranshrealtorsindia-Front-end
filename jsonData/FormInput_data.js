@@ -25,6 +25,29 @@ export const loginInputs = [
   },
 ];
 
+export const adminloginInputs = [
+  {
+    id: 1,
+    name: "userName",
+    type: "text",
+    placeholder: "User Name",
+    lable: "User Name",
+    validation: {
+      required: "User Name is required.",
+    },
+  },
+  {
+    id: 2,
+    name: "password",
+    type: "text",
+    placeholder: "password",
+    lable: "password",
+    validation: {
+      required: "Password is required.",
+    },
+  },
+];
+
 export const createProjectFiled = [
   {
     id: 1,

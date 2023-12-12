@@ -8,6 +8,8 @@ import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function BlogListComponent() {
+  const userRole = "super-admin";
+
   const {
     btnLoading,
     setbtnLoading,

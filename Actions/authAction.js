@@ -105,6 +105,25 @@ export const loginAccount = async (clData) => {
   }
 };
 
+// admin LOGIN
+export const adminLogin = async (clData) => {
+  try {
+    const res = await axios.post(
+      "http://127.0.0.1:5000/user/admin-login",
+      clData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return res;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 // Log Out
 export const singOut = (next) => {
   removeCookies("jwt");

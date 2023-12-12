@@ -1,0 +1,21 @@
+/* 404.module.css */
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.errorMessage {
+  font-size: 4rem;
+  color: #ff6347; /* You can choose your desired color */
+}
+
+.errorDescription {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #888;
+}

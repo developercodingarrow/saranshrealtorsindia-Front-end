@@ -33,6 +33,8 @@ export default function FormComponent(props) {
           authenticate(data, () => {
             router.push("/super-admin");
           });
+        } else if (data.apiFor == "admin-login") {
+          router.push("/");
         }
       } else if (data.status === "error") {
         toast.error(data.message);
