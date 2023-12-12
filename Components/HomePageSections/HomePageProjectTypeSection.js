@@ -15,7 +15,7 @@ export default function HomePageProjectTypeSection() {
                 eiusmod tempor incidi dunt
               </p>
             </div>
-            <div className={styles.regidencial_leftImageBox}> Image</div>
+            <div className={styles.regidencial_leftImageBox}> </div>
           </div>
           <div className={styles.residention_RightPart}>
             <div className={styles.big_imagewrapper}>
