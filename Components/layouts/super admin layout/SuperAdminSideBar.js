@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import style from "../../../styles/super-admin/superAdminSideBar.module.css";
 import { AppContext } from "../../../contextApi/AppContextApi";
 import Link from "next/link";
-import { superAdminOptions } from "../../../jsonData/FormInput_data";
+import { useFilteredOptions } from "../../../custome-hook/useFilteredOptions";
 
 export default function SuperAdminSideBar() {
   const { toggleSideBar, handleToggleSidebar } = useContext(AppContext);
@@ -11,6 +11,8 @@ export default function SuperAdminSideBar() {
     ? style.sideBar_wrapper
     : style.sideBar_wrapper_close;
 
+  const filteredOptions = useFilteredOptions();
+
   return (
     <>
       <div className={sideBarWrapper}>
@@ -18,7 +20,7 @@ export default function SuperAdminSideBar() {
           <h4>ADMIN DASHBOARD</h4>
         </div>
         <div className={style.sideBar_optionContainer}>
-          {superAdminOptions.map((el, i) => {
+          {filteredOptions.map((el, i) => {
             return (
               <div key={i}>
                 <Link href={el.hrf} className={style.sideBar_optionLink}>
