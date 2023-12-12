@@ -1,15 +1,21 @@
 import React, { useContext } from "react";
 import AdminContdentUI from "../AdminContdentUI";
-import { BlogContext } from "../../../../contextApi/BlogContextApi";
 import { AppContext } from "../../../../contextApi/AppContextApi";
 import { ProjectPageContext } from "../../../../contextApi/ProjectPageContextApi";
 import DynamicTable from "../../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
+import useUserRoleColumns from "../../../../custome-hook/useUserRoleColumns";
+import {
+  locationProjectColumns,
+  SALocationProjectColumns,
+} from "../../../../jsonData/tableColumns";
+import { UserContext } from "../../../../contextApi/UserContextApi";
 
 export default function LocationPageList() {
   const router = useRouter();
+  const { userRole } = useContext(UserContext);
   const { locationPages, handelDeleteLocationPage, sending, setsending } =
     useContext(ProjectPageContext);
   const {
@@ -19,17 +25,11 @@ export default function LocationPageList() {
     handelOpenModelBox,
     modelBox,
   } = useContext(AppContext);
-  // Configuration object for table columns role
-  const tableColumns = [
-    { label: "S No", key: "name", component: "number" },
-    { label: "Title", key: "pageTitle", component: "text" },
-    { label: "LOCATION", key: "ProjectCity", component: "text" },
-    { label: "DELETE", key: "_id", component: "delete" },
-    { label: "View", key: "slug", component: "view" },
 
-    // Add more columns as needed
-    // ... repeat additional columns
-  ];
+  const tableColumns = useUserRoleColumns(userRole, locationProjectColumns, {
+    "super-admin": SALocationProjectColumns,
+    admin: [],
+  });
 
   const handelbtnAction = async (id) => {
     try {

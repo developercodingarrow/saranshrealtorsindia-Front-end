@@ -7,8 +7,16 @@ import DynamicTable from "../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../utilsComponents/model/ModelBox";
 import { AppContext } from "../../../contextApi/AppContextApi";
 import { LocationContext } from "../../../contextApi/LocationContextApi";
+import useUserRoleColumns from "../../../custome-hook/useUserRoleColumns";
+import {
+  locationColumns,
+  SAlocationColumns,
+} from "../../../jsonData/tableColumns";
+
+import { UserContext } from "../../../contextApi/UserContextApi";
 
 export default function AddLocation() {
+  const { loginUser, userRole } = useContext(UserContext);
   const {
     btnLoading,
     setbtnLoading,
@@ -37,6 +45,11 @@ export default function AddLocation() {
     mode: "all", // Use "onChange" mode for real-time validation as the user types
   });
 
+  const tableColumns = useUserRoleColumns(userRole, locationColumns, {
+    "super-admin": SAlocationColumns,
+    admin: [],
+  });
+
   const handelNewLocation = async (formdata) => {
     try {
       setloadingLocation(true);
@@ -53,15 +66,6 @@ export default function AddLocation() {
       console.log(error);
     }
   };
-
-  // Configuration object for table columns role
-  const tableColumns = [
-    { label: "S No", key: "name", component: "number" },
-    { label: "Name", key: "locationName", component: "text" },
-    { label: "DELETE", key: "id", component: "delete" },
-    // Add more columns as needed
-    // ... repeat additional columns
-  ];
 
   const handelbtnAction = async (id) => {
     try {

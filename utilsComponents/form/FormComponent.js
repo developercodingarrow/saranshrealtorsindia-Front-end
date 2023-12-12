@@ -34,7 +34,9 @@ export default function FormComponent(props) {
             router.push("/super-admin");
           });
         } else if (data.apiFor == "admin-login") {
-          router.push("/");
+          authenticate(data, () => {
+            router.push("/super-admin");
+          });
         }
       } else if (data.status === "error") {
         toast.error(data.message);

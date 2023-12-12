@@ -7,8 +7,13 @@ import DynamicTable from "../../../utilsComponents/Table/DynimicTable";
 import ModelBox from "../../../utilsComponents/model/ModelBox";
 import { AppContext } from "../../../contextApi/AppContextApi";
 import { CityContext } from "../../../contextApi/CityContextApi";
+import useUserRoleColumns from "../../../custome-hook/useUserRoleColumns";
+import { cityColumns, SAColucitymns } from "../../../jsonData/tableColumns";
+
+import { UserContext } from "../../../contextApi/UserContextApi";
 
 export default function AddCity() {
+  const { loginUser, userRole } = useContext(UserContext);
   const {
     btnLoading,
     setbtnLoading,
@@ -52,14 +57,10 @@ export default function AddCity() {
     }
   };
 
-  // Configuration object for table columns role
-  const tableColumns = [
-    { label: "S No", key: "name", component: "number" },
-    { label: "Name", key: "cityName", component: "text" },
-    { label: "DELETE", key: "id", component: "delete" },
-    // Add more columns as needed
-    // ... repeat additional columns
-  ];
+  const tableColumns = useUserRoleColumns(userRole, cityColumns, {
+    "super-admin": SAColucitymns,
+    admin: [],
+  });
 
   const handelbtnAction = async (id) => {
     try {

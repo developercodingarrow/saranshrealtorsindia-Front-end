@@ -16,8 +16,8 @@ import {
 import { UserContext } from "../../../../contextApi/UserContextApi";
 
 export default function PromotionalDeveloperList() {
-  const { loginUser } = useContext(UserContext);
-  const userRole = loginUser.role;
+  const { loginUser, userRole } = useContext(UserContext);
+  console.log(userRole);
   const router = useRouter();
   const { projectPageList, handelDeletePormotionalPage, sending, setsending } =
     useContext(ProjectPageContext);

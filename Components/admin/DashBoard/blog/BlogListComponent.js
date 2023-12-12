@@ -6,9 +6,12 @@ import { BlogContext } from "../../../../contextApi/BlogContextApi";
 import { AppContext } from "../../../../contextApi/AppContextApi";
 import ModelBox from "../../../../utilsComponents/model/ModelBox";
 import toast, { Toaster } from "react-hot-toast";
+import { blogColumns, SAblogColumns } from "../../../../jsonData/tableColumns";
+import { UserContext } from "../../../../contextApi/UserContextApi";
+import useUserRoleColumns from "../../../../custome-hook/useUserRoleColumns";
 
 export default function BlogListComponent() {
-  const userRole = "super-admin";
+  const { loginUser, userRole } = useContext(UserContext);
 
   const {
     btnLoading,
@@ -22,16 +25,10 @@ export default function BlogListComponent() {
 
   console.log(blogListData);
 
-  // Configuration object for table columns role
-  const tableColumns = [
-    { label: "S No", key: "name", component: "number" },
-    { label: "Title", key: "blogTitle", component: "text" },
-    { label: "DATE", key: "createAt", component: "date" },
-    { label: "UPDATE", key: "_id", component: "update" },
-    { label: "DELETE", key: "_id", component: "delete" },
-    // Add more columns as needed
-    // ... repeat additional columns
-  ];
+  const tableColumns = useUserRoleColumns(userRole, blogColumns, {
+    "super-admin": SAblogColumns,
+    admin: [],
+  });
 
   const handelbtnAction = async (id) => {
     try {

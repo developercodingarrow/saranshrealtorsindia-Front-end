@@ -7,15 +7,17 @@ export default function SuperAdminPrivate({ children }) {
 
   useEffect(
     () => {
-      if (!isAuth()) {
+      const auth = isAuth();
+      if (!auth) {
         router.push("/login");
-      } else if (isAuth().role !== "super-admin") {
+      } else if (auth.role !== "admin" && auth.role !== "super-admin") {
         router.push("/login");
       }
     },
     [isAuth()],
     router
   );
+
   return (
     <>
       <div>{children}</div>
