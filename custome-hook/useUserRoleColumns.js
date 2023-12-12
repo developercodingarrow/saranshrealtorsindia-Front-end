@@ -10,7 +10,7 @@ const useUserRoleColumns = (userRole, tableColumns, roleColumns) => {
     } else {
       setColumns([...tableColumns]);
     }
-  }, [userRole, tableColumns, roleColumns]);
+  }, [userRole]);
 
   return columns;
 };
