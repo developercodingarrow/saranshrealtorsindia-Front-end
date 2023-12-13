@@ -14,6 +14,7 @@ import {
   getSingleProjectsAction,
   UpdateProjectThumblinAction,
   UpdateProjectUpcomingAction,
+  getSingleProjectForUpdateAction,
 } from "../Actions/ProjectAction";
 export const ProjectContext = createContext();
 
@@ -42,6 +43,7 @@ export default function ProjectContextApiProvider({ children }) {
   const [imageAltText, setimageAltText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [laoding, setlaoding] = useState(false);
+  const [singleProjectData, setsingleProjectData] = useState(null);
 
   useEffect(() => {
     getAllProjectHandel();
@@ -245,6 +247,22 @@ export default function ProjectContextApiProvider({ children }) {
     }
   };
 
+  const handelUpdateSingleProject = async (dataId) => {
+    try {
+      const response = await getSingleProjectForUpdateAction(
+        dataId,
+        loginToken
+      );
+
+      const data = response.data.result;
+
+      setsingleProjectData(data);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -282,6 +300,8 @@ export default function ProjectContextApiProvider({ children }) {
         isFectProject,
         setisFectProject,
         handelToggleUpcomingProject,
+        handelUpdateSingleProject,
+        singleProjectData,
       }}
     >
       {children}

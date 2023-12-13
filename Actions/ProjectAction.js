@@ -206,15 +206,16 @@ export const UpdateProjectThumblinAction = async (requestData, token, id) => {
   }
 };
 
-export const getSingleProjectForUpdateAction = async (_id) => {
+export const getSingleProjectForUpdateAction = async (_id, token) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/get-single-project-for-update/${_id}`,
+      `http://127.0.0.1:5000/projects/get-single-project-for-update/${_id}`,
 
       {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           Accept: "application/json",
+          Authorization: `Bearer ${token}`,
         },
       }
     );

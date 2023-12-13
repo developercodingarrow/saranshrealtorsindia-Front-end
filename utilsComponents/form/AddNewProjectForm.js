@@ -144,8 +144,10 @@ export default function AddNewProjectForm() {
                       <input
                         type="radio"
                         id="commercial"
-                        name="projectType"
+                        name="ProjectType2"
                         className={style.radioInput}
+                        value="Commercial"
+                        {...register("ProjectType2")}
                       />
                       <label htmlFor="commercial" className={style.radioLabel}>
                         Commercial
@@ -156,8 +158,10 @@ export default function AddNewProjectForm() {
                       <input
                         type="radio"
                         id="residential"
-                        name="projectType"
+                        name="ProjectType2"
                         className={style.radioInput}
+                        value="Residential"
+                        {...register("ProjectType2")}
                       />
                       <label htmlFor="residential" className={style.radioLabel}>
                         Residential

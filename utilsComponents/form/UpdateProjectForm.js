@@ -1,26 +1,55 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./css/upadteprojectForm.module.css";
 import { useForm, Controller } from "react-hook-form";
 import { createProjectFiled } from "../../jsonData/FormInput_data";
 import CreateProjectFormInput from "./CreateProjectFormInput";
-
+import { ProjectContext } from "../../contextApi/ProjectContextApi";
+import { CityContext } from "../../contextApi/CityContextApi";
+import { LocationContext } from "../../contextApi/LocationContextApi";
+import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
 export default function UpdateProjectForm() {
+  const { allCties } = useContext(CityContext);
+  const { allLocation } = useContext(LocationContext);
+  const { allDeveloper, handelGetAllDeveloper } = useContext(DeveloperContext);
+  const { handelUpdateSingleProject, singleProjectData } =
+    useContext(ProjectContext);
   const router = useRouter();
+  const { _id } = router.query;
+
+  console.log(singleProjectData);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
     control,
-    watch,
+    setValue,
   } = useForm({
-    mode: "all", // Use "onChange" mode for real-time validation as the user types
+    mode: "all",
   });
+
+  useEffect(() => {
+    handelUpdateSingleProject(_id);
+  }, [_id]);
+
+  useEffect(() => {
+    if (singleProjectData) {
+      Object.keys(singleProjectData).forEach((key) => {
+        setValue(key, singleProjectData[key]);
+      });
+    }
+  }, [setValue]);
+
+  const onSubmit = (data) => {
+    // Handle form submission with updated data
+    console.log(data); // Updated form data
+  };
+
   return (
     <>
       <div className={styles.AddNewProjectForm_mainContainer}>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.static_Container}>
             {/* Title Box start */}
             <div>
@@ -31,6 +60,14 @@ export default function UpdateProjectForm() {
                     type="text"
                     className={styles.input}
                     name="projectName"
+                    defaultValue={
+                      singleProjectData && singleProjectData.projectName
+                        ? singleProjectData.projectName
+                        : ""
+                    }
+                    {...register("projectName", {
+                      required: true,
+                    })}
                   />
                   {/* {errors.projectName && (
                     <p className={styles.errorMsg}>{"Title Is require"}</p>
@@ -49,8 +86,13 @@ export default function UpdateProjectForm() {
                       <input
                         type="radio"
                         id="commercial"
-                        name="projectType"
                         className={styles.radioInput}
+                        name="ProjectType2"
+                        checked={
+                          singleProjectData &&
+                          singleProjectData.ProjectType2 === "Commercial"
+                        } // Check if projectType is 'Commercial'
+                        {...register("ProjectType2")}
                       />
                       <label htmlFor="commercial" className={styles.radioLabel}>
                         Commercial
@@ -61,8 +103,14 @@ export default function UpdateProjectForm() {
                       <input
                         type="radio"
                         id="residential"
-                        name="projectType"
+                        name="ProjectType2"
                         className={styles.radioInput}
+                        value="Residential"
+                        checked={
+                          singleProjectData &&
+                          singleProjectData.ProjectType2 === "Residential"
+                        } // Check if projectType is 'Commercial'
+                        {...register("ProjectType2")}
                       />
                       <label
                         htmlFor="residential"
@@ -77,14 +125,20 @@ export default function UpdateProjectForm() {
 
               <div className={styles.select_box}>
                 <label className={styles.select_lable}>SELECT DEVELOPER</label>
-                <select className={styles.selectBar} name="developer">
-                  {/* {allDeveloper.map((el, i) => {
+                <select
+                  className={styles.selectBar}
+                  name="developer"
+                  defaultValue={
+                    singleProjectData ? singleProjectData.developer : ""
+                  }
+                >
+                  {allDeveloper.map((el, i) => {
                     return (
                       <option key={el._id} value={el.DeveloperName}>
                         {el.DeveloperName}
                       </option>
                     );
-                  })} */}
+                  })}
                 </select>
               </div>
             </div>
@@ -95,15 +149,18 @@ export default function UpdateProjectForm() {
                 <select
                   className={styles.selectBar}
                   name="cityName"
-                  //   {...register("cityName")}
+                  {...register("cityName")}
+                  defaultValue={
+                    singleProjectData ? singleProjectData.cityName : ""
+                  }
                 >
-                  {/* {allCties.map((el, i) => {
+                  {allCties.map((el, i) => {
                     return (
                       <option key={el._id} value={el.cityName}>
                         {el.cityName}
                       </option>
                     );
-                  })} */}
+                  })}
                 </select>
               </div>
 
@@ -112,15 +169,18 @@ export default function UpdateProjectForm() {
                 <select
                   className={styles.selectBar}
                   name="locationName"
-                  //   {...register("locationName")}
+                  {...register("locationName")}
+                  defaultValue={
+                    singleProjectData ? singleProjectData.locationName : ""
+                  }
                 >
-                  {/* {allLocation.map((el, i) => {
+                  {allLocation.map((el, i) => {
                     return (
                       <option key={el._id} value={el.locationName}>
                         {el.locationName}
                       </option>
                     );
-                  })} */}
+                  })}
                 </select>
               </div>
             </div>
@@ -130,35 +190,100 @@ export default function UpdateProjectForm() {
           {/* Dynamic Form Filed Start */}
           <div className={styles.dynimc_filed_container}>
             <div className={styles.dynimic_filed_box}>
-              {createProjectFiled.map((input) => {
-                return (
-                  <div className={styles.dynimic_inputContainer}>
-                    <Controller
-                      name={input.name}
-                      control={control}
-                      defaultValue=""
-                      rules={input.validation}
-                      render={({ field }) => (
-                        <>
-                          <CreateProjectFormInput
-                            key={input.id}
-                            {...input}
-                            labelClassName={styles.dynimic_lable} // CSS class for the label
-                            inputClassName={styles.dynimic_input}
-                            boxClassName={styles.dynimic_inputBox}
-                            {...field}
-                          />
-                          {errors[input.name] && (
-                            <p className={styles.errorMsg}>
-                              {errors[input.name].message}
-                            </p>
-                          )}
-                        </>
-                      )}
-                    />
-                  </div>
-                );
-              })}
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="Budget"
+                  className={styles.input}
+                  name="Budget"
+                  defaultValue={
+                    singleProjectData && singleProjectData.Budget
+                      ? singleProjectData.Budget
+                      : ""
+                  }
+                  {...register("Budget", {
+                    required: true,
+                  })}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="BasicPrice"
+                  className={styles.input}
+                  name="BasicPrice"
+                  defaultValue={
+                    singleProjectData && singleProjectData.BasicPrice
+                      ? singleProjectData.BasicPrice
+                      : ""
+                  }
+                  {...register("BasicPrice", {
+                    required: true,
+                  })}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="FlatSizeRange"
+                  className={styles.input}
+                  name="FlatSizeRange"
+                  defaultValue={
+                    singleProjectData && singleProjectData.FlatSizeRange
+                      ? singleProjectData.FlatSizeRange
+                      : ""
+                  }
+                  {...register("FlatSizeRange")}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="RERA No"
+                  className={styles.input}
+                  name="RERANo"
+                  defaultValue={
+                    singleProjectData && singleProjectData.RERANo
+                      ? singleProjectData.RERANo
+                      : ""
+                  }
+                  {...register("RERANo")}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="Unit Type"
+                  className={styles.input}
+                  name="UnitType"
+                  defaultValue={
+                    singleProjectData && singleProjectData.UnitType
+                      ? singleProjectData.UnitType
+                      : ""
+                  }
+                  {...register("UnitType")}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input
+                  type="text"
+                  placeholder="No Of Floor"
+                  className={styles.input}
+                  name="NoOFFLOR"
+                  {...register("NoOFFLOR", {
+                    required: true,
+                  })}
+                />
+              </div>
+
+              <div className={styles.dynimic_inputContainer}>
+                <input type="text" className={styles.input} />
+              </div>
             </div>
           </div>
           {/* Dynimic Form Filed End */}
