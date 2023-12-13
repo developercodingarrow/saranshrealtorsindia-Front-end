@@ -19,11 +19,11 @@ export default function HomePageProjectTypeSection() {
           </div>
           <div className={styles.residention_RightPart}>
             <div className={styles.big_imagewrapper}>
-              <div className={styles.Big_imageBox}>Big Image</div>
+              <div className={styles.Big_imageBox}></div>
             </div>
             <div className={styles.small_image_container}>
-              <div className={styles.small_imageBox}>small Image box</div>
-              <div className={styles.small_imageBox}>small Image box</div>
+              <div className={styles.small_imageBoxOne}></div>
+              <div className={styles.small_imageBoxTwo}></div>
             </div>
           </div>
         </div>
@@ -38,12 +38,8 @@ export default function HomePageProjectTypeSection() {
             </div>
           </div>
           <div className={styles.comercial_image_Container}>
-            <div className={styles.commercial_ImageBox}>
-              commercial boxImage
-            </div>
-            <div className={styles.commercial_ImageBox}>
-              commercial boxImage
-            </div>
+            <div className={styles.commercial_ImageBoxOne}></div>
+            <div className={styles.commercial_ImageBoxTwo}></div>
           </div>
         </div>
       </div>
