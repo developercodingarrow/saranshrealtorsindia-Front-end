@@ -1,18 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import CheckboxCustome from "../Custome Components/CheckboxCustome";
-import Button from "../Custome Components/Button";
 import styles from "./css/projectListtable.module.css";
 import Image from "next/image";
-import sampleImage from "../../public/project-feature-images/MRG Primark.jpg";
 import SwitchBtn from "../Custome Components/SwitchBtn";
 import ButtonElements from "../Custome Components/ButtonElement";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
-import { getLoginCookies } from "../../Actions/authAction";
 import { RadioButton } from "../Custome Components/ReadioElements";
 import { AppContext } from "../../contextApi/AppContextApi";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function ProjectListTable() {
+  const router = useRouter();
   const [selectedOption, setSelectedOption] = useState(null);
   const { handelOpenModelBox, handelCloseModelBox, modelBox } =
     useContext(AppContext);
@@ -30,9 +28,8 @@ export default function ProjectListTable() {
     handelToggleUpcomingProject,
   } = useContext(ProjectContext);
 
-  const handleButtonClick = () => {
-    // Handle button click event here
-    alert("Button clicked!");
+  const handleButtonClick = (id) => {
+    router.push(`/super-admin/project-list/update-project/${id}`);
   };
 
   useEffect(() => {

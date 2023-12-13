@@ -126,7 +126,7 @@ export default function Navbar() {
           <Search />
         </div>
         <div className={style.loginBox} ref={dropdownRef}>
-          {loginUser?.email ? (
+          {loginUser ? (
             <>
               <div className={style.login_btn} onClick={toggleDropdown}>
                 <p>{loginUser.name} </p>

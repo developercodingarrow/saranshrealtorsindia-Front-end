@@ -12,7 +12,7 @@ export default function UserContextApiProvider({ children }) {
     const getUserData = async () => {
       const storedData = await isAuth();
       setloginUser(storedData);
-      setuserRole(storedData.role);
+      setuserRole(storedData?.role);
     };
     getUserData();
   }, []);
