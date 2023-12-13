@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import styles from "./css/upadteprojectForm.module.css";
 import { useForm, Controller } from "react-hook-form";
@@ -9,6 +9,7 @@ import { CityContext } from "../../contextApi/CityContextApi";
 import { LocationContext } from "../../contextApi/LocationContextApi";
 import { DeveloperContext } from "../../contextApi/DeveloperContextApi";
 export default function UpdateProjectForm() {
+  const inputRef = useRef(null);
   const { allCties } = useContext(CityContext);
   const { allLocation } = useContext(LocationContext);
   const { allDeveloper, handelGetAllDeveloper } = useContext(DeveloperContext);
@@ -17,14 +18,14 @@ export default function UpdateProjectForm() {
   const router = useRouter();
   const { _id } = router.query;
 
-  console.log(singleProjectData);
+  // console.log(singleProjectData);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
-    control,
+    formState: { errors, isValid, isDirty },
     setValue,
+    setFocus,
   } = useForm({
     mode: "all",
   });
@@ -44,6 +45,7 @@ export default function UpdateProjectForm() {
   const onSubmit = (data) => {
     // Handle form submission with updated data
     console.log(data); // Updated form data
+    alert(data);
   };
 
   return (
@@ -60,18 +62,9 @@ export default function UpdateProjectForm() {
                     type="text"
                     className={styles.input}
                     name="projectName"
-                    defaultValue={
-                      singleProjectData && singleProjectData.projectName
-                        ? singleProjectData.projectName
-                        : ""
-                    }
-                    {...register("projectName", {
-                      required: true,
-                    })}
+                    defaultValue={singleProjectData?.projectName || ""}
+                    {...register("projectName")}
                   />
-                  {/* {errors.projectName && (
-                    <p className={styles.errorMsg}>{"Title Is require"}</p>
-                  )} */}
                 </div>
               </div>
             </div>
@@ -88,10 +81,6 @@ export default function UpdateProjectForm() {
                         id="commercial"
                         className={styles.radioInput}
                         name="ProjectType2"
-                        checked={
-                          singleProjectData &&
-                          singleProjectData.ProjectType2 === "Commercial"
-                        } // Check if projectType is 'Commercial'
                         {...register("ProjectType2")}
                       />
                       <label htmlFor="commercial" className={styles.radioLabel}>
@@ -106,10 +95,6 @@ export default function UpdateProjectForm() {
                         name="ProjectType2"
                         className={styles.radioInput}
                         value="Residential"
-                        checked={
-                          singleProjectData &&
-                          singleProjectData.ProjectType2 === "Residential"
-                        } // Check if projectType is 'Commercial'
                         {...register("ProjectType2")}
                       />
                       <label
@@ -131,6 +116,7 @@ export default function UpdateProjectForm() {
                   defaultValue={
                     singleProjectData ? singleProjectData.developer : ""
                   }
+                  {...register("developer")}
                 >
                   {allDeveloper.map((el, i) => {
                     return (
@@ -201,9 +187,7 @@ export default function UpdateProjectForm() {
                       ? singleProjectData.Budget
                       : ""
                   }
-                  {...register("Budget", {
-                    required: true,
-                  })}
+                  {...register("Budget")}
                 />
               </div>
 
@@ -218,9 +202,7 @@ export default function UpdateProjectForm() {
                       ? singleProjectData.BasicPrice
                       : ""
                   }
-                  {...register("BasicPrice", {
-                    required: true,
-                  })}
+                  {...register("BasicPrice")}
                 />
               </div>
 
@@ -272,17 +254,16 @@ export default function UpdateProjectForm() {
               <div className={styles.dynimic_inputContainer}>
                 <input
                   type="text"
-                  placeholder="No Of Floor"
+                  placeholder="address"
                   className={styles.input}
-                  name="NoOFFLOR"
-                  {...register("NoOFFLOR", {
-                    required: true,
-                  })}
+                  name="address"
+                  defaultValue={
+                    singleProjectData && singleProjectData.address
+                      ? singleProjectData.address
+                      : ""
+                  }
+                  {...register("address")}
                 />
-              </div>
-
-              <div className={styles.dynimic_inputContainer}>
-                <input type="text" className={styles.input} />
               </div>
             </div>
           </div>
@@ -296,9 +277,7 @@ export default function UpdateProjectForm() {
                 type="text"
                 className={styles.seo_keywords_input}
                 name="keywords"
-                {...register("keywords", {
-                  required: true,
-                })}
+                {...register("keywords")}
               />
               {errors.keywords && (
                 <p className={styles.errorMsg}>
@@ -313,15 +292,8 @@ export default function UpdateProjectForm() {
                 type="text"
                 className={styles.seo_keywords_input}
                 name="sortDescreption"
-                {...register("sortDescreption", {
-                  required: true,
-                })}
+                {...register("sortDescreption")}
               />
-              {errors.sortDescreption && (
-                <p className={styles.errorMsg}>
-                  {"Sort Descreption is Required"}
-                </p>
-              )}
             </div>
           </div>
 
@@ -331,7 +303,7 @@ export default function UpdateProjectForm() {
               type="submit"
               disabled={!isValid}
             >
-              {false ? "Loading.." : "Save"}
+              Update
             </button>
           </div>
         </form>
