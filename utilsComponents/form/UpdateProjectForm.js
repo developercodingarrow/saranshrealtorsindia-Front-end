@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./css/upadteprojectForm.module.css";
 import { useForm, Controller } from "react-hook-form";
@@ -17,8 +17,6 @@ export default function UpdateProjectForm() {
     useContext(ProjectContext);
   const router = useRouter();
   const { _id } = router.query;
-
-  // console.log(singleProjectData);
 
   const {
     register,
