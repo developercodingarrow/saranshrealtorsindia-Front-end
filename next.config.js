@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  cssModules: true, // Add this line to enable CSS modules
+  css: {
+    modules: true, // Enable CSS modules
+  },
   publicRuntimeConfig: {
     App_Name: "Saransh Realtor India",
     API_DEVELOPMENT: "http://localhost:5000/",
