@@ -13,7 +13,6 @@ export default function Home({ initialProject }) {
     if (initialProject && initialProject.length > 0) {
       setallProjects(initialProject);
     } else {
-      // If initialProject is empty or undefined, set state as an empty array
       setallProjects([]);
     }
   }, [initialProject]);
