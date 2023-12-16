@@ -5,11 +5,10 @@ import sampleImage from "../../public/Company-logo/banglore.jpg";
 import Image from "next/image";
 import useContentLength from "../../custome-hook/useCotentLength";
 
-export default function RecentBlog(props) {
+export default function RecentProjects(props) {
   const { items } = props;
-  console.log(items);
   const truncateContent = useContentLength();
-  let truncatedTitle = truncateContent(items.blogTitle, 30);
+  let truncatedTitle = truncateContent(items.projectName, 30);
 
   return (
     <>
@@ -17,9 +16,9 @@ export default function RecentBlog(props) {
         <div>
           <Link href={"#"} className={styles.link_box}>
             <div className={styles.image_box}>
-              {items && items.image && (
+              {items && items.ProjectThumblin && (
                 <Image
-                  src={`/blog-images/${items.image[0].url}`}
+                  src={`/project-feature-images/${items.ProjectThumblin[0].url}`}
                   alt="sample-image"
                   className={styles.image_style}
                   width={100}

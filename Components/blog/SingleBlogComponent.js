@@ -6,6 +6,7 @@ import RecentBlog from "../../utilsComponents/recent-activities/RecentBlog";
 import { BlogContext } from "../../contextApi/BlogContextApi";
 import { ProjectContext } from "../../contextApi/ProjectContextApi";
 import useLimitedList from "../../custome-hook/useLimitedList";
+import RecentProjects from "../../utilsComponents/recent-activities/RecentProjects";
 export default function SingleBlogComponent() {
   const { blogListData } = useContext(BlogContext);
   const { projects } = useContext(ProjectContext);
@@ -32,7 +33,7 @@ export default function SingleBlogComponent() {
               <div className={styles.recent_BlogBox}>
                 <div className={styles.list_heading}>RECENT PROJECTS</div>
                 {limitedProjectList.map((el, i) => {
-                  return <RecentBlog items={el} />;
+                  return <RecentProjects items={el} />;
                 })}
               </div>
             </div>
