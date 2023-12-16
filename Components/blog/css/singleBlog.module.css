@@ -27,6 +27,17 @@
   padding: 5px;
 }
 
+.recent_BlogBox {
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.list_heading {
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 10px;
+}
+
 .SingleBlog_mainContainer {
   width: 100%;
   min-height: 600px;
