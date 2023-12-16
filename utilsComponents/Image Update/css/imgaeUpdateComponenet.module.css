@@ -141,3 +141,24 @@
 .Image_saveBtn:hover {
   background-color: #2980b9;
 }
+
+@media screen and (max-width: 950px) {
+  .thumblin_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .image_actionBox {
+    width: 100%;
+  }
+
+  .actionBox {
+    margin: 0px 20px;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+}

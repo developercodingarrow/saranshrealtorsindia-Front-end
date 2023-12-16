@@ -15,6 +15,7 @@ import {
   UpdateProjectThumblinAction,
   UpdateProjectUpcomingAction,
   getSingleProjectForUpdateAction,
+  UpdateProjectCoverAction,
 } from "../Actions/ProjectAction";
 export const ProjectContext = createContext();
 
@@ -141,6 +142,22 @@ export default function ProjectContextApiProvider({ children }) {
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
       const result = await UpdateProjectThumblinAction(
+        formData,
+        loginToken,
+        imageId
+      );
+
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelupdateProjectCover = async (imageId) => {
+    try {
+      const formData = new FormData();
+      formData.append("ProjectThumblin", projectThumblin);
+      const result = await UpdateProjectCoverAction(
         formData,
         loginToken,
         imageId
@@ -329,6 +346,7 @@ export default function ProjectContextApiProvider({ children }) {
         coverImageText,
         handlePreviwCoverImageChange,
         selectedCoverIMage,
+        handelupdateProjectCover,
       }}
     >
       {children}

@@ -187,6 +187,26 @@ export const DeleteMultipleProjectAction = async (requestData, token) => {
   }
 };
 
+export const getSingleProjectForUpdateAction = async (_id, token) => {
+  try {
+    const res = await axios.get(
+      `http://127.0.0.1:5000/projects/get-single-project-for-update/${_id}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
+
 // Create Project Action
 export const UpdateProjectThumblinAction = async (requestData, token, id) => {
   console.log(requestData);
@@ -206,22 +226,20 @@ export const UpdateProjectThumblinAction = async (requestData, token, id) => {
   }
 };
 
-export const getSingleProjectForUpdateAction = async (_id, token) => {
+export const UpdateProjectCoverAction = async (requestData, token, id) => {
+  console.log(requestData);
   try {
-    const res = await axios.get(
-      `http://127.0.0.1:5000/projects/get-single-project-for-update/${_id}`,
-
+    return await axios.patch(
+      `http://127.0.0.1:5000/projects/update-project-cover-image/${id}`,
+      requestData,
       {
         headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       }
     );
-    return res;
   } catch (error) {
-    console.log(error.response);
     return error.response;
   }
 };

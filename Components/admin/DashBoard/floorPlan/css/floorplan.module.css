@@ -1,0 +1,76 @@
+.upload_btnBox,
+.uploader_ImageContainer {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  padding: 1.25rem;
+  font-family: sans-serif;
+  column-gap: 30px;
+  row-gap: 30px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.imageList {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 10%;
+  flex-wrap: wrap;
+}
+
+.privew_ImageBox {
+}
+
+.imagePreview {
+  width: 200px;
+  height: 200px;
+}
+
+.imageBox {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.imageBox:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.remove_BtnBox {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updateBtn {
+  padding: 10px 24px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.updateBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Tablete Screen */
+@media screen and (max-width: 950px) {
+  .imageList {
+    justify-content: center;
+  }
+}
+
+/* Mobile Screen  */
+@media screen and (max-width: 550px) {
+}

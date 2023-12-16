@@ -27,6 +27,7 @@ export default function ImageUpdateComponent() {
     coverImageText,
     handlePreviwCoverImageChange,
     selectedCoverIMage,
+    handelupdateProjectCover,
   } = useContext(ProjectContext);
   // console.log(_id);
 
@@ -40,6 +41,20 @@ export default function ImageUpdateComponent() {
       const result = await handelupdateProjectThumblin(_id);
       console.log(result);
       toast.success("Image Updated");
+      setlaoding(false);
+    } catch (error) {
+      console.log(error);
+      setlaoding(false);
+      toast.error("Somthing wrong");
+    }
+  };
+
+  const handelTrigerUpdateCoverImage = async () => {
+    try {
+      setlaoding(true);
+      const result = await handelupdateProjectCover(_id);
+      console.log(result);
+      toast.success("Cover Image Updated");
       setlaoding(false);
     } catch (error) {
       console.log(error);
@@ -165,7 +180,7 @@ export default function ImageUpdateComponent() {
             </div>
             <div className={styles.actionBox}>
               <button
-                onClick={handelTrigerUpdateIMage}
+                onClick={handelTrigerUpdateCoverImage}
                 className={styles.Image_saveBtn}
               >
                 SAVE{" "}
