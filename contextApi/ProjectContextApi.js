@@ -32,6 +32,7 @@ export default function ProjectContextApiProvider({ children }) {
   const loginToken = getLoginCookies();
   const [allProjects, setallProjects] = useState([]);
   const [projectThumblin, setprojectThumblin] = useState("");
+  const [projectCoverImage, setprojectCoverImage] = useState("");
   // super-Admin
   const [projects, setprojects] = useState([]);
 
@@ -41,7 +42,10 @@ export default function ProjectContextApiProvider({ children }) {
   // for single Image
   const [imageUrl, setimageUrl] = useState("");
   const [imageAltText, setimageAltText] = useState("");
+  const [coverImageUrl, setcoverImageUrl] = useState("");
+  const [coverImageText, setcoverImageText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedCoverIMage, setselectedCoverIMage] = useState(null);
   const [laoding, setlaoding] = useState(false);
   const [singleProjectData, setsingleProjectData] = useState(null);
 
@@ -92,11 +96,25 @@ export default function ProjectContextApiProvider({ children }) {
     setprojectThumblin(file);
   };
 
+  const handlePreviwCoverImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setselectedCoverIMage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    setprojectCoverImage(file);
+  };
+
   // Create Project
   const createProject = async (inputdata, token) => {
     try {
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
+      formData.append("ProjectCoverImage", projectCoverImage);
       formData.append("projectName", inputdata.projectName);
       formData.append("ProjectType2", inputdata.ProjectType2);
       formData.append("developer", inputdata.developer);
@@ -240,8 +258,11 @@ export default function ProjectContextApiProvider({ children }) {
 
   const handelGetSingleProject = async (id) => {
     const response = await getSingleProjectsAction(id, loginToken);
+    console.log(response.data);
     setimageUrl(response.data.project.ProjectThumblin[0].url);
     setimageAltText(response.data.project.ProjectThumblin[0].altText);
+    setcoverImageUrl(response.data.project.ProjectCoverImage[0]?.url);
+    setcoverImageText(response.data.project.ProjectCoverImage[0]?.altText);
     if (response.data.status === "Success") {
       toast.success(response.data.message);
     }
@@ -302,6 +323,12 @@ export default function ProjectContextApiProvider({ children }) {
         handelToggleUpcomingProject,
         handelUpdateSingleProject,
         singleProjectData,
+        projectCoverImage,
+        setprojectCoverImage,
+        coverImageUrl,
+        coverImageText,
+        handlePreviwCoverImageChange,
+        selectedCoverIMage,
       }}
     >
       {children}

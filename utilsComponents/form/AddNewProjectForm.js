@@ -15,10 +15,18 @@ export default function AddNewProjectForm() {
   const { allCties } = useContext(CityContext);
   const { allLocation } = useContext(LocationContext);
   const fileInputRef = useRef(null);
+  const coverRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState("No file chosen..");
+  const [slectedCoverImage, setslectedCoverImage] =
+    useState("No file chosen..");
   const token = getLoginCookies();
-  const { handleImageChange, createProject, setprojectThumblin } =
-    useContext(ProjectContext);
+  const {
+    handleImageChange,
+    createProject,
+    setprojectThumblin,
+    projectCoverImage,
+    setprojectCoverImage,
+  } = useContext(ProjectContext);
   const { btnLoading, setbtnLoading } = useContext(AppContext);
   const { allDeveloper, handelGetAllDeveloper } = useContext(DeveloperContext);
 
@@ -39,6 +47,7 @@ export default function AddNewProjectForm() {
   const handleFileInputChange = () => {
     // Handle the file input change event here
     const selectedFile = fileInputRef.current.files[0];
+    console.log(selectedFile);
     if (selectedFile) {
       setSelectedFileName(selectedFile.name);
       setprojectThumblin(selectedFile);
@@ -47,8 +56,23 @@ export default function AddNewProjectForm() {
     }
   };
 
+  const handleCoverImageChange = () => {
+    // Handle the file input change event here
+    const selectedFile = coverRef.current.files[0];
+    if (selectedFile) {
+      setslectedCoverImage(selectedFile.name);
+      setprojectCoverImage(selectedFile);
+    } else {
+      setslectedCoverImage("No file chosen");
+    }
+  };
+
   const openFileInput = () => {
     fileInputRef.current.click();
+  };
+
+  const openThumblinInput = () => {
+    coverRef.current.click();
   };
 
   const handelProjectsubmit = async (formdata) => {
@@ -100,14 +124,18 @@ export default function AddNewProjectForm() {
               <div className={style.customFileInput}>
                 <input
                   type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileInputChange}
+                  ref={coverRef}
+                  onChange={handleCoverImageChange}
                   className={style.hiddenFileInput}
+                  name="ProjectCoverImage"
                 />
-                <button className={style.customButton} onClick={openFileInput}>
+                <button
+                  className={style.customButton}
+                  onClick={openThumblinInput}
+                >
                   Upload Cover Page
                 </button>
-                <span className={style.fileName}>Not file chosen</span>
+                <span className={style.fileName}>{slectedCoverImage}</span>
               </div>
             </div>
             {/* Upload Cover Page End */}

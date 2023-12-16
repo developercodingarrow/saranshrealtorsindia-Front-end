@@ -23,6 +23,10 @@ export default function ImageUpdateComponent() {
     handelupdateProjectThumblin,
     laoding,
     setlaoding,
+    coverImageUrl,
+    coverImageText,
+    handlePreviwCoverImageChange,
+    selectedCoverIMage,
   } = useContext(ProjectContext);
   // console.log(_id);
 
@@ -88,10 +92,6 @@ export default function ImageUpdateComponent() {
             </div>
           </div>
           <div className={styles.image_actionBox}>
-            {/* <div className={styles.actionBox}>
-              <input type="file" onChange={handlePreviwImageChange} />
-            </div> */}
-
             <div className={styles.actionBox}>
               <label className={styles.uploadButton}>
                 <input
@@ -113,13 +113,64 @@ export default function ImageUpdateComponent() {
           </div>
         </div>
 
-        <div className={styles.Cover_container}>
+        <div className={styles.thumblin_container}>
           <div className={styles.image_Container}>
-            <Image src={sampleimage} alt="sample-image" width={250} />
+            <div className={styles.imageBox_titleBox}>
+              <h4>Current Image</h4>
+            </div>
+            <div className={styles.image_Box}>
+              <Image
+                src={`/project-cover-image/${coverImageUrl}`}
+                alt="sample-image"
+                width={250}
+                height={250}
+                className={styles.image_Style}
+              />
+            </div>
+          </div>
+          <div className={styles.iconBox}>
+            <FaArrowRightArrowLeft />
+          </div>
+          <div className={styles.image_PreviewContainer}>
+            <div className={styles.imageBox_titleBox}>
+              <h4>Image Preview</h4>
+            </div>
+            <div className={styles.image_previewBox}>
+              {selectedCoverIMage ? (
+                <div>
+                  <Image
+                    src={selectedCoverIMage}
+                    alt="sample-image"
+                    width={250}
+                    height={250}
+                  />
+                </div>
+              ) : (
+                <div className={styles.image_previewBox}>
+                  <p>See Image </p>
+                </div>
+              )}
+            </div>
           </div>
           <div className={styles.image_actionBox}>
-            <div className={styles.actionBox}>Upload</div>
-            <div className={styles.actionBox}>save</div>
+            <div className={styles.actionBox}>
+              <label className={styles.uploadButton}>
+                <input
+                  type="file"
+                  className={styles.fileInput}
+                  onChange={handlePreviwCoverImageChange}
+                />
+                <IoCloudUpload className={styles.uploadIcon} /> Upload
+              </label>
+            </div>
+            <div className={styles.actionBox}>
+              <button
+                onClick={handelTrigerUpdateIMage}
+                className={styles.Image_saveBtn}
+              >
+                SAVE{" "}
+              </button>
+            </div>
           </div>
         </div>
       </div>
