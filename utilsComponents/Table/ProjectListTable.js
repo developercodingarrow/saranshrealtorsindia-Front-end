@@ -29,7 +29,9 @@ export default function ProjectListTable() {
   } = useContext(ProjectContext);
 
   const handleButtonClick = (id) => {
-    router.push(`/super-admin/project-list/update-project/${id}`);
+    const newUrl = `/super-admin/project-list/update-project/${id}`;
+    router.push(newUrl);
+    window.location.href = newUrl;
   };
 
   useEffect(() => {
