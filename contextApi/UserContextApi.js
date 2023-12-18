@@ -6,8 +6,6 @@ export default function UserContextApiProvider({ children }) {
   const token = getLoginCookies();
   const [loginUser, setloginUser] = useState({});
   const [userRole, setuserRole] = useState("");
-
-  console.log(loginUser);
   useEffect(() => {
     const getUserData = async () => {
       const storedData = await isAuth();

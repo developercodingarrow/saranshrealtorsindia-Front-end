@@ -211,11 +211,13 @@ export default function ProjectContextApiProvider({ children }) {
 
   const handelDeleteProjectFloorImage = async (imageId, _id) => {
     try {
+      const data = { imageId: imageId };
       const response = await DeleteProjectFloorPlanImageAction(
-        imageId,
+        data,
         _id,
         loginToken
       );
+      return response;
     } catch (error) {
       console.log(error);
     }

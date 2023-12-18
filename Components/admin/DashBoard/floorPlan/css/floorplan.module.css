@@ -27,7 +27,7 @@
 }
 
 .image_PrivewBox {
-  border: 1px solid gray;
+  border: 1px solid rgba(128, 128, 128, 0.334);
   width: 60%;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .imageBox {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(128, 128, 128, 0.334);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -80,6 +80,15 @@
 
 .updateBtn:hover {
   background-color: #0056b3;
+}
+
+.Nofloor_planInage {
+  border: 1px solid rgba(128, 128, 128, 0.334);
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
 
 .floor_planImages {

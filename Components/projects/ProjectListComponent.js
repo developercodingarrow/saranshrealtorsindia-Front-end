@@ -42,8 +42,6 @@ export default function ProjectListComponent() {
 
   const sampleData = generateSampleData(allDeveloper);
 
-  console.log(filteredProjects);
-
   const fillterDrawer = projectFillerDrawer
     ? styles.sideBar_container
     : styles.close_SideBar_container;

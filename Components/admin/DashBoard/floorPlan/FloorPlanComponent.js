@@ -15,6 +15,7 @@ export default function FloorPlanComponent() {
     handelUpdateFloorPlan,
     handelgetFloorPlanImages,
     projectFloorPlanImages,
+    handelDeleteProjectFloorImage,
   } = useContext(ProjectContext);
   const [imagePreviews, setImagePreviews] = useState([]);
   const [loading, setloading] = useState(false);
@@ -62,15 +63,23 @@ export default function FloorPlanComponent() {
     setImagePreviews(filteredPreviews);
   };
 
-  console.log(projectFloorPlanImages);
-
-  const handelDeleteImage = (id) => {
-    alert(id);
+  const handelDeleteImage = async (imageId) => {
+    try {
+      setloading(true);
+      const result = await handelDeleteProjectFloorImage(imageId, _id);
+      console.log(result);
+      setloading(false);
+      toast.success(result.data.message);
+    } catch (error) {
+      console.log(error);
+      setloading(false);
+    }
   };
 
   return (
     <>
       <div>
+        <Toaster />
         <AdminContdentUI pageTitle={"ADD FLOOR PLAN"}>
           <div className={styles.container}>
             <div className={styles.upload_btnBox}>
@@ -123,32 +132,35 @@ export default function FloorPlanComponent() {
                 )}
               </div>
               <div className={styles.floor_planImages}>
-                {projectFloorPlanImages &&
-                  projectFloorPlanImages.length > 0 && (
-                    <>
-                      {projectFloorPlanImages.map((el, i) => {
-                        return (
-                          <div className={styles.floorPlan_listBox} key={i}>
-                            <div className={styles.floorimage_Box}>
-                              <Image
-                                src={`/Floor-Plan/${el.url}`}
-                                width={100}
-                                height={100}
-                              />
-                            </div>
-                            <div className={styles.action_buttonBox}>
-                              <button
-                                className={styles.updateBtn}
-                                onClick={() => handelDeleteImage(el._id)}
-                              >
-                                Delete
-                              </button>
-                            </div>
+                {projectFloorPlanImages && projectFloorPlanImages.length > 0 ? (
+                  <>
+                    {projectFloorPlanImages.map((el, i) => {
+                      return (
+                        <div className={styles.floorPlan_listBox} key={i}>
+                          <div className={styles.floorimage_Box}>
+                            <Image
+                              src={`/Floor-Plan/${el.url}`}
+                              width={100}
+                              height={100}
+                            />
                           </div>
-                        );
-                      })}
-                    </>
-                  )}
+                          <div className={styles.action_buttonBox}>
+                            <button
+                              className={styles.updateBtn}
+                              onClick={() => handelDeleteImage(el._id)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <div className={styles.Nofloor_planInage}>
+                    <p>There is no Floor plan image</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

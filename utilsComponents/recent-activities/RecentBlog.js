@@ -7,7 +7,6 @@ import useContentLength from "../../custome-hook/useCotentLength";
 
 export default function RecentBlog(props) {
   const { items } = props;
-  console.log(items);
   const truncateContent = useContentLength();
   let truncatedTitle = truncateContent(items.blogTitle, 30);
 
