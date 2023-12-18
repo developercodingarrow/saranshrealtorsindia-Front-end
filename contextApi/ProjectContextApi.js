@@ -16,6 +16,9 @@ import {
   UpdateProjectUpcomingAction,
   getSingleProjectForUpdateAction,
   UpdateProjectCoverAction,
+  UpdateFloorPlanAction,
+  getAllProjectFllorPlanImagesAction,
+  DeleteProjectFloorPlanImageAction,
 } from "../Actions/ProjectAction";
 export const ProjectContext = createContext();
 
@@ -49,6 +52,9 @@ export default function ProjectContextApiProvider({ children }) {
   const [selectedCoverIMage, setselectedCoverIMage] = useState(null);
   const [laoding, setlaoding] = useState(false);
   const [singleProjectData, setsingleProjectData] = useState(null);
+
+  const [floorImages, setfloorImages] = useState([]);
+  const [projectFloorPlanImages, setprojectFloorPlanImages] = useState([]);
 
   useEffect(() => {
     getAllProjectHandel();
@@ -139,6 +145,7 @@ export default function ProjectContextApiProvider({ children }) {
 
   const handelupdateProjectThumblin = async (imageId) => {
     try {
+      console.log(projectThumblin);
       const formData = new FormData();
       formData.append("ProjectThumblin", projectThumblin);
       const result = await UpdateProjectThumblinAction(
@@ -156,7 +163,7 @@ export default function ProjectContextApiProvider({ children }) {
   const handelupdateProjectCover = async (imageId) => {
     try {
       const formData = new FormData();
-      formData.append("ProjectThumblin", projectThumblin);
+      formData.append("projectCoverImage", projectCoverImage);
       const result = await UpdateProjectCoverAction(
         formData,
         loginToken,
@@ -164,6 +171,51 @@ export default function ProjectContextApiProvider({ children }) {
       );
 
       return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelUpdateFloorPlan = async (imagesId) => {
+    try {
+      const formData = new FormData();
+      console.log(floorImages);
+      // Append each floor image separately to the formData
+      floorImages.forEach((image, index) => {
+        formData.append(`floorPlanImages`, image);
+      });
+      console.log(formData);
+      const result = await UpdateFloorPlanAction(
+        formData,
+        loginToken,
+        imagesId
+      );
+
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelgetFloorPlanImages = async (_id) => {
+    try {
+      const response = await getAllProjectFllorPlanImagesAction(
+        _id,
+        loginToken
+      );
+      setprojectFloorPlanImages(response.data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handelDeleteProjectFloorImage = async (imageId, _id) => {
+    try {
+      const response = await DeleteProjectFloorPlanImageAction(
+        imageId,
+        _id,
+        loginToken
+      );
     } catch (error) {
       console.log(error);
     }
@@ -347,6 +399,12 @@ export default function ProjectContextApiProvider({ children }) {
         handlePreviwCoverImageChange,
         selectedCoverIMage,
         handelupdateProjectCover,
+        floorImages,
+        setfloorImages,
+        handelUpdateFloorPlan,
+        handelgetFloorPlanImages,
+        projectFloorPlanImages,
+        handelDeleteProjectFloorImage,
       }}
     >
       {children}

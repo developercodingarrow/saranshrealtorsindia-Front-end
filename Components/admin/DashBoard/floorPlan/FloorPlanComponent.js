@@ -1,40 +1,71 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import AdminContdentUI from "../AdminContdentUI";
 import styles from "./css/floorplan.module.css";
+import { ProjectContext } from "../../../../contextApi/ProjectContextApi";
+import toast, { Toaster } from "react-hot-toast";
+import sampleImage from "../../../../public/Floor-Plan/floor-plan-1.png";
 export default function FloorPlanComponent() {
-  const [images, setImages] = useState([]);
+  const router = useRouter();
+  const { _id } = router.query;
+  const {
+    floorImages,
+    setfloorImages,
+    handelUpdateFloorPlan,
+    handelgetFloorPlanImages,
+    projectFloorPlanImages,
+  } = useContext(ProjectContext);
   const [imagePreviews, setImagePreviews] = useState([]);
+  const [loading, setloading] = useState(false);
+
+  useEffect(() => {
+    handelgetFloorPlanImages(_id);
+  }, [_id, loading]);
 
   const handleImageChange = (e) => {
     const selectedImages = Array.from(e.target.files);
 
-    if (selectedImages.length + images.length > 4) {
+    if (selectedImages.length + floorImages.length > 4) {
       alert("You can upload maximum 4 images.");
       return;
     }
 
-    setImages([...images, ...selectedImages]);
+    setfloorImages([...floorImages, ...selectedImages]);
 
     const previews = selectedImages.map((image) => URL.createObjectURL(image));
     setImagePreviews([...imagePreviews, ...previews]);
   };
 
-  const handleUpdateImages = () => {
-    // Here, you'd typically send `images` to your API
-    // For example, you can use fetch or an API library like axios
-    console.log("Sending images to API:", images);
-
-    // Clear uploaded images and previews after sending to the API
-    setImages([]);
-    setImagePreviews([]);
+  const handleUpdateImages = async () => {
+    try {
+      setloading(true);
+      const result = await handelUpdateFloorPlan(_id);
+      // console.log("API Response:", result.data.message);
+      console.log(result);
+      if (result.data.status === "Success") {
+        toast.success(result.data.message);
+        setfloorImages([]);
+        setImagePreviews([]);
+        setloading(false);
+      }
+    } catch (error) {
+      console.error("Error updating floor plan images:", error);
+      setloading(false);
+    }
   };
 
   const handleRemoveImage = (index) => {
-    const filteredImages = images.filter((_, i) => i !== index);
+    const filteredImages = floorImages.filter((_, i) => i !== index);
     const filteredPreviews = imagePreviews.filter((_, i) => i !== index);
-    setImages(filteredImages);
+    setfloorImages(filteredImages);
     setImagePreviews(filteredPreviews);
+  };
+
+  console.log(projectFloorPlanImages);
+
+  const handelDeleteImage = (id) => {
+    alert(id);
   };
 
   return (
@@ -61,7 +92,7 @@ export default function FloorPlanComponent() {
               </div>
             </div>
             <div className={styles.uploader_ImageContainer}>
-              <div>
+              <div className={styles.image_PrivewBox}>
                 {imagePreviews.length > 0 && (
                   <div className={styles.preview}>
                     <div className={styles.imageList}>
@@ -90,6 +121,34 @@ export default function FloorPlanComponent() {
                     </div>
                   </div>
                 )}
+              </div>
+              <div className={styles.floor_planImages}>
+                {projectFloorPlanImages &&
+                  projectFloorPlanImages.length > 0 && (
+                    <>
+                      {projectFloorPlanImages.map((el, i) => {
+                        return (
+                          <div className={styles.floorPlan_listBox} key={i}>
+                            <div className={styles.floorimage_Box}>
+                              <Image
+                                src={`/Floor-Plan/${el.url}`}
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div className={styles.action_buttonBox}>
+                              <button
+                                className={styles.updateBtn}
+                                onClick={() => handelDeleteImage(el._id)}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  )}
               </div>
             </div>
           </div>

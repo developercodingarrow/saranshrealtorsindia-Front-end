@@ -243,3 +243,65 @@ export const UpdateProjectCoverAction = async (requestData, token, id) => {
     return error.response;
   }
 };
+
+export const UpdateFloorPlanAction = async (requestData, token, id) => {
+  console.log(requestData);
+  try {
+    return await axios.patch(
+      `http://127.0.0.1:5000/projects/update-floor-plan-image/${id}`,
+      requestData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};
+
+// GET ALL PROJECT ACTION
+export const getAllProjectFllorPlanImagesAction = async (_id, token) => {
+  try {
+    const res = await axios.get(
+      `http://127.0.0.1:5000/projects/project-floor-plan-images/${_id}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
+
+// DELETE Floor plan image Action
+export const DeleteProjectFloorPlanImageAction = async (
+  requestData,
+  _id,
+  token
+) => {
+  try {
+    console.log(requestData);
+    const response = await axios({
+      method: "delete",
+      url: `http://127.0.0.1:5000/projects/delete-project-floor-plan-image/${_id}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      data: requestData, // Pass the data payload here
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

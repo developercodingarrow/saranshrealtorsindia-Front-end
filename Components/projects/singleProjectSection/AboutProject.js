@@ -4,9 +4,6 @@ import { ProjectContext } from "../../../contextApi/ProjectContextApi";
 
 export default function AboutProject() {
   const { singleProject } = useContext(ProjectContext);
-
-  console.log(singleProject);
-
   return (
     <div className={styles.about_projectContainer}>
       <div className={styles.about_headingBox}>
